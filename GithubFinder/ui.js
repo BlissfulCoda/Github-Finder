@@ -29,6 +29,9 @@ class UI{
          </div>
          <h3 class="page-heading mb-3">Latest Repositories</h3>
         <div id="repos"></div>
-        `
     }
+
+  //clear input
+  clearProfile(){
+    this.profile.innerHTML = '';
 }
