@@ -37,5 +37,6 @@ function findUsers(e){
         })
     } else {
         //clear profile
+        ui.clearProfile();
     }
 }
