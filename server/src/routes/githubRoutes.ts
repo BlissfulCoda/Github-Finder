@@ -3,18 +3,21 @@ import {
   github,
   searchUsers,
   singleUser,
+  userRepos,
 } from "../controllers/githubControllers";
 
 const router: Router = express.Router();
 
 // @route  GET api/users
-// @desc   GITHUB API
 router.get("/", github);
 
-// @desc    Get a single User search result
-router.get("/search/users/:login", searchUsers);
+// @route   GET api/search/users/:id
+router.get("/search/users/:id", searchUsers);
 
-// @desc    Get a Single User
-router.get("/users/:login", singleUser);
+// @route   GET api/users/:id
+router.get("/users/:id", singleUser);
+
+// @route   GET api/users/:id/repo
+router.get("/users/:id/repos", userRepos);
 
 module.exports = router;
