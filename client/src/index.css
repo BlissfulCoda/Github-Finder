@@ -10,3 +10,15 @@
   box-sizing: border-box;
 }
 
+.background-settings {
+  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] overflow-hidden flex flex-col justify-between items-center 
+}
+
+.profile-border {
+  @apply tablet:border tablet:border-indigo-600 rounded-2xl  tablet:border-opacity-40;
+}
+
+.page-layout {
+  @apply h-full w-full text-white tablet:h-[580px] laptop:h-[650px] tablet:mt-8 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-50 container mx-auto ;
+}
+

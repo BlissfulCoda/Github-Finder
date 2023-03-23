@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ErrorPage from './Pages/ErrorPage';
 
-import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
-    <div className="bg-black">
-      <h1 className="text-red-300">Github Finder</h1>
-    </div>
+    <Router>
+      <div className="background-settings">
+        <main className="container mx-auto">
+          <Routes>
+            <Route path="/notfound" element={<ErrorPage />} />
+            <Route path="/*" element={<ErrorPage />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
