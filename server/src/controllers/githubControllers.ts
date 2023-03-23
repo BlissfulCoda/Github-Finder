@@ -1,8 +1,11 @@
-import { Request, Response } from "express";
+import { Request, Response, NextFunction } from "express";
 import url from "url";
 import axios from "axios";
+import { initRedisClient } from "../cache/Redis";
+const DEFAULT_EXPIRATION: number = 3600;
 
 const { GITHUB_BASE_URL, GITHUB_TOKEN } = process.env;
+
 
 const options = {
   method: "GET",
@@ -58,9 +61,23 @@ export const singleUser = async (req: Request, res: Response) => {
       params: { q: id },
     };
 
-    axios.request(userOptions).then((response) => {
-      const data = response.data;
-      res.status(200).json(data);
+    const client = await initRedisClient();
+
+    client.get(id, async (error: any, data: any) => {
+      if (error) console.error(error);
+      if (data != null) {
+        console.log(`Cache Hit..`)
+        return res.send(JSON.parse(data));
+      } else {
+        // Cache Miss...
+        console.log(`Cache Miss..`);
+
+        axios.request(options).then((response) => {
+          const data = response.data;
+          client.setex(id, DEFAULT_EXPIRATION, JSON.stringify(data));
+          return res.status(200).json(data);
+        });
+      }
     });
   } catch (error) {
     throw new Error("Error!.. can't fetch a single user");
@@ -73,7 +90,7 @@ export const singleUser = async (req: Request, res: Response) => {
 export const userRepos = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
-  
+
     const repositoriesOptions = {
       ...options,
       url: `${GITHUB_BASE_URL}/users/${id}/repos`,
