@@ -1,12 +1,13 @@
 import express, { Router } from "express";
-import {
-  github,
-  
-} from "../controllers/githubControllers";
+import { github, searchUsers } from "../controllers/githubControllers";
 
 const router: Router = express.Router();
 
-// @desc   Base URL GITHUB API
+// @route  GET api/users
+// @desc   GITHUB API
 router.get("/", github);
+
+// @desc    Get a single User search result
+router.get("/search/users/:login", searchUsers);
 
 module.exports = router;
