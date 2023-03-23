@@ -1,7 +1,6 @@
-import express, { Express, Request, Response} from "express";
+import express, { Express} from "express";
 import dotenv from 'dotenv'
 import cors from 'cors'
-
 
 // Middleware
 dotenv.config()
@@ -16,9 +15,7 @@ server.use(express.urlencoded({ extended: false }));
 // ENABLE CORS
 server.use(cors());
 
-server.get("/github", (req: Request, res: Response) => {
-  res.send(`Github data from backend`);
-});
+server.use("/github", require("./routes/githubRoutes"));
 
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
