@@ -19,7 +19,7 @@ export async function initRedisClient() {
     console.log(`Redis connected..`)
     return redisClient;
   } catch (error) {
-    throw new Error("FAILED!.. Redis can't fetch single user");
+    throw new Error("Error.. Redis cfailed to connect");
   }
 }
 

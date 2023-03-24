@@ -4,10 +4,9 @@ export const enum REDUCER_ACTION_TYPE {
   GET_USERS,
   SET_LOADING,
   CLEAR_USERS,
-  FETCH_USER,
+  GET_USER,
   GET_REPOS,
 }
-
 
 type GithubReducerTypes = {
   type: REDUCER_ACTION_TYPE;
@@ -25,7 +24,7 @@ const githubReducer = (
       return { ...state, loading: true };
     case REDUCER_ACTION_TYPE.CLEAR_USERS:
       return { ...state, users: [] };
-    case REDUCER_ACTION_TYPE.FETCH_USER:
+    case REDUCER_ACTION_TYPE.GET_USER:
       return { ...state, user: action.payload ?? {}, loading: false };
     case REDUCER_ACTION_TYPE.GET_REPOS:
       return { ...state, repos: action.payload ?? [], loading: false };

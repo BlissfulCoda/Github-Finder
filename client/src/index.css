@@ -11,11 +11,11 @@
 }
 
 .background-settings {
-  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 p-4 brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] overflow-hidden flex flex-col justify-between items-center 
+  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 py-4  brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] sm:bg-[length:570px_570px] sm:bg-[center_top_6.5rem]  tablet:bg-blend-hard-light tablet:bg-[length:800px_800px] tablet:bg-[top_left_5rem] laptop:bg-[top_left_24rem] laptop:bg-[length:1000px_1000px] overflow-hidden flex flex-col justify-between items-center tablet:py-8
 }
 
 .profile-border {
-  @apply tablet:border tablet:border-indigo-600 rounded-2xl  tablet:border-opacity-40;
+  @apply tablet:border tablet:border-indigo-600 rounded-lg  tablet:border-opacity-40;
 }
 
 .page-layout {

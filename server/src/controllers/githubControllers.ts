@@ -7,7 +7,7 @@ const DEFAULT_EXPIRATION: number = 3600;
 const { GITHUB_BASE_URL, GITHUB_TOKEN } = process.env;
 
 
-const options = {
+const axiosOptions = {
   method: "GET",
   url: `${GITHUB_BASE_URL}`,
   headers: {
@@ -21,7 +21,7 @@ const options = {
 // @access    Public
 export const github = (req: Request, res: Response) => {
   try {
-    axios.request(options).then((response) => {
+    axios.request(axiosOptions).then((response) => {
       res.status(200).json(response.data);
     });
   } catch (error) {
@@ -29,18 +29,18 @@ export const github = (req: Request, res: Response) => {
   }
 };
 
-// @desc      GET searched Users from Github API
+// @desc      GET users
 // @route     /github/search/users?q=req.params
 // @access    Public
-export const searchUsers = (req: Request, res: Response) => {
+export const getUsers = (req: Request, res: Response) => {
   try {
     const searchOptions = {
-      ...options,
-      url: `${GITHUB_BASE_URL}/search/users?${req.params.id}`,
-      params: { q: req.params.id, ...url.parse(req.url, true).query },
+      ...axiosOptions,
+      url: `${GITHUB_BASE_URL}/search/users?${req.params.login}`,
+      params: { q: req.params.login, ...url.parse(req.url, true).query },
     };
 
-    axios.request(options).then((response) => {
+    axios.request(searchOptions).then((response) => {
       res.status(200).json(response.data);
     });
   } catch (error) {
@@ -48,33 +48,33 @@ export const searchUsers = (req: Request, res: Response) => {
   }
 };
 
-// @desc      GET a single user from Github API
-// @route     /github/users/:id
+// @desc      GET user 
+// @route     /github/users/:login
 // @access    Public
-export const singleUser = async (req: Request, res: Response) => {
+export const getUser = async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const { login } = req.params;
 
     const userOptions = {
-      ...options,
-      url: `${GITHUB_BASE_URL}/users/${id}`,
-      params: { q: id },
+      ...axiosOptions,
+      url: `${GITHUB_BASE_URL}/users/${login}`,
+      params: { q: login },
     };
 
     const client = await initRedisClient();
 
-    client.get(id, async (error: any, data: any) => {
+    client.get(login, async (error: any, data: any) => {
       if (error) console.error(error);
       if (data != null) {
-        console.log(`Cache Hit..`)
+        console.log(`Cache Hit..`);
         return res.send(JSON.parse(data));
       } else {
         // Cache Miss...
         console.log(`Cache Miss..`);
 
-        axios.request(options).then((response) => {
+        axios.request(userOptions).then((response) => {
           const data = response.data;
-          client.setex(id, DEFAULT_EXPIRATION, JSON.stringify(data));
+          client.setex(login, DEFAULT_EXPIRATION, JSON.stringify(data));
           return res.status(200).json(data);
         });
       }
@@ -84,17 +84,19 @@ export const singleUser = async (req: Request, res: Response) => {
   }
 };
 
-// @desc      GET a single User
-// @route     /github/users/:id/repos
+
+
+// @desc      GET user repositories
+// @route     /github/users/:login/repos
 // @access    Public
-export const userRepos = async (req: Request, res: Response) => {
+export const getUserRepos = async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const { login } = req.params;
 
     const repositoriesOptions = {
-      ...options,
-      url: `${GITHUB_BASE_URL}/users/${id}/repos`,
-      params: { q: id, ...url.parse(req.url, true).query },
+      ...axiosOptions,
+      url: `${GITHUB_BASE_URL}/users/${login}/repos`,
+      params: { q: login, ...url.parse(req.url, true).query },
     };
 
     axios.request(repositoriesOptions).then((response) => {

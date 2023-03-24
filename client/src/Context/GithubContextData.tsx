@@ -19,10 +19,10 @@ export interface GithubContextInterface {
   user: {};
   repos: UserInterface[];
   initialState: GithubState;
-  searchUsers: (value: string) => void;
+  getUsers: (value: string) => void;
   clearUsers: () => void;
   setLoading: () => void;
-  fetchUser: (value: string) => void;
+  getUser: (value: string) => void;
   getUserRepos: (value: string) => void;
 }
 
@@ -41,7 +41,7 @@ export const initialState = {
   showNav: true,
 };
 
-const GITHUB_URL = import.meta.env.VITE_REACT_APP_GITHUB_URL;
+const GITHUB_URL = "http://localhost:8000/github";
 
 export const GithubProvider = ({
   children,
@@ -49,20 +49,23 @@ export const GithubProvider = ({
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
   // Fetch users
-  const searchUsers = async (text: string) => {
+  const getUsers = async (login: string) => {
     setLoading();
 
-    const response = await fetch(`${GITHUB_URL}/search/users/${text}`);
+    console.log(login);
+
+    const response = await fetch(`${GITHUB_URL}/search/users/${login}`);
 
     const { items } = await response.json();
+
     dispatch({
       type: REDUCER_ACTION_TYPE.GET_USERS,
       payload: items,
     });
   };
 
-  // FETCH SINGLE USER
-  const fetchUser = async (login: string) => {
+  // GET user
+  const getUser = async (login: string) => {
     setLoading();
 
     const response = await fetch(`${GITHUB_URL}/users/${login}`, {
@@ -77,13 +80,13 @@ export const GithubProvider = ({
     } else {
       const data = await response.json();
       dispatch({
-        type: REDUCER_ACTION_TYPE.FETCH_USER,
+        type: REDUCER_ACTION_TYPE.GET_USER,
         payload: data,
       });
     }
   };
 
-  // FETCH A USER REPO
+  // GET user repositories
   const getUserRepos = async (login: string) => {
     setLoading();
 
@@ -106,6 +109,7 @@ export const GithubProvider = ({
   // Dispatch function handles the action type and returns the right state from the reducer function
   const setLoading = () => dispatch({ type: REDUCER_ACTION_TYPE.SET_LOADING });
 
+  // Clear search results
   const clearUsers = () => dispatch({ type: REDUCER_ACTION_TYPE.CLEAR_USERS });
 
   return (
@@ -113,10 +117,10 @@ export const GithubProvider = ({
       value={{
         ...state,
         initialState,
-        searchUsers,
+        getUsers,
         clearUsers,
         setLoading,
-        fetchUser,
+        getUser,
         getUserRepos,
       }}
     >

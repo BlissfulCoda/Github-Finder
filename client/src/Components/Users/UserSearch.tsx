@@ -8,7 +8,7 @@ import Button from "../Shared/Button";
 export default function UserSearch(): JSX.Element {
   const [text, setText] = useState<string>("");
 
-  const { searchUsers, clearUsers } = useContext(
+  const { getUsers, clearUsers } = useContext(
     GithubContext
   ) as GithubContextInterface;
 
@@ -22,7 +22,7 @@ export default function UserSearch(): JSX.Element {
     if (text === "") {
       console.log("Error..");
     } else {
-      searchUsers(text);
+      getUsers(text);
     }
     setText("");
   };
@@ -35,8 +35,8 @@ export default function UserSearch(): JSX.Element {
     <form onSubmit={handleSubmit} className="flex relative">
       <input
         type="text"
-        placeholder={`Search Github Username...`}
-        className="w-52 h-9 sm:w-64 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/80 outline-none border border-x-0 border-t-0 border-[1px] text-xs  pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-40 placeholder:text-[11px] tablet:placeholder:text-[8px] laptop:placeholder:text-[9px]"
+        placeholder={`Enter Github Username`}
+        className="w-52 h-9 sm:w-64 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/80 outline-none border border-x-0 border-t-0 border-[1px] text-xs  pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-50 placeholder:text-[11px] tablet:placeholder:text-[8px] laptop:placeholder:text-[9px]"
         onChange={handleChange}
         value={text}
       />
