@@ -11,7 +11,7 @@
 }
 
 .background-settings {
-  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 py-4 bg-[length:500px_500px] bg-[center_top_6rem] sm:bg-[length:570px_570px] sm:bg-[center_top_6.5rem]  tablet:bg-blend-hard-light tablet:bg-[length:800px_800px] tablet:bg-[top_left_5rem] laptop:bg-[top_left_24rem] laptop:bg-[length:1000px_1000px] overflow-hidden flex flex-col justify-between items-center tablet:py-8
+  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 py-4  brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] sm:bg-[length:570px_570px] sm:bg-[center_top_6.5rem]  tablet:bg-blend-hard-light tablet:bg-[length:800px_800px] tablet:bg-[top_left_5rem] laptop:bg-[top_left_24rem] laptop:bg-[length:1000px_1000px] overflow-hidden flex flex-col justify-between items-center tablet:py-8
 }
 
 .profile-border {
@@ -19,6 +19,6 @@
 }
 
 .page-layout {
-  @apply h-full w-full text-white tablet:h-[570px] laptop:h-[640px] tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-50 container mx-auto ;
+  @apply h-full w-full text-white tablet:h-[570px] laptop:h-[650px] desktop:h-[670px]  tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-50 container mx-auto ;
 }
 

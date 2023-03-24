@@ -1,4 +1,4 @@
-import { BsArrowLeftShort, BsDot } from "react-icons/bs";
+import { BsArrowLeftShort, BsArrowDown, BsDot } from "react-icons/bs";
 import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../Components/Layout/Footer";
@@ -46,20 +46,24 @@ export default function Profile(): JSX.Element {
     return (
       <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 ">
         {/* LEFT */}
-        <div className="hidden tablet:flex flex-col w-14 tablet:items-center laptop:w-20 desktop:w-20 h-full justify-between pb-20 laptop:pb-14 items-center pt-12">
+        <div className="hidden tablet:flex flex-col w-14 tablet:items-center laptop:w-20 desktop:w-24 h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
           <Link to="/">
             <BsArrowLeftShort
               size={25}
               className="text-white bg-zinc-500 rounded-full p-1 bg-opacity-60 contrast-50 outline outline-white/5 hidden tablet:block"
             />
           </Link>
+          <span className="text-[7px] flex flex-col items-center justify-center space-y-0 bg-white bg-opacity-20 p-1">
+            <span className="text-center opacity-30">scroll down</span>
+            <BsArrowDown className="h-7 w-3  animate-pulse" />
+          </span>
         </div>
 
         {/* MIDDLE */}
         <div
           className="relative tablet:border tablet:border-x-zinc-500 tablet:border-opacity-60 tablet:px-1 
          tablet:border-y-0 w-full tablet:flex tablet:justify-between tablet:pt-10 
-         laptop:pt-11 tablet:space-x-0  tablet:w-full laptop:px-1 desktop:px-4 laptop:w-full "
+         laptop:pt-11 tablet:space-x-0  tablet:w-full laptop:px-1 desktop:px-6 laptop:w-full "
         >
           {/* IMAGE */}
           <div className="relative tablet:w-[300px] tablet:order-2 laptop:w-[380px] desktop:w-[400px]">
@@ -109,12 +113,11 @@ export default function Profile(): JSX.Element {
           </div>
 
           {/* REPO DISPLAY */}
-          <div className="w-full -mt-6 opacity-90 sm:-bottom-28 tablet:order-1 tablet:w-[340px] tablet:h-[600px] tablet:flex tablet:flex-col justify-between tablet:p-1 tablet:mt-6 laptop:mt-2 tablet:pr-2 laptop:w-[410px] laptop:h-[700px] laptop:p-0 ">
-            <div className="flex space-x-3 items-center text-[9px] p-1 hidden tablet:flex tablet:justify-end "></div>
-            <div className="space-y-4 mb-1 laptop:space-y-6">
-              <div className="flex pl-1 text-white text-[12px] justify-between opacity-80 text-thin tablet:text-[9px] tablet:opacity-60 laptop:text-[10px]">
+          <div className="w-full -mt-6 opacity-90 sm:-bottom-28 tablet:order-1 tablet:w-[360px] tablet:h-[600px] tablet:flex tablet:flex-col justify-between tablet:p-1 tablet:mt-6 laptop:mt-2  laptop:w-[410px] laptop:h-[700px] laptop:p-0 desktop:w-[430px]">
+            <div className="space-y-4 mb-1 laptop:space-y-6 tablet:mt-28">
+              <div className="flex text-white text-[12px] justify-between opacity-80 text-thin tablet:text-[10px] tablet:opacity-60 ">
                 <h3 className="">Latest Repositories</h3>
-                <div className="flex space-x-6 pr-2">
+                <div className="flex space-x-6 pr-2 ">
                   {location && <h3>{location}</h3>}
                   {website && <a href={website}>Website</a>}
                   {html_url && (

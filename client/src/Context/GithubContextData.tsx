@@ -3,7 +3,7 @@ import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
 
-// Using an index signature helps us define an   Object's unknown structure by telling Typescript  that the object using this index signature has to have the key as a strong and value as a string or undefined (we could get back an undefined value at runtime).
+
 export type UserInterface = {
   [index: string]: string | undefined;
 };
@@ -26,7 +26,7 @@ export interface GithubContextInterface {
   getUserRepos: (value: string) => void;
 }
 
-// Create a new Context
+
 const GithubContext = createContext<GithubContextInterface | null>(null);
 
 type GithubContextProps = {
@@ -48,7 +48,7 @@ export const GithubProvider = ({
 }: GithubContextProps): JSX.Element => {
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
-  // Fetch users
+  // GET users
   const getUsers = async (login: string) => {
     setLoading();
 

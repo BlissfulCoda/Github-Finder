@@ -18,7 +18,7 @@ export default function UserResult(): JSX.Element {
             {users.map((user) => (
               <span
                 key={user.id}
-                className="group-hover:opacity-80 group-hover:opacity:duration-1000 hover:!opacity-100 
+                className="group-hover:opacity-90 group-hover:opacity:duration-1000 hover:!opacity-100 
                   hover:!blur-none hover:scale-[1.1] group-hover:duration-600 group-hover:transition  hover:z-30 "
               >
                 <User user={user} />
