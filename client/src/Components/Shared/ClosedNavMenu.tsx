@@ -33,7 +33,9 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
       </span>
       <Link to="/" onClick={() => handleNav()}>
         {users.length > 0 ? (
-          <GithubLogoSVG />
+          <span className="tablet:hidden">
+            <GithubLogoSVG />
+          </span>
         ) : (
           <BsArrowLeftShort
             size={26}

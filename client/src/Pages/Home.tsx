@@ -13,7 +13,7 @@ export default function Home(): JSX.Element {
       className={`flex flex-col mb-2 page-layout ${
         users.length > 0 ? "bg-black" : "tablet:bg-Earth"
       } justify-between 
-        bg-no-repeat bg-[length:510px_510px] tablet:bg-black  bg-[center_top_6rem] sm:bg-[length:550px_550px] sm:bg-[center_top_5rem] tablet:bg-[length:560px_560px] tablet:bg-opacity-70 tablet:py-4 tablet:bg-[center_top_2rem]
+        bg-no-repeat bg-[length:510px_510px] tablet:bg-black  bg-[center_top_6rem] sm:bg-[length:550px_550px] sm:bg-[center_top_5rem] tablet:bg-[length:560px_560px] tablet:bg-opacity-60 tablet:py-4 tablet:bg-[center_top_2rem]
        bg-no-repeat overflow-hidden laptop:bg-[length:670px_670px] laptop:bg-[center_top_0rem] profile-border`}
     >
       <Header />

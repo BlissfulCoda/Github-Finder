@@ -12,7 +12,7 @@ export default function UserRepos(): JSX.Element {
       {repos.map((item) => (
         <div
           key={item.id}
-          className="bg-[#11131A] bg-opacity-30 border-l-[.05rem] border-l-violet-700  w-full h-24 sm:h-28 p-3 rounded-r-lg tablet:h-20 laptop:h-24 tablet:border-l-1"
+          className="bg-[#11131A] bg-opacity-30 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 tablet:border-l-1"
         >
           {/* LEFT SIDE */}
           <div className="flex justify-between p-1">
@@ -41,12 +41,12 @@ export default function UserRepos(): JSX.Element {
               </a>
               <h6 className="text-white text-[8px] tablet:text-[7px]">
                 {item.name.length > 10
-                  ? item.name.substring(0, 10).padEnd(5, ".")
+                  ? item.name.substring(0, 12).padEnd(5, ".")
                   : item.name}
               </h6>
             </div>
           </div>
-          <h5 className="text-white text-justify text-[8px] mx-6 tablet:text-[9px] px-5 tablet:px-8 text-center mt-4 opacity-60 ">
+          <h5 className="text-white text-justify text-[9px] mx-5 tablet:mx-3 tablet:leading-3 leading-4 tablet:text-[8px] laptop:text-[9px] laptop:leading-4 px-4 tablet:px-8 text-center mt-3 opacity-60 ">
             {item.description}
           </h5>
         </div>

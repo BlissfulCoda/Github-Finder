@@ -5,6 +5,7 @@ import Footer from "../Components/Layout/Footer";
 import { UserInterface } from "../Context/GithubContextData";
 import Spinner from "../Components/Shared/Spinner";
 import UserRepos from "../Components/Repos/UserRepos";
+import ArrowLink from "../Components/Shared/ArrowLink";
 
 import Button from "../Components/Shared/Button";
 
@@ -43,9 +44,9 @@ export default function Profile(): JSX.Element {
     return <Spinner />;
   } else {
     return (
-      <section className="relative page-layout h-screen  profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 ">
+      <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 ">
         {/* LEFT */}
-        <div className="hidden tablet:flex flex-col w-14 tablet:items-center  laptop:w-20 desktop:w-20 h-full justify-between pb-20 laptop:pb-14 items-center pt-12">
+        <div className="hidden tablet:flex flex-col w-14 tablet:items-center laptop:w-20 desktop:w-20 h-full justify-between pb-20 laptop:pb-14 items-center pt-12">
           <Link to="/">
             <BsArrowLeftShort
               size={25}
@@ -72,12 +73,12 @@ export default function Profile(): JSX.Element {
             </figure>
             <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-2">
               <nav className="flex justify-between">
-                <Link to="/">
+                <ArrowLink link="/">
                   <BsArrowLeftShort
                     size={25}
-                    className="text-white bg-white/20 rounded-full p-1 bg-opacity-90 contrast-200 outline outline-white/5 tablet:hidden"
+                    className="text-white bg-white/60 rounded-full p-1 bg-opacity-90 contrast-50 outline outline-white/5 tablet:hidden "
                   />
-                </Link>
+                </ArrowLink>
 
                 <div className="flex items-center text-[10px] p-1   relative mb-2">
                   <h6 className="text-white">{login}</h6>
@@ -92,7 +93,7 @@ export default function Profile(): JSX.Element {
                 </div>
               </nav>
 
-              <div className="flex text-white text-[7px] space-x-2 border-[0.2px] border-opacity-40 border-y-neutral-50 border-x-0 py-2 font-light w-52 text-right ml-auto pl-7 ">
+              <div className="flex text-white text-[8px] space-x-2 border-[0.2px] border-opacity-40 border-y-neutral-50 border-x-0 py-2 font-light w-56 text-right ml-auto pl-7 ">
                 <h4>
                   {followers} <span className="opacity-40">Followers</span>
                 </h4>
@@ -108,10 +109,10 @@ export default function Profile(): JSX.Element {
           </div>
 
           {/* REPO DISPLAY */}
-          <div className="w-full -mt-6 opacity-90 sm:-bottom-28 tablet:order-1 tablet:w-[340px] tablet:h-[600px] tablet:flex tablet:flex-col justify-between tablet:p-1 tablet:mt-6 tablet:pr-2 laptop:w-[380px] laptop:h-[690px] laptop:p-0 desktop:w-[410px]">
+          <div className="w-full -mt-6 opacity-90 sm:-bottom-28 tablet:order-1 tablet:w-[340px] tablet:h-[600px] tablet:flex tablet:flex-col justify-between tablet:p-1 tablet:mt-6 laptop:mt-2 tablet:pr-2 laptop:w-[410px] laptop:h-[700px] laptop:p-0 ">
             <div className="flex space-x-3 items-center text-[9px] p-1 hidden tablet:flex tablet:justify-end "></div>
             <div className="space-y-4 mb-1 laptop:space-y-6">
-              <div className="flex pl-1 text-white text-[11px] justify-between opacity-60 text-thin tablet:text-[9px] tablet:opacity-60 laptop:text-[10px]">
+              <div className="flex pl-1 text-white text-[12px] justify-between opacity-80 text-thin tablet:text-[9px] tablet:opacity-60 laptop:text-[10px]">
                 <h3 className="">Latest Repositories</h3>
                 <div className="flex space-x-6 pr-2">
                   {location && <h3>{location}</h3>}

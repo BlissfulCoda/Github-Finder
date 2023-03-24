@@ -33,7 +33,7 @@ export default function MenuLinks(): JSX.Element {
         <a
           href={BEHANCE_URL}
           target="_blank"
-          className="flex text-[8px] h-7 items-center justify-center w-20 p-2 bg-zinc-100 bg-opacity-30 space-x-1 rounded-sm hover:animate-pulse laptop:text-[9px]"
+          className="flex text-[8px] h-7 items-center justify-center w-20 laptop:w-24 p-2 bg-zinc-100 bg-opacity-30 space-x-1 rounded-sm hover:animate-pulse laptop:text-[9px]"
         >
           <span>Learn More</span>
           <BsArrowRight />
