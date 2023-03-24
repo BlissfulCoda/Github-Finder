@@ -11,7 +11,7 @@
 }
 
 .background-settings {
-  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] overflow-hidden flex flex-col justify-between items-center 
+  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 p-4 brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] overflow-hidden flex flex-col justify-between items-center 
 }
 
 .profile-border {
