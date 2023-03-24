@@ -1,10 +1,10 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ErrorPage from './Pages/ErrorPage';
-import Home from './Pages/Home';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ErrorPage from "./Pages/ErrorPage";
+import Home from "./Pages/Home";
+import Footer from "./Components/Layout/Footer";
 import { GithubProvider } from "./Context/GithubContextData";
 
 function App() {
-
   return (
     <GithubProvider>
       <Router>
@@ -16,6 +16,7 @@ function App() {
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </Router>
     </GithubProvider>
