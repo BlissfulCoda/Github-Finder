@@ -49,19 +49,22 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
 
       <div className="flex space-x-6 items-center ">
         <span className="tablet:hidden">
-          <UserSearch placeholder="Enter Github Username" button={button}/>
+          <UserSearch placeholder="Enter Github Username" button={button} />
         </span>
         <MenuLinks />
         {/* MOBILE */}
         <div className="flex space-x-3 h-6 mt-1 tablet:hidden ">
-          <Button className="flex relative justify-center items-center">
-            <FiBell className="text-blue-900 " size={21} />
-            <BsDot
-              size={21}
-              className="absolute -right-2 -top-3 pt-1"
-              color={"red"}
-            />
-          </Button>
+          <Link to="/feedback">
+            {" "}
+            <Button className="flex relative justify-center items-center">
+              <FiBell className="text-blue-900 " size={21} />
+              <BsDot
+                size={21}
+                className="absolute -right-2 -top-3 pt-1"
+                color={"red"}
+              />
+            </Button>
+          </Link>
           <a href={BEHANCE_URL} target="_blank">
             <BsBehance size={22} />
           </a>

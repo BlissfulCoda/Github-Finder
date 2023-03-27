@@ -3,26 +3,26 @@ import { BsArrowLeftShort } from "react-icons/bs";
 import { FiBell } from "react-icons/fi";
 import ArrowLink from "../Components/Shared/ArrowLink";
 export default function Feedback(): JSX.Element {
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState<string>("");
 
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const response = await fetch(`http://localhost:8000/feedback`, {
+    await fetch(`http://localhost:8000/feedback`, {
       method: "POST",
-      headers: {},
-      body: JSON.stringify(feedback),
+      body: JSON.stringify({ feedback }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
 
-    const data = await response.json();
-    console.log(data);
+    setFeedback("");
   };
 
   return (
-    <section>
+    <section className="pt-4">
       <form
         onSubmit={formSubmit}
-        action=""
         className=" flex justify-between items-center"
       >
         <ArrowLink link="/">

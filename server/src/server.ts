@@ -9,11 +9,12 @@ const server: Express = express();
 
 const PORT = 8000;
 
+// ENABLE CORS
+server.use(cors({origin: '*'}));
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
-// ENABLE CORS
-server.use(cors());
+
 
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));

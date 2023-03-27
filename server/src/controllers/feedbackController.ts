@@ -15,3 +15,9 @@ export const feedback = async (req: Request, res: Response) => {
   const createFeedback = await newFeedback.save();
   res.json(createFeedback);
 };
+
+
+export const getFeedback = async (req: Request, res: Response) => {
+  const feedbacks = await Feedback.find()
+  res.json(feedbacks)
+}
