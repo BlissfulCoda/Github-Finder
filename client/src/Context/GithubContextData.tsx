@@ -16,6 +16,7 @@ export interface GithubContextInterface {
   loading: boolean;
   users: UserInterface[];
   user: {};
+  feedback: UserInterface[];
   repos: UserInterface[];
   initialState: GithubState;
   getUsers: (value: string) => void;
@@ -24,6 +25,7 @@ export interface GithubContextInterface {
   getUser: (value: string) => void;
   getUserRepos: (value: string) => void;
   postFeedback: (value: string) => void;
+  getFeedback: () => void;
 }
 
 const GithubContext = createContext<GithubContextInterface | null>(null);
@@ -47,6 +49,10 @@ export const GithubProvider = ({
   children,
 }: GithubContextProps): JSX.Element => {
   const [state, dispatch] = useReducer(githubReducer, initialState);
+
+  useEffect(() => {
+    getFeedback();
+  }, []);
 
   // GET users
   const getUsers = async (login: string) => {
@@ -117,9 +123,26 @@ export const GithubProvider = ({
     });
 
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     dispatch({
       type: REDUCER_ACTION_TYPE.SET_FEEDBACK,
+      payload: data,
+    });
+  };
+
+  // GET feedback
+  const getFeedback = async () => {
+    const response = await fetch(`http://localhost:8000/feedback`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    const data = await response.json();
+    console.log(data);
+    dispatch({
+      type: REDUCER_ACTION_TYPE.GET_FEEDBACK,
       payload: data,
     });
   };
@@ -141,6 +164,8 @@ export const GithubProvider = ({
         getUser,
         getUserRepos,
         postFeedback,
+        getFeedback,
+        
       }}
     >
       {children}

@@ -13,7 +13,6 @@ export default function Feedback(): JSX.Element {
 
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     postFeedback(feedback)
 
     setFeedback("");
