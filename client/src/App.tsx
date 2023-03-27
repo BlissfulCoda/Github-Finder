@@ -3,6 +3,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import Home from "./Pages/Home";
 import Footer from "./Components/Layout/Footer";
 import Profile from "./Pages/Profile";
+import Feedback from "./Pages/Feedback";
 import { GithubProvider } from "./Context/GithubContextData";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/user/:login" element={<Profile />} />
+              <Route path="/feedback" element={<Feedback />} />
               <Route path="/notfound" element={<ErrorPage />} />
               <Route path="/*" element={<ErrorPage />} />
             </Routes>

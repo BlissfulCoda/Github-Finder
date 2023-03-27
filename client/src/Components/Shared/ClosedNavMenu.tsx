@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import {
-  BsArrowLeftShort,
   BsArrowRight,
   BsBehance,
   BsDot,
 } from "react-icons/bs";
+import { RxCross1 } from "react-icons/rx";
 import {IoIosArrowRoundBack} from 'react-icons/io'
 import MenuLinks from "./MenuLinks";
 import { FiBell } from "react-icons/fi";
@@ -24,6 +24,8 @@ type OpenNavType = {
   handleNav?: () => void;
 };
 
+const button = <RxCross1 className="opacity-40 w-3" />;
+
 export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
   const { users } = useContext(GithubContext) as GithubContextInterface;
 
@@ -36,7 +38,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
         {users.length > 0 ? (
           <span className="tablet:hidden">
             <GithubLogoSVG />
-          </span> 
+          </span>
         ) : (
           <IoIosArrowRoundBack
             size={26}
@@ -47,7 +49,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
 
       <div className="flex space-x-6 items-center ">
         <span className="tablet:hidden">
-          <UserSearch />
+          <UserSearch placeholder="Enter Github Username" button={button}/>
         </span>
         <MenuLinks />
         {/* MOBILE */}
