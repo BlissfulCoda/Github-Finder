@@ -1,8 +1,7 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useEffect } from "react";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
-
 
 export type UserInterface = {
   [index: string]: string | undefined;
@@ -24,8 +23,8 @@ export interface GithubContextInterface {
   setLoading: () => void;
   getUser: (value: string) => void;
   getUserRepos: (value: string) => void;
+  postFeedback: (value: string) => void;
 }
-
 
 const GithubContext = createContext<GithubContextInterface | null>(null);
 
@@ -39,6 +38,7 @@ export const initialState = {
   loading: false,
   repos: [],
   showNav: true,
+  feedback: [],
 };
 
 const GITHUB_URL = "http://localhost:8000/github";
@@ -106,6 +106,24 @@ export const GithubProvider = ({
     });
   };
 
+  // POST feedback
+  const postFeedback = async (feedback: string) => {
+    const response = await fetch(`http://localhost:8000/feedback`, {
+      method: "POST",
+      body: JSON.stringify({ feedback }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    console.log(data)
+    dispatch({
+      type: REDUCER_ACTION_TYPE.SET_FEEDBACK,
+      payload: data,
+    });
+  };
+
   // Dispatch function handles the action type and returns the right state from the reducer function
   const setLoading = () => dispatch({ type: REDUCER_ACTION_TYPE.SET_LOADING });
 
@@ -122,6 +140,7 @@ export const GithubProvider = ({
         setLoading,
         getUser,
         getUserRepos,
+        postFeedback,
       }}
     >
       {children}

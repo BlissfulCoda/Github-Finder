@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { RxCross1 } from "react-icons/rx";
 import { GithubContextInterface } from "../../Context/GithubContextData";
 import GithubContext from "../../Context/GithubContextData";
 
