@@ -23,15 +23,13 @@ export default function Home(): JSX.Element {
             <UserResults />
           </div>
         ) : (
-          <main className="space-y-2 flex flex-col items-center justify-center text-center w-full font-Lustria container h-3/5 pl-2 my-52 sm:mt-64 tablet:mt-44 laptop:mt-32 ">
-            <div className="space-y-1 sm:space-y-2 text-center w-full font-Lustria flex flex-col items-center">
-              <h1 className="text-white text-3xl tracking-[.50em] font-Lustria font-normal sm:text-4xl">
+          <main className="space-y-2 flex flex-col items-center justify-center text-center w-full font-Maitree container h-3/5 pl-2 my-52 sm:mt-64 tablet:mt-44 laptop:mt-32 ">
+            <div className="space-y-2 sm:space-y-2 text-center w-full  flex flex-col items-center">
+              <h1 className="text-white text-3xl tracking-[.50em]  font-light sm:text-4xl">
                 GITHUB
               </h1>
               <hr className="w-40 sm:w-48 opacity-30" />
-              <h5 className="text-sm opacity-80 font-Maitree tracking-[.40em]">
-                FINDER
-              </h5>
+              <h5 className="text-xs opacity-80  tracking-[.50em]">FINDER</h5>
             </div>
           </main>
         )}

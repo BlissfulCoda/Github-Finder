@@ -6,6 +6,7 @@ import {
   BsBehance,
   BsDot,
 } from "react-icons/bs";
+import {IoIosArrowRoundBack} from 'react-icons/io'
 import MenuLinks from "./MenuLinks";
 import { FiBell } from "react-icons/fi";
 import UserSearch from "../Users/UserSearch";
@@ -35,11 +36,11 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
         {users.length > 0 ? (
           <span className="tablet:hidden">
             <GithubLogoSVG />
-          </span>
+          </span> 
         ) : (
-          <BsArrowLeftShort
+          <IoIosArrowRoundBack
             size={26}
-            className="text-white bg-gray-100 rounded-full p-1 bg-opacity-30 contrast-250 outline outline-white/30 tablet:hidden"
+            className="text-white bg-zinc-100 rounded-full p-1 bg-opacity-30 contrast-250 outline outline-white/20 tablet:hidden"
           />
         )}
       </Link>
@@ -50,7 +51,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
         </span>
         <MenuLinks />
         {/* MOBILE */}
-        <div className="flex space-x-4 h-6 mt-1 tablet:hidden ">
+        <div className="flex space-x-3 h-6 mt-1 tablet:hidden ">
           <Button className="flex relative justify-center items-center">
             <FiBell className="text-blue-900 " size={21} />
             <BsDot
@@ -63,6 +64,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
             <BsBehance size={22} />
           </a>
         </div>
+
         {/* TABLET */}
         <div className="flex items-center space-x-3 hidden tablet:hidden">
           <span className="relative">

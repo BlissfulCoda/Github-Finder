@@ -53,7 +53,7 @@ export default function Profile(): JSX.Element {
               className="text-white bg-zinc-500 rounded-full p-1 bg-opacity-60 contrast-50 outline outline-white/5 hidden tablet:block"
             />
           </Link>
-          <span className="text-[7px] flex flex-col items-center justify-center space-y-0 bg-white bg-opacity-20 p-1">
+          <span className="text-[7px] flex flex-col items-center justify-center space-y-0 bg-white bg-opacity-20 p-1 hidden">
             <span className="text-center opacity-30">scroll down</span>
             <BsArrowDown className="h-7 w-3  animate-pulse" />
           </span>

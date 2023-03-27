@@ -11,7 +11,7 @@ export default function Header(): JSX.Element {
   };
 
   return (
-    <section className="mb-6 text-neutral-content px-1 laptop:mt-2">
+    <section className="mb-6 mt-2 text-neutral-content px-1 laptop:mt-2">
       {showNav ? (
         <OpenNavMenu handleNav={handleNav} />
       ) : (

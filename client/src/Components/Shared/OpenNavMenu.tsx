@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BsThreeDots, BsArrowRight, BsDot } from "react-icons/bs";
+import { BsThreeDots} from "react-icons/bs";
 import MenuLinks from "./MenuLinks";
 
 type OpenNavType = {
@@ -20,9 +20,9 @@ export default function OpenNavMenu({ handleNav }: OpenNavType): JSX.Element {
       <Link
         to="/"
         onClick={() => handleNav()}
-        className="text-white rounded-full p-2 outline outline-white/30 tablet:hidden bg-gray-100 bg-opacity-30 "
+        className="text-white rounded-full p-2 outline outline-white/20 tablet:hidden bg-gray-200 bg-opacity-30 "
       >
-        <BsThreeDots size={19} />
+        <BsThreeDots size={20} />
       </Link>
     </nav>
   );
