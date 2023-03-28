@@ -9,21 +9,21 @@ const router: Router = express.Router();
 export const feedback = async (req: Request, res: Response) => {
   const d = new Date();
   const { body } = req;
-  // body.created_at = d.toLocaleDateString("default", {
-  //   hour: "numeric",
-  //   minute: "numeric",
-  //   second: "numeric",
-  //   timeZone: "Europe/London",
-  // });
+
   const newFeedback = new Feedback({
     feedback: body.feedback,
-    created: (body.created_at = d.toLocaleDateString("default", {
-      hour: "numeric",
-      minute: "numeric",
-      second: "numeric",
-      timeZone: "Europe/London",
-    })),
+    created: (body.created_at = d
+      .toLocaleDateString("default", {
+        month: "long",
+        day: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "numeric",
+        timeZone: "Europe/London",
+      })
+      .replace(/\//g, "-")),
   });
+  //
 
   const createFeedback = await newFeedback.save();
   res.json(createFeedback);
