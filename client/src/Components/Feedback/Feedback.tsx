@@ -9,14 +9,6 @@ export type UserInterface = {
 export default function Feedback({ item }): JSX.Element {
   const [background, setBackground] = useState<boolean>(false);
 
-  // const d: Date = new Date();
-  // const x = d.toLocaleDateString("default", {
-  //   hour: "numeric",
-  //   minute: "numeric",
-  //   second: "numeric",
-  //   timeZone: "Europe/London",
-  // });
-
   return (
     <li className="space-y-2 py-1 border border-y-0 border-r-0 border-0 hover:border-l-indigo-900 group-hover:!opacity-0 hover:!opacity-100">
       <div className="space-x-2 border border-x-0 border-t-0 border-white/30 border-[1px] flex items-center py-3 px-2 font-Inter font-base tracking-wide hover:opacity-100">
