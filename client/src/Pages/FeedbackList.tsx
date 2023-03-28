@@ -24,7 +24,7 @@ export default function FeedbackList(): JSX.Element {
   };
 
   const feedbackItem = (
-    <ul className="space-y-2">
+    <ul className="group">
       {feedback.map((item) => (
         <Feedback key={item._id} item={item} />
       ))}
@@ -51,7 +51,7 @@ export default function FeedbackList(): JSX.Element {
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setText(e.target.value);
             }}
-            className="w-64 h-9 sm:w-72 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1px] text-xs pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[8px]"
+            className="w-60 h-9 sm:w-72 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1px] text-xs pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[8px]"
           />
           <span className="absolute right-3 top-1">😃</span>
         </div>

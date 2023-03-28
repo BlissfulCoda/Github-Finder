@@ -2,7 +2,7 @@ import { createContext, useReducer, useEffect } from "react";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
-import { GITHUB_URL, FEEDBACK_URL } from "../config";
+import { GITHUB_URL, FEEDBACK_URL, UNSPLASH_URL } from "../config";
 
 export type UserInterface = {
   [index: string]: string | undefined;
@@ -11,14 +11,14 @@ export type UserInterface = {
 type GithubState = {
   users: UserInterface[];
   loading: boolean;
-  
 };
 
 export interface GithubContextInterface {
   loading: boolean;
   users: UserInterface[];
   user: {};
-  feedback: UserInterface[] ;
+  feedback: UserInterface[];
+  unsplash: UserInterface[];
   repos: UserInterface[];
   initialState: GithubState;
   getUsers: (value: string) => void;
@@ -28,6 +28,7 @@ export interface GithubContextInterface {
   getUserRepos: (value: string) => void;
   postFeedback: (value: string) => void;
   getFeedback: () => void;
+  getUnsplash: () => void;
 }
 
 const GithubContext = createContext<GithubContextInterface | null>(null);
@@ -43,6 +44,7 @@ export const initialState = {
   repos: [],
   showNav: true,
   feedback: [],
+  unsplash: [],
 };
 
 export const GithubProvider = ({
@@ -52,6 +54,7 @@ export const GithubProvider = ({
 
   useEffect(() => {
     getFeedback();
+    getUnsplash();
   }, []);
 
   // GET users
@@ -113,8 +116,10 @@ export const GithubProvider = ({
   // POST feedback
   const postFeedback = async (feedback: string) => {
     setLoading();
-    
-    const response = await fetch(`http://localhost:8000/feedback`, {
+
+    feedback = feedback[0].toUpperCase() + feedback.slice(1);
+
+    const response = await fetch(FEEDBACK_URL, {
       method: "POST",
       body: JSON.stringify({ feedback }),
       headers: {
@@ -132,7 +137,7 @@ export const GithubProvider = ({
   // GET feedback
   const getFeedback = async () => {
     setLoading();
-    const response = await fetch(`${FEEDBACK_URL}`, {
+    const response = await fetch(FEEDBACK_URL, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -142,6 +147,23 @@ export const GithubProvider = ({
     const data = await response.json();
     dispatch({
       type: REDUCER_ACTION_TYPE.GET_FEEDBACK,
+      payload: data,
+    });
+  };
+
+  // GET unsplash
+  const getUnsplash = async () => {
+    setLoading();
+    const response = await fetch(`${UNSPLASH_URL}`, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    const data = await response.json();
+    dispatch({
+      type: REDUCER_ACTION_TYPE.GET_UNSPLASH,
       payload: data,
     });
   };
@@ -164,6 +186,7 @@ export const GithubProvider = ({
         getUserRepos,
         postFeedback,
         getFeedback,
+        getUnsplash,
       }}
     >
       {children}

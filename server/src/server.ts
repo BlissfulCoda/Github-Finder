@@ -10,15 +10,13 @@ const server: Express = express();
 const PORT = 8000;
 
 // ENABLE CORS
-server.use(cors({origin: '*'}));
+server.use(cors({ origin: "*" }));
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
-
-
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));
-
+server.use("/unsplash", require("./routes/unsplashRoutes"));
 
 mongoose.set("strictQuery", false);
 const db = mongoose.connect(process.env.MONGO_URL ?? "").then(() => {

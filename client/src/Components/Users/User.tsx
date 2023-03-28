@@ -23,6 +23,7 @@ export default function User({ user }: UserProps): JSX.Element {
             className={`brightness-75 hover:brightness-100 object-top h-full w-full object-cover `}
             onMouseEnter={() => setHoverText(true)}
             onMouseLeave={() => setHoverText(false)}
+            loading="lazy"
           />
           <h4
             className={`text-white absolute left-4 sm:left-2 bottom-6 md:left-2 -rotate-90 text-xs sm:text-[10px] ${
