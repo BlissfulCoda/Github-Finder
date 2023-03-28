@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { BsThreeDots} from "react-icons/bs";
-import {CgMenuRight} from 'react-icons/cg'
+import { BsThreeDots } from "react-icons/bs";
+import { CgMenuRight } from "react-icons/cg";
 import MenuLinks from "./MenuLinks";
 
 type OpenNavType = {
@@ -9,12 +9,11 @@ type OpenNavType = {
 };
 import { ReactComponent as GithubLogoSVG } from "../../assets/GithubLogo.svg";
 
-
 export default function OpenNavMenu({ handleNav }: OpenNavType): JSX.Element {
   const [search, setSearch] = useState<boolean>(false);
 
   return (
-    <nav className="flex justify-between container mx-auto tablet:px-6 tablet:p-4 tablet:h-12 tablet:px-8 laptop:px-10 mb-2 desktop:px-14 laptop:mt-1 items-center ">
+    <nav className="flex justify-between sm:px-  tablet:px-6 tablet:p-4 tablet:h-12 tablet:px-8 laptop:px-10 mb-2 desktop:px-14 laptop:mt-1 items-center ">
       <GithubLogoSVG />
       <MenuLinks />
       <Link

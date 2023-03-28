@@ -1,9 +1,9 @@
 import express from "express";
 import { Router } from "express";
-import { unsplash } from "../controllers/unsplashController";
+import { marvel } from "../controllers/marvelController";
 
 const router: Router = express.Router();
 
-router.get("/", unsplash);
+router.get("/", marvel);
 
 module.exports = router;

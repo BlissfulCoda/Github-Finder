@@ -23,7 +23,7 @@ export default function Home(): JSX.Element {
             <UserResults />
           </div>
         ) : (
-          <main className="space-y-2 flex flex-col items-center justify-center text-center w-full font-Maitree container h-3/5 pl-2 my-52 sm:mt-64 tablet:mt-44 laptop:mt-32 ">
+          <main className="space-y-2 flex flex-col items-center justify-center text-center w-full font-Maitree tablet:container h-3/5 pl-2 my-52 sm:mt-64 tablet:mt-44 laptop:mt-32 ">
             <div className="space-y-2 sm:space-y-2 text-center w-full  flex flex-col items-center">
               <h1 className="text-white text-3xl tracking-[.50em]  font-light sm:text-4xl">
                 GITHUB

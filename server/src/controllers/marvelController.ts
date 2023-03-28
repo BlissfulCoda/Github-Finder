@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
 import axios from "axios";
 
-const { UNSPLASH_URL, UNSPLASH_ACCESS_KEY } = process.env;
+const { MARVEL_API_KEY, MARVEL_HASH } = process.env;
 
-// @desc    GET unsplash photos
+// @desc    GET Marvel photos
 // @route   /unsplash
 // @access  Public
-export const unsplash = async (req: Request, res: Response) => {
+export const marvel = async (req: Request, res: Response) => {
   try {
     const unsplashOptions = {
       method: "GET",
-      url: `${UNSPLASH_URL}/photos?client_id=${UNSPLASH_ACCESS_KEY}`,
+      url: `http://gateway.marvel.com/v1/public/characters?ts=1&apikey=${MARVEL_API_KEY}&hash=${MARVEL_HASH}`,
       headers: {
         Accept: "application/json",
       },

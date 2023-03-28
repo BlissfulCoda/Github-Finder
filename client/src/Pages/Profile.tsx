@@ -1,4 +1,5 @@
 import { BsArrowLeftShort, BsArrowDown, BsDot } from "react-icons/bs";
+import { IoIosArrowRoundBack } from "react-icons/io";
 import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Footer from "../Components/Layout/Footer";
@@ -48,7 +49,7 @@ export default function Profile(): JSX.Element {
         {/* LEFT */}
         <div className="hidden tablet:flex flex-col w-14 tablet:items-center laptop:w-20 desktop:w-24 h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
           <Link to="/">
-            <BsArrowLeftShort
+            <IoIosArrowRoundBack
               size={25}
               className="text-white bg-zinc-500 rounded-full p-1 bg-opacity-60 contrast-50 outline outline-white/5 hidden tablet:block"
             />
@@ -78,7 +79,7 @@ export default function Profile(): JSX.Element {
             <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-2">
               <nav className="flex justify-between">
                 <ArrowLink link="/">
-                  <BsArrowLeftShort
+                  <IoIosArrowRoundBack
                     size={25}
                     className="text-white bg-white/60 rounded-full p-1 bg-opacity-90 contrast-50 outline outline-white/5 tablet:hidden "
                   />
@@ -142,14 +143,14 @@ export default function Profile(): JSX.Element {
           className="hidden w-14 laptop:w-20 desktop:w-20 h-full tablet:flex flex-col
       justify-between items-center text-xs pt-16"
         >
-          <Button className="flex relative justify-center items-center">
+          <Link to="/feedback" className="flex relative justify-center items-center">
             <Bell className="h-5 w-4 " />
             <BsDot
               size={21}
               className="absolute -right-2 -top-3 pt-1"
               color={"red"}
             />
-          </Button>
+          </Link>
         </div>
       </section>
     );

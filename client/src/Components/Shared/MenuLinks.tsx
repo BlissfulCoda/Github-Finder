@@ -15,7 +15,7 @@ export default function MenuLinks(): JSX.Element {
   return (
     <div className="flex hidden tablet:flex items-center space-x-6 font-Lustria tracking-wide">
       {search ? (
-        <UserSearch />
+        <UserSearch placeholder="Enter Github Username" />
       ) : (
         <Button className="" onClick={() => setSearch(!search)}>
           <BsSearch className="text-blue-900 " />

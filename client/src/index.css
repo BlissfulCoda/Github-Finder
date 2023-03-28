@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@100;200;300&family=Lustria&family=Maitree:wght@200;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inria+Serif:wght@400;700&family=Inter:wght@100;200;300&family=Lustria&family=Maitree:wght@200;300;400&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -11,21 +11,25 @@
 }
 
 .background-settings {
-  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 py-4  brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] sm:bg-[length:570px_570px] sm:bg-[center_top_6.5rem]  tablet:bg-blend-hard-light tablet:bg-[length:800px_800px] tablet:bg-[top_left_5rem] laptop:bg-[top_left_24rem] laptop:bg-[length:1000px_1000px] overflow-hidden flex flex-col justify-between items-center tablet:py-8
+  @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 py-4  brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] sm:bg-[length:570px_570px] sm:bg-[center_top_6.5rem] tablet:bg-blend-hard-light tablet:bg-[length:800px_800px] tablet:bg-[top_left_5rem] laptop:bg-[top_left_24rem] laptop:bg-[length:1000px_1000px] overflow-hidden flex flex-col justify-between items-center tablet:py-8;
 }
 
 .profile-border {
-  @apply tablet:border tablet:border-indigo-500 rounded-lg  tablet:border-opacity-40;
+  @apply tablet:border tablet:border-indigo-500 rounded-lg tablet:border-opacity-40;
 }
 
 .page-layout {
-  @apply h-full w-full text-white tablet:h-[570px] laptop:h-[650px] desktop:h-[670px]  tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-50 container mx-auto ;
+  @apply h-full w-full text-white tablet:h-[570px]  laptop:h-[650px] desktop:h-[670px] tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-50 container mx-auto;
 }
 
 .userSearch {
-  @apply w-60 h-9 sm:w-64 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1px]  text-xs pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[8px]
+  @apply w-56 h-9 sm:w-64 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1px] text-xs pl-9 tablet:pl-6 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[9px];
 }
 
 .nav {
-  @apply mb-6 mt-4 px-1
+  @apply mb-6 mt-4 px-1;
+}
+
+.transition-class {
+  @apply transition-all duration-200 ease-in-out;
 }

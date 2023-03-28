@@ -20,10 +20,12 @@ type OpenNavType = {
 const button = <RxCross1 className="opacity-40 w-3" />;
 
 export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
-  const { users } = useContext(GithubContext) as GithubContextInterface;
+  const { users, feedback } = useContext(
+    GithubContext
+  ) as GithubContextInterface;
 
   return (
-    <nav className="flex justify-between container mx-auto tablet:px-6 tablet:p-4 tablet:h-12 tablet:px-8 laptop:px-10 mb-2 desktop:px-14 laptop:mt-1 items-center">
+    <nav className="flex justify-between tablet:mx-auto tablet:h-12 laptop:px-10 mb-2 desktop:px-14 laptop:mt-1 items-center sm:max-w-2xl">
       <span className="hidden tablet:flex">
         <GithubLogoSVG />
       </span>
@@ -40,7 +42,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
         )}
       </Link>
 
-      <div className="flex space-x-6 items-center ">
+      <div className="flex space-x-3 justify-between items-center ">
         <span className="tablet:hidden">
           <UserSearch placeholder="Enter Github Username" button={button} />
         </span>
@@ -50,12 +52,19 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
           <Link to="/feedback">
             {" "}
             <Button className="flex relative justify-center items-center">
-              <FiBell className="text-blue-900 " size={21} />
-              <BsDot
-                size={23}
-                className="absolute -right-2 -top-3  rounded-full"
-                color={"red"}
-              />
+              <FiBell className="text-blue-900 " size={22} />
+              {feedback.length > 0 ? (
+                <span className="absolute -right-1 -top-3 rounded-full h-3 w-3 p-[3px] text-[6px] text-white flex items-center justify-center bg-red-700/70 ">
+                  {" "}
+                  {feedback.length}
+                </span>
+              ) : (
+                <BsDot
+                  size={23}
+                  className="absolute -right-2 -top-3  rounded-full"
+                  color={"red"}
+                />
+              )}
             </Button>
           </Link>
           <a href={BEHANCE} target="_blank" className="mb-1">

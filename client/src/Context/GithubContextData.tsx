@@ -2,7 +2,7 @@ import { createContext, useReducer, useEffect } from "react";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
-import { GITHUB_URL, FEEDBACK_URL, UNSPLASH_URL } from "../config";
+import { GITHUB_URL, FEEDBACK_URL, MARVEL_URL } from "../config";
 
 export type UserInterface = {
   [index: string]: string | undefined;
@@ -28,7 +28,7 @@ export interface GithubContextInterface {
   getUserRepos: (value: string) => void;
   postFeedback: (value: string) => void;
   getFeedback: () => void;
-  getUnsplash: () => void;
+  getMarvel: () => void;
 }
 
 const GithubContext = createContext<GithubContextInterface | null>(null);
@@ -54,7 +54,7 @@ export const GithubProvider = ({
 
   useEffect(() => {
     getFeedback();
-    getUnsplash();
+    getMarvel();
   }, []);
 
   // GET users
@@ -151,19 +151,20 @@ export const GithubProvider = ({
     });
   };
 
-  // GET unsplash
-  const getUnsplash = async () => {
+  // GET Marvel
+  const getMarvel= async () => {
     setLoading();
-    const response = await fetch(`${UNSPLASH_URL}`, {
+    const response = await fetch(`${MARVEL_URL}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
       },
     });
 
-    const data = await response.json();
+    const {data}= await response.json();
+    console.log(data)
     dispatch({
-      type: REDUCER_ACTION_TYPE.GET_UNSPLASH,
+      type: REDUCER_ACTION_TYPE.GET_MARVEL,
       payload: data,
     });
   };
@@ -186,7 +187,7 @@ export const GithubProvider = ({
         getUserRepos,
         postFeedback,
         getFeedback,
-        getUnsplash,
+        getMarvel,
       }}
     >
       {children}

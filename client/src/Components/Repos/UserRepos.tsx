@@ -41,7 +41,7 @@ export default function UserRepos(): JSX.Element {
               </a>
               <h6 className="text-white text-[8px] tablet:text-[7px]">
                 {item.name.length > 10
-                  ? item.name.substring(0, 12).padEnd(5, ".")
+                  ? item.name.substring(0, 8).padEnd(5, ".")
                   : item.name}
               </h6>
             </div>
