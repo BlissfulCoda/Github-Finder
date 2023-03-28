@@ -20,6 +20,7 @@ module.exports = {
         Lustria: ["Lustria", "serif"],
         Inria: ["Inria Serif", "serif"],
         Maitree: ["Maitree", "serif"],
+        Inter: ["Inter", "serif"],
       },
     },
     clipPath: {

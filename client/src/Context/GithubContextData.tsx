@@ -2,6 +2,7 @@ import { createContext, useReducer, useEffect } from "react";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
+import { GITHUB_URL, FEEDBACK_URL } from "../config";
 
 export type UserInterface = {
   [index: string]: string | undefined;
@@ -10,13 +11,14 @@ export type UserInterface = {
 type GithubState = {
   users: UserInterface[];
   loading: boolean;
+  
 };
 
 export interface GithubContextInterface {
   loading: boolean;
   users: UserInterface[];
   user: {};
-  feedback: UserInterface[];
+  feedback: UserInterface[] ;
   repos: UserInterface[];
   initialState: GithubState;
   getUsers: (value: string) => void;
@@ -43,8 +45,6 @@ export const initialState = {
   feedback: [],
 };
 
-const GITHUB_URL = "http://localhost:8000/github";
-
 export const GithubProvider = ({
   children,
 }: GithubContextProps): JSX.Element => {
@@ -57,8 +57,6 @@ export const GithubProvider = ({
   // GET users
   const getUsers = async (login: string) => {
     setLoading();
-
-    console.log(login);
 
     const response = await fetch(`${GITHUB_URL}/search/users/${login}`);
 
@@ -114,6 +112,8 @@ export const GithubProvider = ({
 
   // POST feedback
   const postFeedback = async (feedback: string) => {
+    setLoading();
+    
     const response = await fetch(`http://localhost:8000/feedback`, {
       method: "POST",
       body: JSON.stringify({ feedback }),
@@ -123,7 +123,6 @@ export const GithubProvider = ({
     });
 
     const data = await response.json();
-    console.log(data);
     dispatch({
       type: REDUCER_ACTION_TYPE.SET_FEEDBACK,
       payload: data,
@@ -132,7 +131,8 @@ export const GithubProvider = ({
 
   // GET feedback
   const getFeedback = async () => {
-    const response = await fetch(`http://localhost:8000/feedback`, {
+    setLoading();
+    const response = await fetch(`${FEEDBACK_URL}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -140,7 +140,6 @@ export const GithubProvider = ({
     });
 
     const data = await response.json();
-    console.log(data);
     dispatch({
       type: REDUCER_ACTION_TYPE.GET_FEEDBACK,
       payload: data,
@@ -165,7 +164,6 @@ export const GithubProvider = ({
         getUserRepos,
         postFeedback,
         getFeedback,
-        
       }}
     >
       {children}

@@ -1,21 +1,14 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import {
-  BsArrowRight,
-  BsBehance,
-  BsDot,
-} from "react-icons/bs";
+import { BsArrowRight, BsBehance, BsDot } from "react-icons/bs";
 import { RxCross1 } from "react-icons/rx";
-import {IoIosArrowRoundBack} from 'react-icons/io'
+import { IoIosArrowRoundBack } from "react-icons/io";
 import MenuLinks from "./MenuLinks";
 import { FiBell } from "react-icons/fi";
 import UserSearch from "../Users/UserSearch";
 import Button from "../Shared/Button";
+import { BEHANCE } from "../../config";
 import { ReactComponent as GithubLogoSVG } from "../../assets/GithubLogo.svg";
-
-// VITE_REACT_APP_BEHANCE
-
-const BEHANCE_URL = import.meta.env.VITE_REACT_APP_BEHANCE;
 
 import GithubContext from "../../Context/GithubContextData";
 import { GithubContextInterface } from "../../Context/GithubContextData";
@@ -30,7 +23,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
   const { users } = useContext(GithubContext) as GithubContextInterface;
 
   return (
-    <nav className="flex justify-between container mx-auto tablet:px-6 tablet:p-4 tablet:h-12 tablet:px-8 laptop:px-10 mb-2 desktop:px-14 laptop:mt-1 items-center c ">
+    <nav className="flex justify-between container mx-auto tablet:px-6 tablet:p-4 tablet:h-12 tablet:px-8 laptop:px-10 mb-2 desktop:px-14 laptop:mt-1 items-center">
       <span className="hidden tablet:flex">
         <GithubLogoSVG />
       </span>
@@ -53,19 +46,19 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
         </span>
         <MenuLinks />
         {/* MOBILE */}
-        <div className="flex space-x-3 h-6 mt-1 tablet:hidden ">
+        <div className="flex space-x-3 h-6 mt-1 tablet:hidden justify-center items-center">
           <Link to="/feedback">
             {" "}
             <Button className="flex relative justify-center items-center">
               <FiBell className="text-blue-900 " size={21} />
               <BsDot
-                size={21}
-                className="absolute -right-2 -top-3 pt-1"
+                size={23}
+                className="absolute -right-2 -top-3  rounded-full"
                 color={"red"}
               />
             </Button>
           </Link>
-          <a href={BEHANCE_URL} target="_blank">
+          <a href={BEHANCE} target="_blank" className="mb-1">
             <BsBehance size={22} />
           </a>
         </div>
@@ -81,7 +74,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
           </span>
           <span className="h-5 w-[.01rem] bg-zinc-100 opacity-40"></span>
           <a
-            href={BEHANCE_URL}
+            href={BEHANCE}
             target="_blank"
             className="flex text-[8px] h-6 items-center justify-center w-20 p-2 bg-zinc-100 bg-opacity-30 space-x-1 rounded-sm hover:animate-pulse"
           >

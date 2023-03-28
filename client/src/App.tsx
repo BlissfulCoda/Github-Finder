@@ -3,7 +3,7 @@ import ErrorPage from "./Pages/ErrorPage";
 import Home from "./Pages/Home";
 import Footer from "./Components/Layout/Footer";
 import Profile from "./Pages/Profile";
-import Feedback from "./Pages/Feedback";
+import Feedback from "./Pages/FeedbackList";
 import { GithubProvider } from "./Context/GithubContextData";
 
 function App() {

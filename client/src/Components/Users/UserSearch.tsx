@@ -37,7 +37,7 @@ export default function UserSearch({ placeholder, button }: userSearchProps): JS
       <input
         type="text"
         placeholder={placeholder}
-        className="w-60 h-9 sm:w-64 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1px] text-xs pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[8px]"
+        className="userSearch"
         onChange={handleChange}
         value={text}
       />

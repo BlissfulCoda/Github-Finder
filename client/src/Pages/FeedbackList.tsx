@@ -2,27 +2,40 @@ import { useState, useContext } from "react";
 import { BsArrowLeftShort, BsDot } from "react-icons/bs";
 import { FiBell } from "react-icons/fi";
 import ArrowLink from "../Components/Shared/ArrowLink";
+import Spinner from "../Components/Shared/Spinner";
+
+import Feedback from "../Components/Feedback/Feedback";
 
 import GithubContext from "../Context/GithubContextData";
 import { GithubContextInterface } from "../Context/GithubContextData";
 
-export default function Feedback(): JSX.Element {
-  const [feedback, setFeedback] = useState<string>("");
+export default function FeedbackList(): JSX.Element {
+  const [text, setText] = useState<string>("");
 
-  const {postFeedback} = useContext(GithubContext) as GithubContextInterface;
+  const { postFeedback, feedback} = useContext(
+    GithubContext
+  ) as GithubContextInterface;
 
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    postFeedback(feedback)
+    postFeedback(text);
 
-    setFeedback("");
+    setText("");
   };
 
+  const feedbackItem = (
+    <ul className="space-y-2">
+      {feedback.map((item) => (
+        <Feedback key={item._id} item={item} />
+      ))}
+    </ul>
+  );
+
   return (
-    <section className="pt-4 mb-2 py-1">
+    <section className="nav ">
       <form
         onSubmit={formSubmit}
-        className=" flex justify-between items-center"
+        className=" flex justify-between items-center mb-20"
       >
         <ArrowLink link="/">
           <BsArrowLeftShort
@@ -33,11 +46,12 @@ export default function Feedback(): JSX.Element {
         <div className="flex relative">
           <input
             type="text"
+            value={text}
             placeholder="Add Feedback..."
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setFeedback(e.target.value);
+              setText(e.target.value);
             }}
-            className="w-64 h-9 sm:w-64 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1px] text-xs pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[8px]"
+            className="w-64 h-9 sm:w-72 sm:h-9 tablet:w-48 tablet:h-7 laptop:w-56 laptop:h-7 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1px] text-xs pl-9 tablet:pl-4 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[8px]"
           />
           <span className="absolute right-3 top-1">😃</span>
         </div>
@@ -50,6 +64,7 @@ export default function Feedback(): JSX.Element {
           />
         </span>
       </form>
+      {feedback.length === 0 ? <Spinner /> : feedbackItem}
     </section>
   );
 }
