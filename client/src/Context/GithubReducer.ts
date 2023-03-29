@@ -37,7 +37,7 @@ const githubReducer = (
     case REDUCER_ACTION_TYPE.GET_FEEDBACK:
       return { ...state, feedback: action.payload ?? [], loading: false };
     case REDUCER_ACTION_TYPE.GET_MARVEL:
-      return { ...state, unsplash: action.payload ?? [], loading: false };
+      return { ...state, marvel: action.payload ?? [], loading: false };
     default:
       return state;
   }

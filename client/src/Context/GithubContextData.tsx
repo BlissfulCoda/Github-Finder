@@ -18,7 +18,7 @@ export interface GithubContextInterface {
   users: UserInterface[];
   user: {};
   feedback: UserInterface[];
-  unsplash: UserInterface[];
+  marvel: UserInterface[];
   repos: UserInterface[];
   initialState: GithubState;
   getUsers: (value: string) => void;
@@ -44,7 +44,7 @@ export const initialState = {
   repos: [],
   showNav: true,
   feedback: [],
-  unsplash: [],
+  marvel: [],
 };
 
 export const GithubProvider = ({
@@ -152,7 +152,7 @@ export const GithubProvider = ({
   };
 
   // GET Marvel
-  const getMarvel= async () => {
+  const getMarvel = async () => {
     setLoading();
     const response = await fetch(`${MARVEL_URL}`, {
       method: "GET",
@@ -161,11 +161,10 @@ export const GithubProvider = ({
       },
     });
 
-    const {data}= await response.json();
-    console.log(data)
+    const { data } = await response.json();
     dispatch({
       type: REDUCER_ACTION_TYPE.GET_MARVEL,
-      payload: data,
+      payload: data.results,
     });
   };
 

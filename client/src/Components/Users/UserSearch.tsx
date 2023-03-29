@@ -4,9 +4,12 @@ import GithubContext from "../../Context/GithubContextData";
 
 import Button from "../Shared/Button";
 
-type userSearchProps = {placeholder: string, button?: React.ReactNode}
+type userSearchProps = { placeholder: string; button: React.ReactNode };
 
-export default function UserSearch({ placeholder, button }: userSearchProps): JSX.Element {
+export default function UserSearch({
+  placeholder,
+  button,
+}: userSearchProps): JSX.Element {
   const [text, setText] = useState<string>("");
 
   const { getUsers, clearUsers, users } = useContext(
@@ -43,7 +46,9 @@ export default function UserSearch({ placeholder, button }: userSearchProps): JS
       />
       <Button
         onClick={handleSearchAndClear}
-        className={`absolute right-3 top-3 sm:top-3 rounded-full tablet:top-1 laptop:top-1 opacity-0 ${users.length && "opacity-100"} `}
+        className={`absolute right-3 top-3 sm:top-3 rounded-full tablet:top-1 laptop:top-2 opacity-0 ${
+          users.length && "opacity-100"
+        } `}
       >
         {button}
       </Button>

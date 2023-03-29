@@ -8,11 +8,11 @@ export default function UserRepos(): JSX.Element {
   const { repos } = useContext(GithubContext) as GithubContextInterface;
 
   return (
-    <div className="space-y-[3px] laptop:space-y-[2px] overflow-y-auto h-screen scrollbar-thin scrollbar-[#0C0E15] tablet:h-[325px] laptop:h-[390px] desktop:h-[430px] ">
+    <div className="space-y-[3px] laptop:space-y-[3px] overflow-y-auto h-screen scrollbar-thin scrollbar-[#0C0E15] tablet:h-[330px] laptop:h-[390px] desktop:h-[430px] ">
       {repos.map((item) => (
         <div
           key={item.id}
-          className="bg-[#11131A] bg-opacity-30 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[105px] tablet:border-l-1"
+          className="bg-[#11131A] bg-opacity-30 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[105px] tablet:border-l-[.05rem]"
         >
           {/* LEFT SIDE */}
           <div className="flex justify-between p-1">
@@ -41,7 +41,7 @@ export default function UserRepos(): JSX.Element {
               </a>
               <h6 className="text-white text-[8px] tablet:text-[7px]">
                 {item.name.length > 10
-                  ? item.name.substring(0, 8).padEnd(5, ".")
+                  ? item.name.substring(0, 10).padEnd(5, ".")
                   : item.name}
               </h6>
             </div>

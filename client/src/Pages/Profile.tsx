@@ -45,13 +45,13 @@ export default function Profile(): JSX.Element {
     return <Spinner />;
   } else {
     return (
-      <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 ">
+      <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 transition-class ">
         {/* LEFT */}
-        <div className="hidden tablet:flex flex-col w-14 tablet:items-center laptop:w-20 desktop:w-24 h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
+        <div className="hidden tablet:flex flex-col w-14 tablet:items-center laptop:w-20 desktop:w-16 h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
           <Link to="/">
             <IoIosArrowRoundBack
               size={25}
-              className="text-white bg-zinc-500 rounded-full p-1 bg-opacity-60 contrast-50 outline outline-white/5 hidden tablet:block"
+              className="arrow hidden tablet:block"
             />
           </Link>
           <span className="text-[7px] flex flex-col items-center justify-center space-y-0 bg-white bg-opacity-20 p-1 hidden">
@@ -98,7 +98,7 @@ export default function Profile(): JSX.Element {
                 </div>
               </nav>
 
-              <div className="flex text-white text-[8px] space-x-2 border-[0.2px] border-opacity-40 border-y-neutral-50 border-x-0 py-2 font-light w-56 text-right ml-auto pl-7 ">
+              <div className="flex text-white text-[8px] space-x-2 border-[0.2px] border-opacity-40 border-y-neutral-50 border-x-0 py-2 font-light w-60 text-right ml-auto pl-7 ">
                 <h4>
                   {followers} <span className="opacity-40">Followers</span>
                 </h4>
@@ -114,7 +114,7 @@ export default function Profile(): JSX.Element {
           </div>
 
           {/* REPO DISPLAY */}
-          <div className="w-full -mt-6 opacity-90 sm:-bottom-28 tablet:order-1 tablet:w-[360px] tablet:h-[600px] tablet:flex tablet:flex-col justify-between tablet:p-1 tablet:mt-6 laptop:mt-2  laptop:w-[410px] laptop:h-[700px] laptop:p-0 desktop:w-[430px]">
+          <div className="w-full -mt-6 opacity-90 sm:-bottom-28 tablet:order-1 tablet:w-[340px] tablet:h-[600px] tablet:flex tablet:flex-col justify-between tablet:p-1 tablet:mt-6 laptop:mt-2 laptop:w-[400px] laptop:h-[700px] laptop:p-0 desktop:w-[420px]">
             <div className="space-y-4 mb-1 laptop:space-y-6 tablet:mt-28">
               <div className="flex text-white text-[12px] justify-between opacity-80 text-thin tablet:text-[10px] tablet:opacity-60 ">
                 <h3 className="">Latest Repositories</h3>
@@ -140,10 +140,13 @@ export default function Profile(): JSX.Element {
 
         {/* RIGHT */}
         <div
-          className="hidden w-14 laptop:w-20 desktop:w-20 h-full tablet:flex flex-col
-      justify-between items-center text-xs pt-16"
+          className="hidden w-14 laptop:w-20 desktop:w-16 h-full tablet:flex flex-col
+      justify-between items-center text-xs pt-14"
         >
-          <Link to="/feedback" className="flex relative justify-center items-center">
+          <Link
+            to="/feedback"
+            className="flex relative justify-center items-center"
+          >
             <Bell className="h-5 w-4 " />
             <BsDot
               size={21}
