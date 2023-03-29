@@ -19,7 +19,7 @@ export default function UserResult(): JSX.Element {
               <span
                 key={user.id}
                 className="group-hover:opacity-90 group-hover:opacity:duration-1000 hover:!opacity-100 
-                  hover:!blur-none hover:scale-[1.1] group-hover:duration-600 group-hover:transition  hover:z-30 "
+                  hover:!blur-none hover:scale-[1.1] group-hover:duration-600 group-hover:transition hover:z-30 "
               >
                 <User user={user} />
               </span>

@@ -9,7 +9,6 @@ export const enum REDUCER_ACTION_TYPE {
   GET_REPOS,
   SET_FEEDBACK,
   GET_FEEDBACK,
-  GET_MARVEL,
 }
 
 type GithubReducerTypes = {
@@ -36,8 +35,6 @@ const githubReducer = (
       return { ...state, feedback: [action.payload, ...state.feedback] };
     case REDUCER_ACTION_TYPE.GET_FEEDBACK:
       return { ...state, feedback: action.payload ?? [], loading: false };
-    case REDUCER_ACTION_TYPE.GET_MARVEL:
-      return { ...state, marvel: action.payload ?? [], loading: false };
     default:
       return state;
   }

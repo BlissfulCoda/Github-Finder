@@ -73,7 +73,7 @@ export default function Profile(): JSX.Element {
                 src={avatar_url}
                 alt={`image of ${userLogin}`}
                 className={` h-1/2 sm:h-[400px] w-full object-cover object-top opacity-80 tablet:h-[490px]
-                  laptop:h-[550px]`}
+                  laptop:h-[550px] contrast-50`}
               />
             </figure>
             <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-2">

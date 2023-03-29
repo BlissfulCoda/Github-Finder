@@ -18,7 +18,6 @@ export interface GithubContextInterface {
   users: UserInterface[];
   user: {};
   feedback: UserInterface[];
-  marvel: UserInterface[];
   repos: UserInterface[];
   initialState: GithubState;
   getUsers: (value: string) => void;
@@ -28,7 +27,6 @@ export interface GithubContextInterface {
   getUserRepos: (value: string) => void;
   postFeedback: (value: string) => void;
   getFeedback: () => void;
-  getMarvel: () => void;
 }
 
 const GithubContext = createContext<GithubContextInterface | null>(null);
@@ -44,7 +42,6 @@ export const initialState = {
   repos: [],
   showNav: true,
   feedback: [],
-  marvel: [],
 };
 
 export const GithubProvider = ({
@@ -54,7 +51,6 @@ export const GithubProvider = ({
 
   useEffect(() => {
     getFeedback();
-    getMarvel();
   }, []);
 
   // GET users
@@ -151,23 +147,6 @@ export const GithubProvider = ({
     });
   };
 
-  // GET Marvel
-  const getMarvel = async () => {
-    setLoading();
-    const response = await fetch(`${MARVEL_URL}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-      },
-    });
-
-    const { data } = await response.json();
-    dispatch({
-      type: REDUCER_ACTION_TYPE.GET_MARVEL,
-      payload: data.results,
-    });
-  };
-
   // Dispatch function handles the action type and returns the right state from the reducer function
   const setLoading = () => dispatch({ type: REDUCER_ACTION_TYPE.SET_LOADING });
 
@@ -186,7 +165,6 @@ export const GithubProvider = ({
         getUserRepos,
         postFeedback,
         getFeedback,
-        getMarvel,
       }}
     >
       {children}

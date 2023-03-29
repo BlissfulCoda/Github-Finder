@@ -1,4 +1,6 @@
 import express, { Express } from "express";
+import path from 'path'
+
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -13,6 +15,7 @@ const PORT = 8000;
 server.use(cors({ origin: "*" }));
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
+server.use(express.static(path.join(__dirname, 'assets')))
 
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));

@@ -33,7 +33,7 @@
 }
 
 .page-layout {
-  @apply h-full w-full text-white sm:px-3 tablet:h-[570px] laptop:h-[650px] desktop:h-[670px] tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-70 container mx-auto;
+  @apply h-full w-full text-white sm:px-5 tablet:h-[570px] laptop:h-[650px] desktop:h-[670px] tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-70 container mx-auto;
 }
 
 .userSearch {
@@ -53,5 +53,5 @@
 }
 
 .transition-class {
-  @applt transition-all ease-in-out duration-700;
+  @applt transition-all ease-in-out duration-500;
 }
