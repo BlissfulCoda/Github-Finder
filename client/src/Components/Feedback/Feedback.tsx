@@ -13,8 +13,8 @@ export default function Feedback({ item }): JSX.Element {
       onMouseLeave={() => setshowBackground(false)}
       className={` ${
         showBackground
-          ? "border border-y-0 border-r-0 hover:border-l-100 hover:border-l-indigo-700/90 "
-          : " border-transparent"
+          ? "border border-y-0 border-r-0 hover:border-l-100 hover:border-l-indigo-700/90 bg-[#11131A] bg-opacity-30 duration-100"
+          : " border-transparent duration-100"
       } `}
     >
       <div className="space-x-2 border border-x-0 border-t-0 border-white/20 border-[.50px] flex items-center py-3 px-2 font-Inter font-base tracking-wide hover:opacity-100 bg-[#11131A] bg-opacity-5">

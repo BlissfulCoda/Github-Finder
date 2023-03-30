@@ -1,41 +1,42 @@
-import express, { Request, Response, Router } from "express";
+import express, { Request, Response, NextFunction, Router } from "express";
 import Feedback from "../models/Feedback";
-import { randomCharacterIdx } from "../models/feedbackConfig";
-
-// GET a random characater name
-const randomeMarvelCharacter = () => {
-  const randomCharacterGenerator = randomCharacterIdx();
-  console.log(randomCharacterGenerator.next().done);
-  return randomCharacterGenerator.next().value;
-};
+import { randomeMarvelCharacter } from "../models/feedbackConfig";
 
 const router: Router = express.Router();
 
 // @desc    POST create new feedback
 // @route   /feedback
 // @access  Public
-export const feedback = async (req: Request, res: Response) => {
-  const d = new Date();
-  d.toISOString().replace(/T.*/, "").split("-").reverse().join("-");
-  const { body } = req;
-  const newFeedback = new Feedback({
-    feedback: body.feedback,
-    created: (body.created_at = d
-      .toLocaleDateString("default", {
-        month: "long",
-        day: "2-digit",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "numeric",
-        timeZone: "Europe/London",
-      })
-      .replace(/\//g, "-")),
-    characterName: randomeMarvelCharacter(),
-  });
-  //
+export const feedback = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const d = new Date();
+    d.toISOString().replace(/T.*/, "").split("-").reverse().join("-");
+    const { body } = req;
+    const newFeedback = new Feedback({
+      feedback: body.feedback,
+      created: (body.created_at = d
+        .toLocaleDateString("default", {
+          month: "long",
+          day: "2-digit",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "numeric",
+          timeZone: "Europe/London",
+        })
+        .replace(/\//g, "-")),
+      characterName: randomeMarvelCharacter(),
+    });
+    //
 
-  const createFeedback = await newFeedback.save();
-  res.json(createFeedback);
+    const createFeedback = await newFeedback.save();
+    res.json(createFeedback);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // @desc    GET feedback from database

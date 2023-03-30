@@ -25,15 +25,15 @@
 }
 
 .profile-border {
-  @apply border-transparent tablet:border tablet:border-indigo-800/60 rounded-xl tablet:border-opacity-40;
+  @apply border-transparent tablet:border tablet:border-sky-800/70 rounded-lg tablet:border-opacity-40;
 }
 
 .page-layout {
-  @apply h-full w-full text-white sm:px-5 tablet:h-[570px] laptop:h-[650px] desktop:h-[670px] tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-70 container mx-auto;
+  @apply h-full w-full text-white sm:px-3 tablet:px-3 tablet:h-[570px] laptop:h-[650px] desktop:h-[670px] tablet:mt-10 laptop:mt-5 laptop:w-11/12 tablet:bg-opacity-70 container mx-auto;
 }
 
 .userSearch {
-  @apply w-60 h-9 sm:w-72 sm:h-10 tablet:w-44 tablet:h-7 laptop:w-52 laptop:h-8 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/90 outline-none border border-x-0 border-t-0 border-[1.5px] text-xs pl-9 tablet:pl-6 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[10px];
+  @apply w-60 h-9 sm:w-72 sm:h-10 tablet:w-44 tablet:h-7 laptop:w-52 desktop:w-56 laptop:h-8 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/70 outline-none border border-x-0 border-t-0 border-[1.5px] text-xs pl-9 tablet:pl-6 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[10px];
 }
 
 .nav {

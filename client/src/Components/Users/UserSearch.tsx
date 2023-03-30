@@ -1,3 +1,4 @@
+import {motion} from 'framer-motion'
 import React, { useContext, useState } from "react";
 import { GithubContextInterface } from "../../Context/GithubContextData";
 import GithubContext from "../../Context/GithubContextData";
@@ -36,7 +37,14 @@ export default function UserSearch({
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex relative">
+    <motion.form
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.7 }}
+      onSubmit={handleSubmit}
+      className="flex relative"
+    >
       <input
         type="text"
         placeholder={placeholder}
@@ -52,6 +60,6 @@ export default function UserSearch({
       >
         {button}
       </Button>
-    </form>
+    </motion.form>
   );
 }

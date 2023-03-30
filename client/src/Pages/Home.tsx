@@ -1,4 +1,5 @@
-import { useContext} from "react";
+import { motion } from "framer-motion";
+import { useContext } from "react";
 import Header from "../Components/Layout/Header";
 import UserResults from "../Components/Users/UserResults";
 
@@ -8,7 +9,11 @@ export default function Home(): JSX.Element {
   const { users } = useContext(GithubContext) as GithubContextInterface;
 
   return (
-    <section
+    <motion.section
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.9 }}
       className={`flex flex-col mb-1 page-layout transition-class ${
         users.length > 0 ? "bg-black" : "tablet:bg-Earth"
       } justify-between 
@@ -33,6 +38,6 @@ export default function Home(): JSX.Element {
           </main>
         )}
       </>
-    </section>
+    </motion.section>
   );
 }

@@ -12,10 +12,17 @@ const server: Express = express();
 const PORT = 8000;
 
 // ENABLE CORS
-server.use(cors({ origin: "*" }));
+server.use(
+  cors({
+    origin: ["http://localhost:3000", "https://github-finder.onrender.com"],
+  })
+);
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
-server.use(express.static(path.join(__dirname, "assets")));
+
+server.get("/", (req, res) => {
+  res.send("Home");
+});
 
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));

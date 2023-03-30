@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { BsArrowDown, BsDot } from "react-icons/bs";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useContext, useEffect } from "react";
@@ -43,9 +44,9 @@ export default function Profile(): JSX.Element {
     return <Spinner />;
   } else {
     return (
-      <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 transition-class ">
+      <motion.section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 transition-class ">
         {/* LEFT */}
-        <div className="hidden tablet:flex flex-col w-14 tablet:items-center laptop:w-20 desktop:w-16 h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
+        <div className="hidden tablet:flex flex-col w-12 tablet:items-center justify-start  h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
           <Link to="/">
             <IoIosArrowRoundBack
               size={25}
@@ -62,16 +63,22 @@ export default function Profile(): JSX.Element {
         <div
           className="relative tablet:border tablet:border-x-zinc-500 tablet:border-opacity-60 tablet:px-1 
          tablet:border-y-0 w-full tablet:flex tablet:justify-between tablet:pt-10 
-         laptop:pt-11 tablet:space-x-0  tablet:w-full laptop:px-1 desktop:px-6 laptop:w-full "
+         laptop:pt-11 tablet:space-x-0  tablet:w-full laptop:px-1 desktop:px-4 laptop:w-full "
         >
           {/* IMAGE */}
-          <div className="relative tablet:w-[300px] tablet:order-2 laptop:w-[380px] desktop:w-[400px]">
+          <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="relative tablet:w-[300px] tablet:order-2 laptop:w-[380px] desktop:w-[400px]"
+          >
             <figure>
               <img
                 src={avatar_url}
                 alt={`image of ${userLogin}`}
                 className={`h-1/2 sm:h-[400px] w-full object-cover object-top opacity-80 tablet:h-[490px]
-                  laptop:h-[550px] contrast-100`}
+                  laptop:h-[550px] desktop:h-[580px]  contrast-100`}
               />
             </figure>
             <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-2">
@@ -109,14 +116,20 @@ export default function Profile(): JSX.Element {
                 </h4>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* REPO DISPLAY */}
           <div className="w-full -mt-6 opacity-90 sm:-bottom-28 tablet:order-1 tablet:w-[340px] tablet:h-[600px] tablet:flex tablet:flex-col justify-between tablet:p-1 tablet:mt-6 laptop:mt-2 laptop:w-[400px] laptop:h-[700px] laptop:p-0 desktop:w-[420px]">
             <div className="space-y-4 mb-1 laptop:space-y-6 tablet:mt-28">
-              <div className="flex text-white text-[12px] justify-between opacity-80 text-thin tablet:text-[10px] tablet:opacity-60 ">
-                <h3 className="">Latest Repositories</h3>
-                <div className="flex space-x-6 pr-2 ">
+              <motion.div
+                animate={{ opacity: 1 }}
+                initial={{ opacity: 0 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3, delay: 0.05 }}
+                className="flex text-white text-[12px] justify-between opacity-80 text-thin tablet:text-[10px]  "
+              >
+                <h3 className="opacity-60">Latest Repositories</h3>
+                <div className="flex space-x-6 pr-2 opacity-60">
                   {location && <h3>{location}</h3>}
                   {website && <a href={website}>Website</a>}
                   {html_url && (
@@ -127,7 +140,7 @@ export default function Profile(): JSX.Element {
                     </h3>
                   )}
                 </div>
-              </div>
+              </motion.div>
 
               {/* REPOSITORIES */}
               <UserRepos />
@@ -138,12 +151,12 @@ export default function Profile(): JSX.Element {
 
         {/* RIGHT */}
         <div
-          className="hidden w-14 laptop:w-20 desktop:w-16 h-full tablet:flex flex-col
-      justify-between items-center text-xs pt-14"
+          className="hidden w-12   h-full tablet:flex flex-col
+      justify-between items-center text-xs pt-16"
         >
           <FeedbackBell />
         </div>
-      </section>
+      </motion.section>
     );
   }
 }

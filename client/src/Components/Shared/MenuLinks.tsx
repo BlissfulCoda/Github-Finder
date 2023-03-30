@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import {motion} from 'framer-motion'
 
 import { BsArrowRight, BsDot } from "react-icons/bs";
 import UserSearch from "../Users/UserSearch";
@@ -19,9 +20,17 @@ export default function MenuLinks(): JSX.Element {
 
   const { users, } = useContext(GithubContext) as GithubContextInterface;
   return (
-    <div className="flex tablet:flex items-center space-x-4 font-Lustria tracking-wide">
+    <motion.div
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.7 }}
+      className="flex tablet:flex items-center space-x-4 font-Lustria tracking-wide"
+    >
       {search ? (
-        <UserSearch placeholder="Enter Github Username" button={button} />
+        <span className="hidden tablet:flex">
+          <UserSearch placeholder="Enter Github Username" button={button} />
+        </span>
       ) : !users.length ? (
         <Button className="hidden tablet:flex" onClick={() => setSearch(true)}>
           <SearchSVG className="text-blue-900 searchButton " />
@@ -49,6 +58,6 @@ export default function MenuLinks(): JSX.Element {
           <BsArrowRight />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }

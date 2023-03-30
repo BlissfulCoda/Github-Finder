@@ -2,7 +2,7 @@ import { createContext, useReducer, useEffect } from "react";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
-import { GITHUB_URL, FEEDBACK_URL, MARVEL_URL } from "../config";
+import { GITHUB_URL, FEEDBACK_URL } from "../config";
 
 export type UserInterface = {
   [index: string]: string | undefined;

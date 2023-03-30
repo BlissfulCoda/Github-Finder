@@ -25,15 +25,23 @@ export const charaterCollection: string[] = [
 ];
 
 export const randomCharacterIdx = function* (): any {
-  const charLength = charaterCollection.length;
+  let length: number = charaterCollection.length;
+  let i = 0;
+  while (i < length) {
+    const randomIndex: number = Math.floor(
+      Math.random() * charaterCollection.length
+    );
 
-  while (charLength) {
-    const randomName = yield charaterCollection[
-      Math.floor(Math.random() * charaterCollection.length)
-    ];
-
-    const randomCharacter = charaterCollection.splice(randomName, 1);
-    console.log(charLength);
-    return yield randomCharacter.join("");
+    const randomCharacter = charaterCollection.splice(randomIndex, 1).join("");
+    console.log(charaterCollection.length);
+    i++;
+    yield randomCharacter;
   }
+};
+
+// GET a random characater name
+export const randomeMarvelCharacter = () => {
+  const randomCharacterGenerator = randomCharacterIdx();
+
+  return randomCharacterGenerator.next().value;
 };
