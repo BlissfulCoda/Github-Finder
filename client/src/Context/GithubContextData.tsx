@@ -153,6 +153,8 @@ export const GithubProvider = ({
   // Clear search results
   const clearUsers = () => dispatch({ type: REDUCER_ACTION_TYPE.CLEAR_USERS });
 
+  
+
   return (
     <GithubContext.Provider
       value={{

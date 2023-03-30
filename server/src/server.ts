@@ -1,5 +1,5 @@
 import express, { Express } from "express";
-import path from 'path'
+import path from "path";
 
 import dotenv from "dotenv";
 import cors from "cors";
@@ -15,11 +15,10 @@ const PORT = 8000;
 server.use(cors({ origin: "*" }));
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
-server.use(express.static(path.join(__dirname, 'assets')))
+server.use(express.static(path.join(__dirname, "assets")));
 
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));
-server.use("/marvel", require("./routes/marvelRoutes"));
 
 mongoose.set("strictQuery", false);
 const db = mongoose.connect(process.env.MONGO_URL ?? "").then(() => {

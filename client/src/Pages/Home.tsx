@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext} from "react";
 import Header from "../Components/Layout/Header";
 import UserResults from "../Components/Users/UserResults";
 
@@ -9,7 +9,7 @@ export default function Home(): JSX.Element {
 
   return (
     <section
-      className={`flex flex-col mb-2 page-layout transition-class ${
+      className={`flex flex-col mb-1 page-layout transition-class ${
         users.length > 0 ? "bg-black" : "tablet:bg-Earth"
       } justify-between 
         bg-no-repeat bg-[length:510px_510px] tablet:bg-black  bg-[center_top_6rem] sm:bg-[length:550px_550px] sm:bg-[center_top_5rem] tablet:bg-[length:560px_560px] tablet:bg-opacity-60 tablet:py-4 tablet:bg-[center_top_2rem]
@@ -18,7 +18,7 @@ export default function Home(): JSX.Element {
       <Header />
       <>
         {users.length ? (
-          <div className="tablet:mb-20  flex tablet:px-8">
+          <div className="tablet:mb-20 flex tablet:px-8">
             <UserResults />
           </div>
         ) : (

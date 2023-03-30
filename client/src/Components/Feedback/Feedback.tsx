@@ -1,6 +1,6 @@
 import { useState } from "react";
-// import Geralt from "../../assets/Geralt.png";
 import { characterCollection } from "../../config";
+import Geralt from "../../assets/Geralt.png";
 
 export default function Feedback({ item }): JSX.Element {
   const [showBackground, setshowBackground] = useState<boolean>(false);
@@ -15,17 +15,17 @@ export default function Feedback({ item }): JSX.Element {
         showBackground
           ? "border border-y-0 border-r-0 hover:border-l-100 hover:border-l-indigo-700/90 "
           : " border-transparent"
-      } transition-class `}
+      } `}
     >
-      <div className="space-x-2 border border-x-0 border-t-0 border-white/20 border-[.50px] flex items-center py-3 px-2 font-Inter font-base tracking-wide hover:opacity-100 ">
+      <div className="space-x-2 border border-x-0 border-t-0 border-white/20 border-[.50px] flex items-center py-3 px-2 font-Inter font-base tracking-wide hover:opacity-100 bg-[#11131A] bg-opacity-5">
         <section className="flex items-center space-x-3 tablet:space-x-2">
           <figure
             className={` ${
               showBackground ? "border-indigo-900" : "border-transparent "
-            } w-14 h-14 tablet:w-14 tablet:h-14 rounded-full overflow-hidden border transition-class`}
+            } w-14 h-14 tablet:w-11 tablet:h-11 rounded-full overflow-hidden border transition-class laptop:h-12 laptop:w-12 desktop:w-14 desktop:h-14`}
           >
             <img
-              src={characterCollection[0][item.characterName]}
+              src={characterCollection[0][item.characterName] ?? Geralt}
               alt="geralt of riviera"
               className="h-full w-20 tablet:w-full object-cover object-top contrast-50"
             />
@@ -34,12 +34,14 @@ export default function Feedback({ item }): JSX.Element {
         </section>
         <section className="w-full pl-1 ">
           <div className="flex justify-between items-center w-full">
-            <span className="text-[9px] tablet:text-[10px] opacity-100 font-think -mb-0">
-              {item.characterName}
+            <span className="text-[9px] tablet:text-[8px] opacity-100 font-think -mb-1">
+              {item.characterName ?? "Geralt"}
             </span>
             <span
               className={`text-[7px] tablet:text-[6px] ${
-                showBackground ? "opacity-70" : "opacity-40"
+                showBackground
+                  ? "opacity-70 duration-700"
+                  : "opacity-40 duration-700"
               }`}
             >
               {item.created}

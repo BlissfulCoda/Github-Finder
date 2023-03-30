@@ -53,7 +53,6 @@ export const characterCollection = [
     Namor,
     Thor,
     Valkyrie,
-    Wanda,
     Baron,
     "Wanda Maximoff": Wanda,
     Yelena,

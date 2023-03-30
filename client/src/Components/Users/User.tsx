@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { UserInterface } from "../../Context/GithubContextData";
+
 
 type UserProps = {
   user: UserInterface;
@@ -8,6 +9,9 @@ type UserProps = {
 
 export default function User({ user }: UserProps): JSX.Element {
   const [hoverText, setHoverText] = useState<boolean>(false);
+
+
+ 
 
   const { login, avatar_url } = user;
   return (
@@ -20,7 +24,7 @@ export default function User({ user }: UserProps): JSX.Element {
           <img
             src={avatar_url}
             alt="Profile"
-            className={`brightness-75 hover:brightness-100 object-top h-full w-full object-cover `}
+            className={`brightness-75 hover:brightness-100 object-top h-full w-full object-cover duration-1000 contrast-75`}
             onMouseEnter={() => setHoverText(true)}
             onMouseLeave={() => setHoverText(false)}
             loading="lazy"

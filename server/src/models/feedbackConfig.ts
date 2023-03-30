@@ -19,8 +19,6 @@ export const charaterCollection: string[] = [
   "Namor",
   "Thor",
   "Valkyrie",
-  "Wanda",
-  "Baron",
   "Wanda Maximoff",
   "Yelena",
   "Yondu",
@@ -38,11 +36,4 @@ export const randomCharacterIdx = function* (): any {
     console.log(charLength);
     return yield randomCharacter.join("");
   }
-};
-
-// GET a random characater name
-const randomeMarvelCharacter = () => {
-  const randomCharacterGenerator = randomCharacterIdx();
-  console.log(randomCharacterGenerator.next().value);
-  return randomCharacterGenerator.next().value;
 };

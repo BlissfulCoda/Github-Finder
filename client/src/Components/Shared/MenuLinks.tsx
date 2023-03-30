@@ -17,9 +17,9 @@ const button = <RxCross1 className="opacity-40 w-3" />;
 export default function MenuLinks(): JSX.Element {
   const [search, setSearch] = useState<boolean>(false);
 
-  const { users } = useContext(GithubContext) as GithubContextInterface;
+  const { users, } = useContext(GithubContext) as GithubContextInterface;
   return (
-    <div className="flex  tablet:flex items-center space-x-4 font-Lustria tracking-wide">
+    <div className="flex tablet:flex items-center space-x-4 font-Lustria tracking-wide">
       {search ? (
         <UserSearch placeholder="Enter Github Username" button={button} />
       ) : !users.length ? (

@@ -1,4 +1,4 @@
-import { BsArrowLeftShort, BsArrowDown, BsDot } from "react-icons/bs";
+import { BsArrowDown, BsDot } from "react-icons/bs";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -8,9 +8,7 @@ import Spinner from "../Components/Shared/Spinner";
 import UserRepos from "../Components/Repos/UserRepos";
 import ArrowLink from "../Components/Shared/ArrowLink";
 
-import Button from "../Components/Shared/Button";
-
-import { ReactComponent as Bell } from "../assets/Bell.svg";
+import FeedbackBell from "../Components/Shared/FeedbackBell";
 
 import GithubContext from "../Context/GithubContextData";
 import { GithubContextInterface } from "../Context/GithubContextData";
@@ -72,8 +70,8 @@ export default function Profile(): JSX.Element {
               <img
                 src={avatar_url}
                 alt={`image of ${userLogin}`}
-                className={` h-1/2 sm:h-[400px] w-full object-cover object-top opacity-80 tablet:h-[490px]
-                  laptop:h-[550px] contrast-50`}
+                className={`h-1/2 sm:h-[400px] w-full object-cover object-top opacity-80 tablet:h-[490px]
+                  laptop:h-[550px] contrast-100`}
               />
             </figure>
             <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-2">
@@ -143,17 +141,7 @@ export default function Profile(): JSX.Element {
           className="hidden w-14 laptop:w-20 desktop:w-16 h-full tablet:flex flex-col
       justify-between items-center text-xs pt-14"
         >
-          <Link
-            to="/feedback"
-            className="flex relative justify-center items-center"
-          >
-            <Bell className="h-5 w-4 " />
-            <BsDot
-              size={21}
-              className="absolute -right-2 -top-3 pt-1"
-              color={"red"}
-            />
-          </Link>
+          <FeedbackBell />
         </div>
       </section>
     );

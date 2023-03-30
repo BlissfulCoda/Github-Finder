@@ -5,7 +5,7 @@ import { randomCharacterIdx } from "../models/feedbackConfig";
 // GET a random characater name
 const randomeMarvelCharacter = () => {
   const randomCharacterGenerator = randomCharacterIdx();
-  console.log(randomCharacterGenerator.next().value);
+  console.log(randomCharacterGenerator.next().done);
   return randomCharacterGenerator.next().value;
 };
 
@@ -18,13 +18,6 @@ export const feedback = async (req: Request, res: Response) => {
   const d = new Date();
   d.toISOString().replace(/T.*/, "").split("-").reverse().join("-");
   const { body } = req;
-  // body.created_at = d.toLocaleDateString("default", {
-  //   hour: "numeric",
-  //   minute: "numeric",
-  //   second: "numeric",
-  //   timeZone: "Europe/London",
-  // });
-
   const newFeedback = new Feedback({
     feedback: body.feedback,
     created: (body.created_at = d

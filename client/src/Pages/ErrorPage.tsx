@@ -8,12 +8,12 @@ export default function ErrorPage(): JSX.Element {
   return (
     <section
       className="text-white p-2 page-layout tablet:bg-black 
-     profile-border tablet:p-10 tablet:block"
+     profile-border tablet:p-10 tablet:block tablet:bg-opacity-30 tablet:border-indigo-800/50 tablet:border-opacity-60"
     >
       <ArrowLink link="/">
         <BsArrowLeftShort
           size={25}
-          className="text-white bg-gray-100 rounded-full p-1 bg-opacity-30 contrast-250 outline outline-white/30"
+          className="text-white bg-gray-100 rounded-full p-1 bg-opacity-30 contrast-250 outline outline-white/20"
         />
       </ArrowLink>
       <section className="flex flex-col justify-center items-center h-full mb-20 mt-24 pl-5 sm:mb-24 sm:mt-28 tablet:mt-0 tablet:h-full tablet:mb-60">

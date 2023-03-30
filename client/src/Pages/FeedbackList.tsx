@@ -24,7 +24,7 @@ export default function FeedbackList(): JSX.Element {
   ) as GithubContextInterface;
 
   useEffect(() => {
-    feedback.length >= Object.keys(characterCollection[0]).length &&
+    feedback.length > Object.keys(characterCollection[0]).length - 1 &&
       setRevealText(true);
   }, [feedback]);
 
@@ -36,15 +36,20 @@ export default function FeedbackList(): JSX.Element {
   };
 
   const feedbackItem = (
-    <ul className="group space-y-[4px] h-[510px] overflow-y-scroll mb-4 ">
+    <ul className="group space-y-[4px] h-[500px] tablet:h-[370px] laptop:h-[430px] overflow-y-scroll mb-4 sm:mb-8 group duration-1000">
       {feedback.map((item) => (
-        <FeedbackItem key={item._id} item={item} />
+        <span
+          key={item._id}
+          className="group-hover:opacity-90 duration-1000 hover:!opacity-100"
+        >
+          <FeedbackItem item={item} />
+        </span>
       ))}
     </ul>
   );
 
   return (
-    <section className="page-layout main-settings tablet:flex rounded-xl tablet:border tablet:border-indigo-800/50 tablet:border-opacity-60 transition-class px-1 ">
+    <section className="page-layout main-settings tablet:flex rounded-xl tablet:border tablet:border-indigo-800/60 tablet:border-opacity-60 transition-class ">
       {/* LEFT SECTION */}
       <section className="hidden tablet:flex w-7/12 laptop:w-8/12  feedbackOverlay">
         <main className="space-y-1 flex flex-col items-center justify-center text-center w-full font-Maitree h-3/5 pl-2 my-5 tablet:pl-72 tablet:mt-32 laptop:pl-96 laptop:mt-36">
@@ -59,8 +64,8 @@ export default function FeedbackList(): JSX.Element {
       </section>
 
       {/* RIGHT SECTION */}
-      <section className="nav tablet:w-6/12 tablet:pt-4 tablet:pl-5 laptop:w-7/12 laptop:pl-0 feedbackOverlay tablet:h-full tablet:w-full desktop:pl-10 ">
-        <section className="flex justify-between items-center mb-12">
+      <section className="nav tablet:w-6/12 tablet:pt-4 tablet:pl-5 laptop:w-7/12 laptop:pl-0 feedbackOverlay tablet:h-full tablet:w-full desktop:pl-4 ">
+        <section className="flex justify-between items-center mb-10 sm:mb-12 tablet:mb-8 pr-2 sm:pr-0 ">
           <ArrowLink link="/">
             <IoIosArrowRoundBack
               size={26}
@@ -90,7 +95,7 @@ export default function FeedbackList(): JSX.Element {
                 }`}
               />
               {revealText ? (
-                <HiLockClosed className="bg-white/30 h-7 w-7 rounded-full p-1 text-indigo-900 absolute right-24 top-1 sm:top-3 tablet:top-1 text-sm" />
+                <HiLockClosed className="bg-white/20 h-8 w-8 rounded-full p-1 text-indigo-900 absolute right-24 top-0 sm:top-1 sm:right-32 tablet:top-0 tablet:h-7 tablet:w-7 tablet:right-16 tablet:-top-1 text-sm laptop:right-20" />
               ) : (
                 <span className="absolute right-3 top-2 sm:top-3 tablet:top-1 text-sm">
                   😃
@@ -98,24 +103,22 @@ export default function FeedbackList(): JSX.Element {
               )}
             </div>
           </form>
-          <FeedbackBell />
+          <span className="pt-2">
+            <FeedbackBell />
+          </span>
         </section>
         {feedback.length === 0 ? <Spinner /> : feedbackItem}
         {/* Feedback Message */}
         <div
           className={`${
-            revealText
-              ? "flex justify-between items-center relative "
-              : "hidden"
+            revealText ? "flex justify-center items-center relative " : "hidden"
           }`}
         >
-          <span></span>
-          <span className="border border-x-0 border-t-0 w-20 h-[.004px] border-white/40 border-[.50px] absolute"></span>
-          <h6 className="text-xs text-center opacity-50">
+          <span className="border border-x-0 border-t-0 w-20 h-[.004px] border-white/30 border-[.50px] absolute left-0 tablet:w-12"></span>
+          <h6 className="text-[11px] text-center opacity-50 tablet:text-[8px] laptop:text-[10px]">
             That's all the feedback at this time!
           </h6>
-          <span className="border border-x-0 border-t-0 w-20 h-[.004px] border-white/40 border-[.50px] absolute right-0"></span>
-          <span></span>
+          <span className="border border-x-0 border-t-0 w-20 h-[.004px] border-white/30 border-[.50px] absolute right-0 tablet:w-12"></span>
         </div>
       </section>
     </section>
