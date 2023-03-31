@@ -1,4 +1,4 @@
-import {motion, Variant} from 'framer-motion'
+import { motion, Variant } from "framer-motion";
 
 export const GITHUB_URL = "http://localhost:8000/github";
 
@@ -7,15 +7,15 @@ export const FEEDBACK_URL = "http://localhost:8000/feedback";
 export const BEHANCE =
   "https://www.behance.net/portfolio/editor?project_id=164626013";
 
-  type names = {
-    [key: string]: string
-  }
+type names = {
+  [key: string]: string;
+};
 
 import Ajax from "./assets/Images/Ajax.png";
 import Agent from "./assets/Images/AgentMobius.png";
 import Aneka from "./assets/Images/Aneka.png";
 import AC from "./assets/Images/AC.png";
-import Ant from "./assets/Images/Ant-Man.png";
+import Ant from "./assets/Images/AntMan.png";
 import Ayo from "./assets/Images/Ayo.png";
 import Baron from "./assets/Images/Baron.png";
 import Drax from "./assets/Images/Drax.png";
@@ -62,4 +62,3 @@ export const characterCollection: names[] = [
     Yondu,
   },
 ];
-
