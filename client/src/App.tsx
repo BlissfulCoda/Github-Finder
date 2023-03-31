@@ -22,15 +22,15 @@ function App() {
                 <Route path="/notfound" element={<ErrorPage />} />
                 <Route path="/*" element={<ErrorPage />} />
               </Routes>
-              <Toaster
-                toastOptions={{
-                  className: "toast-options",
-                }}
-                position="bottom-center"
-                reverseOrder={false}
-              />
-              <Footer />
             </main>
+            <Toaster
+              toastOptions={{
+                className: "toast-options",
+              }}
+              position="bottom-center"
+              reverseOrder={false}
+            />
+            <Footer />
           </div>
         </Router>
       </GithubProvider>
