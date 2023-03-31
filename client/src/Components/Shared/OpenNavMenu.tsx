@@ -9,7 +9,7 @@ import GithubContext from "../../Context/GithubContextData";
 import { GithubContextInterface } from "../../Context/GithubContextData";
 
 type OpenNavType = {
-  handleNav?: () => void;
+  handleNav: () => void;
 };
 import { ReactComponent as GithubLogoSVG } from "../../assets/GithubLogo.svg";
 

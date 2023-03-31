@@ -27,8 +27,16 @@ export default function FeedbackList(): JSX.Element {
   useEffect(() => {
     feedback.length === Object.keys(characterCollection[0]).length &&
       setRevealText(true);
-    console.log(Object.keys(characterCollection[0]).length);
   }, [feedback]);
+
+  const Variant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+    },
+  };
 
   //  Submit Form
   const formSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -43,20 +51,11 @@ export default function FeedbackList(): JSX.Element {
         {feedback.map((item, i) => (
           <motion.span
             key={item._id}
-            variants={{
-              hidden: {
-                opacity: 0,
-                y: -50
-              },
-              visible: (i: number) => ({
-                opacity: 1,
-                y: 0
-              }),
-            }}
+            variants={Variant}
             initial="hidden"
             animate="visible"
             custom={i}
-            transition={{ duration: 0.6, delay: i * 0.025 }}
+            transition={{ duration: 0.6, delay: i * 0.05 }}
             className="group-hover:opacity-90 duration-1000 hover:!opacity-100"
           >
             <FeedbackItem item={item} />

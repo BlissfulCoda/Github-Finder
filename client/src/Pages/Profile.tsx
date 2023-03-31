@@ -70,14 +70,14 @@ export default function Profile(): JSX.Element {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="relative tablet:w-[300px] tablet:order-2 laptop:w-[380px] desktop:w-[400px]"
           >
             <figure>
               <img
                 src={avatar_url}
                 alt={`image of ${userLogin}`}
-                className={`h-1/2 sm:h-[400px] w-full object-cover object-top opacity-80 tablet:h-[490px]
+                className={`h-1/3 sm:h-[400px] w-full object-cover object-top opacity-80 tablet:h-[490px]
                   laptop:h-[550px] desktop:h-[580px]  contrast-100`}
               />
             </figure>
@@ -86,7 +86,7 @@ export default function Profile(): JSX.Element {
                 <ArrowLink link="/">
                   <IoIosArrowRoundBack
                     size={25}
-                    className="text-white bg-white/60 rounded-full p-1 bg-opacity-90 contrast-50 outline outline-white/5 tablet:hidden "
+                    className="text-white bg-white/30 rounded-full p-1 bg-opacity-70 contrast-50 outline outline-white/5 tablet:hidden "
                   />
                 </ArrowLink>
 
@@ -126,10 +126,10 @@ export default function Profile(): JSX.Element {
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, delay: 0.05 }}
-                className="flex text-white text-[12px] justify-between opacity-80 text-thin tablet:text-[10px]  "
+                className="flex text-white text-[10px] justify-between opacity-80 text-thin tablet:text-[10px]  "
               >
-                <h3 className="opacity-60">Latest Repositories</h3>
-                <div className="flex space-x-6 pr-2 opacity-60">
+                <h3 className="opacity-50">Latest Repositories</h3>
+                <div className="flex space-x-6 pr-2 opacity-50">
                   {location && <h3>{location}</h3>}
                   {website && <a href={website}>Website</a>}
                   {html_url && (

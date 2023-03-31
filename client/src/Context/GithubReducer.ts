@@ -32,7 +32,7 @@ const githubReducer = (
     case REDUCER_ACTION_TYPE.GET_REPOS:
       return { ...state, repos: action.payload ?? [], loading: false };
     case REDUCER_ACTION_TYPE.SET_FEEDBACK:
-      return { ...state, feedback: [action.payload, ...state.feedback] };
+      return { ...state, feedback: [...state.feedback, action.payload ?? ""] };
     case REDUCER_ACTION_TYPE.GET_FEEDBACK:
       return { ...state, feedback: action.payload ?? [], loading: false };
     default:

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { characterCollection } from "../../config";
 import Geralt from "../../assets/Geralt.png";
 
-export default function Feedback({ item }): JSX.Element {
+export default function Feedback({ item }: any): JSX.Element {
   const [showBackground, setshowBackground] = useState<boolean>(false);
 
   return (
@@ -25,8 +25,8 @@ export default function Feedback({ item }): JSX.Element {
             } w-14 h-14 tablet:w-11 tablet:h-11 rounded-full overflow-hidden border transition-class laptop:h-12 laptop:w-12 desktop:w-14 desktop:h-14`}
           >
             <img
-              src={characterCollection[0][item.characterName] ?? Geralt}
-              alt="geralt of riviera"
+              src={characterCollection[0][item.characterName]}
+              alt={item.characterName}
               className="h-full w-20 tablet:w-full object-cover object-top contrast-50"
             />
           </figure>
@@ -35,7 +35,7 @@ export default function Feedback({ item }): JSX.Element {
         <section className="w-full pl-1 ">
           <div className="flex justify-between items-center w-full">
             <span className="text-[9px] tablet:text-[8px] opacity-100 font-think -mb-1">
-              {item.characterName ?? "Geralt"}
+              {item.characterName}
             </span>
             <span
               className={`text-[7px] tablet:text-[6px] ${

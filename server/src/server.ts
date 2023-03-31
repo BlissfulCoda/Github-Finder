@@ -14,7 +14,7 @@ const PORT = 8000;
 // ENABLE CORS
 server.use(
   cors({
-    origin: ["http://localhost:3000", "https://github-finder.onrender.com"],
+    origin: ["http://localhost:3000", "http://localhost:4173", "https://github-finder.onrender.com"],
   })
 );
 server.use(express.json());

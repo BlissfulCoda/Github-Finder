@@ -13,7 +13,7 @@ import GithubContext from "../../Context/GithubContextData";
 import { GithubContextInterface } from "../../Context/GithubContextData";
 
 type OpenNavType = {
-  handleNav?: () => void;
+  handleNav: () => void;
 };
 
 const button = <RxCross1 className="opacity-40 w-3" />;

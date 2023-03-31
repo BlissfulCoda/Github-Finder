@@ -8,9 +8,10 @@ export type UserInterface = {
   [index: string]: string | undefined;
 };
 
-type GithubState = {
-  users: UserInterface[];
-  loading: boolean;
+type feedbackTypes = {
+  feedback: String;
+  created?: String;
+  characterName?: String;
 };
 
 export interface GithubContextInterface {
@@ -29,13 +30,22 @@ export interface GithubContextInterface {
   getFeedback: () => void;
 }
 
+type GithubState = {
+  users: UserInterface[];
+  loading: boolean;
+  user: any;
+  repos: any[];
+  showNav: boolean;
+  feedback: any[];
+};
+
 const GithubContext = createContext<GithubContextInterface | null>(null);
 
 type GithubContextProps = {
   children: React.ReactNode;
 };
 
-export const initialState = {
+export const initialState: GithubState = {
   users: [],
   user: {},
   loading: false,
@@ -152,8 +162,6 @@ export const GithubProvider = ({
 
   // Clear search results
   const clearUsers = () => dispatch({ type: REDUCER_ACTION_TYPE.CLEAR_USERS });
-
-  
 
   return (
     <GithubContext.Provider
