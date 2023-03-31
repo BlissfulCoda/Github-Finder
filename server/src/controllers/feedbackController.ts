@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction, Router } from "express";
-import Feedback from "../models/feedback";
+import FeedbackModel from "../models/feedback";
 import { randomeMarvelCharacter } from "../models/feedbackConfig";
 
 const router: Router = express.Router();
@@ -16,7 +16,7 @@ export const feedback = async (
     const d = new Date();
     d.toISOString().replace(/T.*/, "").split("-").reverse().join("-");
     const { body } = req;
-    const newFeedback = new Feedback({
+    const newFeedback = new FeedbackModel({
       feedback: body.feedback,
       created: (body.created_at = d
         .toLocaleDateString("default", {
@@ -43,6 +43,6 @@ export const feedback = async (
 // @route   /feedback
 // @access  Public
 export const getFeedback = async (req: Request, res: Response) => {
-  const feedbacks = await Feedback.find();
+  const feedbacks = await FeedbackModel.find();
   res.json(feedbacks);
 };

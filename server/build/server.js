@@ -5,6 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const allowedOrigins_1 = require("./allowedOrigins");
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
@@ -13,13 +14,10 @@ dotenv_1.default.config();
 const server = (0, express_1.default)();
 const PORT = 8000;
 // "dev": "nodemon --watch \"src/**\" --ext \"ts, json\" --exec \"ts-node src/server.ts\" './dist/index.js' --watch './dist'"
-//   
+//
 // ENABLE CORS
 server.use((0, cors_1.default)({
-    origin: [
-        "http://localhost:3000",
-        "https://github-finder-y715.onrender.com/",
-    ],
+    origin: allowedOrigins_1.allowedOrigins,
 }));
 server.use(express_1.default.json());
 server.use(express_1.default.urlencoded({ extended: false }));
