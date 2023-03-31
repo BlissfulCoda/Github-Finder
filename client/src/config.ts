@@ -11,6 +11,7 @@ type characterNames = {
   [key: string]: string;
 };
 
+// IMAGES
 import Ajax from "./assets/Images/Ajax.png";
 import Agent from "./assets/Images/AgentMobius.png";
 import Aneka from "./assets/Images/Aneka.png";
