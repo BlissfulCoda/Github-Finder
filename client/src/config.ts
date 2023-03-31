@@ -7,7 +7,7 @@ export const FEEDBACK_URL = "http://localhost:8000/feedback";
 export const BEHANCE =
   "https://www.behance.net/portfolio/editor?project_id=164626013";
 
-type names = {
+type characterNames = {
   [key: string]: string;
 };
 
@@ -35,7 +35,7 @@ import Wanda from "./assets/Images/Wanda.png";
 import Yelena from "./assets/Images/Yelena.png";
 import Yondu from "./assets/Images/Yondu.png";
 
-export const characterCollection: names[] = [
+export const characterCollection: characterNames[] = [
   {
     Ajax,
     "Agent Mobius": Agent,
