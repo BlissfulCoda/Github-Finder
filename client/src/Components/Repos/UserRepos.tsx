@@ -31,7 +31,7 @@ export default function UserRepos(): JSX.Element {
   };
 
   return (
-    <motion.div className="space-y-[2px] laptop:space-y-[3px] overflow-y-auto h-screen scrollbar-thin scrollbar-[#0C0E15] tablet:h-[330px] laptop:h-[390px] desktop:h-[430px] ">
+    <motion.div className="space-y-[2px] laptop:space-y-[2px] overflow-y-auto h-screen scrollbar-thin scrollbar-[#0C0E15] tablet:h-[330px] laptop:h-[390px] desktop:h-[430px] ">
       {repos.map((item, i) => (
         <motion.div
           variants={listVariant}
@@ -39,7 +39,7 @@ export default function UserRepos(): JSX.Element {
           initial="hidden"
           transition={{ duration: 0.9, delay: i * 0.1 }}
           key={item.id}
-          className="bg-[#11131A] bg-opacity-30 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[105px] tablet:border-l-[.001rem]"
+          className="bg-[#11131A] bg-opacity-30 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[110px] tablet:border-l-[.01rem] "
         >
           {/* LEFT SIDE */}
           <div className="flex justify-between p-1">
@@ -71,7 +71,10 @@ export default function UserRepos(): JSX.Element {
               </h6>
             </div>
           </div>
-          <h5 className="text-white text-justify text-[10px] mx-5 tablet:mx-3 tracking-tight tablet:leading-3 tablet:tracking-snug leading-relaxed tablet:text-[9px] laptop:text-[10.5px] laptop:leading-4 px-5 laptop:tracking-tighter tablet:px-4 laptop:px-5 text-center mt-2 opacity-50 desktop:leading-normal desktop:px-6 desktop:mx-6">
+          <h5
+            className="text-white text-justify text-[10px] mx-6 sm:text-[10px] tablet:mx-3 tracking-tight tablet:leading-3 tablet:tracking-snug leading-relaxed tablet:text-[8.6px] laptop:text-[9.5px]
+          desktop:text-[10.5px] laptop:leading-4 px-5 laptop:tracking-tighter tablet:px-3 laptop:px-6 text-center mt-3 opacity-50 desktop:leading-normal desktop:px-8 "
+          >
             {item.description}
           </h5>
         </motion.div>

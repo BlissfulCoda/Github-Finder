@@ -78,7 +78,7 @@ export default function Profile(): JSX.Element {
                 src={avatar_url}
                 alt={`image of ${userLogin}`}
                 className={`h-1/3 sm:h-[400px] w-full object-cover object-top opacity-80 tablet:h-[490px]
-                  laptop:h-[550px] desktop:h-[580px]  contrast-100`}
+                  laptop:h-[550px] desktop:h-[580px] contrast-100`}
               />
             </figure>
             <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-1">
@@ -103,7 +103,7 @@ export default function Profile(): JSX.Element {
                 </div>
               </nav>
 
-              <div className="flex text-white text-[8px] space-x-2 border-[0.2px] border-opacity-40 border-y-neutral-50 border-x-0 py-2 font-light w-60 text-right ml-auto pl-7 ">
+              <div className="flex text-white text-[8px] space-x-2 border-[0.01px] border-opacity-20 border-y-neutral-50 border-x-0 py-2 font-light w-60 text-right ml-auto pl-7 ">
                 <h4>
                   {followers} <span className="opacity-40">Followers</span>
                 </h4>

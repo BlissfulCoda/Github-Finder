@@ -55,7 +55,7 @@ export default function FeedbackList(): JSX.Element {
             initial="hidden"
             animate="visible"
             custom={i}
-            transition={{ duration: 0.6, delay: i * 0.05 }}
+            transition={{ duration: 0.9, delay: i * 0.05 }}
             className="group-hover:opacity-90 duration-1000 hover:!opacity-100"
           >
             <FeedbackItem item={item} />
