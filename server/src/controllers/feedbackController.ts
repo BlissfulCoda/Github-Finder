@@ -16,7 +16,6 @@ export const feedback = async (
     const d = new Date();
     d.toISOString().replace(/T.*/, "").split("-").reverse().join("-");
     const { body } = req;
-    // 
     const newFeedback = new FeedbackModel({
       feedback: body.feedback,
       created: (body.created_at = d
