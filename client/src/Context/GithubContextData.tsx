@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
-import { GITHUB_URL, FEEDBACK_URL } from "../config";
+import { BASE_URL } from "../config";
 
 export type UserInterface = {
   [index: string]: string | undefined;
@@ -68,7 +68,7 @@ export const GithubProvider = ({
   const getUsers = async (login: string) => {
     setLoading();
 
-    const response = await fetch(`${GITHUB_URL}/search/users/${login}`);
+    const response = await fetch(`${BASE_URL}/github/search/users/${login}`);
 
     const { items } = await response.json();
 
@@ -82,7 +82,7 @@ export const GithubProvider = ({
   const getUser = async (login: string) => {
     setLoading();
 
-    const response = await fetch(`${GITHUB_URL}/users/${login}`, {
+    const response = await fetch(`${BASE_URL}/github/users/${login}`, {
       method: "GET",
       headers: {
         Accept: "application/json",
@@ -110,7 +110,7 @@ export const GithubProvider = ({
     });
 
     const response = await fetch(
-      `${GITHUB_URL}/users/${login}/repos?${params}`
+      `${BASE_URL}/github/users/${login}/repos?${params}`
     );
 
     const data = await response.json();
@@ -126,7 +126,7 @@ export const GithubProvider = ({
 
     feedback = feedback[0].toUpperCase() + feedback.slice(1);
 
-    const response = await fetch(FEEDBACK_URL, {
+    const response = await fetch(`${BASE_URL}/feedback`, {
       method: "POST",
       body: JSON.stringify({ feedback }),
       headers: {
@@ -145,7 +145,7 @@ export const GithubProvider = ({
   // GET feedback
   const getFeedback = async () => {
     setLoading();
-    const response = await fetch(FEEDBACK_URL, {
+    const response = await fetch(`${BASE_URL}/feedback`, {
       method: "GET",
       headers: {
         Accept: "application/json",
