@@ -4,9 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "build": "rimraf ./build && tsc",
-    "start": "npm run build && node build/index.js",
-    "dev": "nodemon --watch \"src/**\" --ext \"ts, json\" --exec \"ts-node src/server.ts\" './dist/index.js' --watch './dist'"
+    "build": "tsc",
+    "start": "node build/server.js",
+    "dev": "nodemon --watch \"src/**\" --ext \"ts, json\" --exec \"ts-node src/server.ts\""
   },
   "keywords": [],
   "author": "",
@@ -27,7 +27,6 @@
   "devDependencies": {
     "@types/mongoose": "^5.11.97",
     "nodemon": "^2.0.21",
-    "rimraf": "^4.4.1",
     "ts-node": "^10.9.1"
   }
 }

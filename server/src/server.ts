@@ -11,6 +11,8 @@ const server: Express = express();
 
 const PORT = 8000;
 
+// "dev": "nodemon --watch \"src/**\" --ext \"ts, json\" --exec \"ts-node src/server.ts\" './dist/index.js' --watch './dist'"
+
 //   
    // ENABLE CORS
    server.use(

@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = __importDefault(require("express"));
-var githubControllers_1 = require("../controllers/githubControllers");
-var router = express_1.default.Router();
+const express_1 = __importDefault(require("express"));
+const githubControllers_1 = require("../controllers/githubControllers");
+const router = express_1.default.Router();
 // @route  GET api/users
 router.get("/", githubControllers_1.github);
 // @route   GET api/search/users/:login
