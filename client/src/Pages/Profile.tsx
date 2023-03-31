@@ -44,7 +44,7 @@ export default function Profile(): JSX.Element {
     return <Spinner />;
   } else {
     return (
-      <motion.section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 transition-class ">
+      <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 transition-class ">
         {/* LEFT */}
         <div className="hidden tablet:flex flex-col w-12 tablet:items-center justify-start  h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
           <Link to="/">
@@ -70,7 +70,7 @@ export default function Profile(): JSX.Element {
             animate={{ opacity: 1 }}
             initial={{ opacity: 0 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             className="relative tablet:w-[300px] tablet:order-2 laptop:w-[380px] desktop:w-[400px]"
           >
             <figure>
@@ -125,11 +125,11 @@ export default function Profile(): JSX.Element {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, delay: 0.05 }}
+                transition={{ duration: 0.6, delay: 0.05 }}
                 className="flex text-white text-[10px] justify-between opacity-80 text-thin tablet:text-[10px]  "
               >
-                <h3 className="opacity-50">Latest Repositories</h3>
-                <div className="flex space-x-6 pr-2 opacity-50">
+                <h3 className="opacity-60">Latest Repositories</h3>
+                <div className="flex space-x-6 pr-2 opacity-60">
                   {location && <h3>{location}</h3>}
                   {website && <a href={website}>Website</a>}
                   {html_url && (
@@ -156,7 +156,7 @@ export default function Profile(): JSX.Element {
         >
           <FeedbackBell />
         </div>
-      </motion.section>
+      </section>
     );
   }
 }
