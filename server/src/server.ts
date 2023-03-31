@@ -11,7 +11,7 @@ const server: Express = express();
 
 const PORT = 8000;
 
-//  "https://github-finder.onrender.com",
+//   
    // ENABLE CORS
    server.use(
      cors({
