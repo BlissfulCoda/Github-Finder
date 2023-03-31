@@ -81,7 +81,7 @@ export default function Profile(): JSX.Element {
                   laptop:h-[550px] desktop:h-[580px]  contrast-100`}
               />
             </figure>
-            <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-2">
+            <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-1">
               <nav className="flex justify-between">
                 <ArrowLink link="/">
                   <IoIosArrowRoundBack
@@ -151,8 +151,8 @@ export default function Profile(): JSX.Element {
 
         {/* RIGHT */}
         <div
-          className="hidden w-12   h-full tablet:flex flex-col
-      justify-between items-center text-xs pt-16"
+          className="hidden w-12 h-full tablet:flex flex-col
+      justify-between items-center text-xs pt-14"
         >
           <FeedbackBell />
         </div>

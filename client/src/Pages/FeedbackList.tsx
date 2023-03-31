@@ -67,7 +67,7 @@ export default function FeedbackList(): JSX.Element {
   );
 
   return (
-    <section className="page-layout main-settings tablet:flex rounded-xl transition-class">
+    <section className="page-layout profile-border  tablet:flex rounded-xl transition-class">
       {/* LEFT SECTION */}
       <section className="hidden tablet:flex w-7/12 laptop:w-8/12  feedbackOverlay">
         <main className="space-y-1 flex flex-col items-center justify-center text-center w-full font-Maitree h-3/5 pl-2 my-5 tablet:pl-72 tablet:mt-32 laptop:pl-96 laptop:mt-36">
