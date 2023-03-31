@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import {motion} from 'framer-motion'
 
 import { BsArrowRight, BsDot } from "react-icons/bs";
+import {BiSearch} from 'react-icons/bi'
 import UserSearch from "../Users/UserSearch";
 import Button from "../Shared/Button";
 import { RxCross1 } from "react-icons/rx";
@@ -33,7 +34,7 @@ export default function MenuLinks(): JSX.Element {
         </span>
       ) : !users.length ? (
         <Button className="hidden tablet:flex" onClick={() => setSearch(true)}>
-          <SearchSVG className="text-blue-900 searchButton " />
+          <BiSearch className="text-blue-900 searchButton " />
         </Button>
       ) : (
         <UserSearch placeholder="Enter Github Username" button={button} />
