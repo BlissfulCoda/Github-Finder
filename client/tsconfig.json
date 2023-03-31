@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "types": ["node"]
   },
-  "include": ["./src/**/*", "/declaration.d.ts"],
+  "include": ["client/src", "declaration.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

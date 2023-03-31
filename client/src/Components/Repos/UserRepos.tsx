@@ -34,8 +34,8 @@ export default function UserRepos(): JSX.Element {
       initial="hidden"
       className="space-y-[2px] laptop:space-y-[2px] overflow-y-auto h-screen scrollbar-thin scrollbar-[#0C0E15] tablet:h-[330px] laptop:h-[390px] desktop:h-[430px] "
     >
-      {repos.map((item, i) => (
-        <AnimatePresence>
+      <AnimatePresence>
+        {repos.map((item, i) => (
           <motion.div
             variants={listVariant}
             transition={{ duration: 1, delay: i * 0.025 }}
@@ -79,8 +79,8 @@ export default function UserRepos(): JSX.Element {
               {item.description}
             </h5>
           </motion.div>
-        </AnimatePresence>
-      ))}
+        ))}
+      </AnimatePresence>
     </motion.div>
   );
 }
