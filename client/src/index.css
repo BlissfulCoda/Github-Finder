@@ -37,7 +37,7 @@
 }
 
 .userSearch {
-  @apply w-64 h-9 sm:w-72 sm:h-10 tablet:w-44 tablet:h-7 laptop:w-52 desktop:w-56 laptop:h-8 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/70 outline-none border border-x-0 border-t-0 border-[1.5px] text-base pl-9 tablet:pl-6 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[10px];
+  @apply w-64 h-9 sm:w-72 sm:h-10 tablet:w-44 tablet:h-7 laptop:w-52 desktop:w-56 laptop:h-8 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/70 outline-none border border-x-0 border-t-0 border-[1.5px] text-base sm:text-xs pl-9 tablet:pl-6 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[10px];
 }
 
 .nav {

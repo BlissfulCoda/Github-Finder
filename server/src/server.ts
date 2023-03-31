@@ -1,5 +1,5 @@
 import express, { Express } from "express";
-import path from "path";
+import { allowedOrigins } from "./allowedOrigins";
 
 import dotenv from "dotenv";
 import cors from "cors";
@@ -13,16 +13,13 @@ const PORT = 8000;
 
 // "dev": "nodemon --watch \"src/**\" --ext \"ts, json\" --exec \"ts-node src/server.ts\" './dist/index.js' --watch './dist'"
 
-//   
-   // ENABLE CORS
-   server.use(
-     cors({
-       origin: [
-         "http://localhost:3000",
-         "https://github-finder-y715.onrender.com/",
-       ],
-     })
-   );
+//
+// ENABLE CORS
+server.use(
+  cors({
+    origin: allowedOrigins,
+  })
+);
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
