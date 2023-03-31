@@ -3,7 +3,6 @@ export const charaterCollection: string[] = [
   "Agent Mobius",
   "Aneka",
   "America Chavez",
-  "Ant Man",
   "Ayo",
   "Baron Mordor",
   "Drax",

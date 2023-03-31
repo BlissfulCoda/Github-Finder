@@ -15,7 +15,6 @@ import Ajax from "./assets/Images/Ajax.png";
 import Agent from "./assets/Images/AgentMobius.png";
 import Aneka from "./assets/Images/Aneka.png";
 import AC from "./assets/Images/AC.png";
-import Ant from "./assets/Images/AntMan.png";
 import Ayo from "./assets/Images/Ayo.png";
 import Baron from "./assets/Images/Baron.png";
 import Drax from "./assets/Images/Drax.png";
@@ -41,7 +40,6 @@ export const characterCollection: characterNames[] = [
     "Agent Mobius": Agent,
     Aneka,
     "America Chavez": AC,
-    "Ant Man": Ant,
     Ayo,
     "Baron Mordor": Baron,
     Drax,
