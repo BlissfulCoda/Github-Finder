@@ -11,12 +11,16 @@ const server: Express = express();
 
 const PORT = 8000;
 
-// ENABLE CORS
-server.use(
-  cors({
-    origin: ["http://localhost:3000", "http://localhost:4173", "https://github-finder.onrender.com"],
-  })
-);
+//  "https://github-finder.onrender.com",
+   // ENABLE CORS
+   server.use(
+     cors({
+       origin: [
+         "http://localhost:3000",
+         "https://github-finder-y715.onrender.com/",
+       ],
+     })
+   );
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
