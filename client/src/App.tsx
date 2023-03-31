@@ -13,7 +13,7 @@ function App() {
       <GithubProvider>
         <Router>
           <div className="background-settings py-4 ">
-            <main className="container mx-auto px-4 tablet:px-2 desktop:px-4 tablet:px-0 sm:max-w-2xl tablet:max-w-3xl laptop:max-w-5xl desktop:max-w-6xl">
+            <main className="container mx-auto px-2 tablet:px-2 desktop:px-4 tablet:px-0 sm:max-w-2xl tablet:max-w-3xl laptop:max-w-5xl desktop:max-w-6xl">
               <Routes location={location}>
                 <Route path="/" element={<Home />} />
                 <Route path="/user/:login" element={<Profile />} />
