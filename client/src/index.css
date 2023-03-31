@@ -20,6 +20,10 @@
   @apply tablet:bg-black tablet:bg-opacity-0;
 }
 
+.toast-options {
+  @apply bg-[#11131A] bg-opacity-90 border-l-[.05rem] border-l-violet-700 w-full h-16 sm:h-16 p-3 rounded-r-sm 
+}
+
 .background-settings {
   @apply bg-black h-screen text-white bg-Earth bg-no-repeat contrast-200 saturate-200 py-4 brightness-100 bg-[length:500px_500px] bg-[center_top_6rem] sm:bg-[length:570px_570px] sm:bg-[center_top_6.5rem] tablet:bg-blend-hard-light tablet:bg-[length:800px_800px] tablet:bg-[top_left_5rem] laptop:bg-[top_left_24rem] laptop:bg-[length:1000px_1000px] overflow-hidden flex flex-col justify-between items-center tablet:py-8;
 }
@@ -33,11 +37,11 @@
 }
 
 .userSearch {
-  @apply w-64 h-9 sm:w-72 sm:h-10 tablet:w-44 tablet:h-7 laptop:w-52 desktop:w-56 laptop:h-8 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/70 outline-none border border-x-0 border-t-0 border-[1.5px] text-sm pl-9 tablet:pl-6 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[10px];
+  @apply w-64 h-9 sm:w-72 sm:h-10 tablet:w-44 tablet:h-7 laptop:w-52 desktop:w-56 laptop:h-8 rounded-full bg-gradient-to-r from-zinc-800/90 via-zinc-800/70 to-black/90 border-zinc-500/70 outline-none border border-x-0 border-t-0 border-[1.5px] text-base pl-9 tablet:pl-6 laptop:pl-5 placeholder-white focus:outline-none focus:placeholder:opacity-30 placeholder:opacity-70 placeholder:text-[11px] tablet:placeholder:text-[10px];
 }
 
 .nav {
-  @apply mb-8 mt-3;
+  @apply mb-1 mt-3;
 }
 
 .arrow {

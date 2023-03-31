@@ -1,5 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import ErrorPage from "./Pages/ErrorPage";
 import Home from "./Pages/Home";
 import Footer from "./Components/Layout/Footer";
@@ -21,8 +22,15 @@ function App() {
                 <Route path="/notfound" element={<ErrorPage />} />
                 <Route path="/*" element={<ErrorPage />} />
               </Routes>
+              <Toaster
+                toastOptions={{
+                  className: "toast-options",
+                }}
+                position="bottom-center"
+                reverseOrder={false}
+              />
+              <Footer />
             </main>
-            <Footer />
           </div>
         </Router>
       </GithubProvider>

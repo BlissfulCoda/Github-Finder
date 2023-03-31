@@ -81,7 +81,7 @@ export default function Profile(): JSX.Element {
                   laptop:h-[550px] desktop:h-[580px] contrast-100`}
               />
             </figure>
-            <div className="w-full absolute top-2 right-0 h-24 p-1 tablet:pt-1">
+            <div className="w-full absolute top-2 right-0 h-24 pt-1 tablet:pt-1">
               <nav className="flex justify-between">
                 <ArrowLink link="/">
                   <IoIosArrowRoundBack
@@ -90,7 +90,7 @@ export default function Profile(): JSX.Element {
                   />
                 </ArrowLink>
 
-                <div className="flex items-center text-[10px] p-1   relative mb-2">
+                <div className="flex items-center text-[10px] p-1 relative mb-2">
                   <h6 className="text-white">{login}</h6>
                   <BsDot
                     size={20}

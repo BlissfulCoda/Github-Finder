@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { BsThreeDots } from "react-icons/bs";
 import MenuLinks from "./MenuLinks";
@@ -16,8 +17,14 @@ import { ReactComponent as GithubLogoSVG } from "../../assets/GithubLogo.svg";
 export default function OpenNavMenu({ handleNav }: OpenNavType): JSX.Element {
   const { users } = useContext(GithubContext) as GithubContextInterface;
   return (
-    <nav className="flex space-x-2  justify-between tablet:p-4 tablet:h-12 tablet:px-8 laptop:px-10 mb-2 desktop:px-14 laptop:mt-1 items-center ">
-      <GithubLogoSVG className="mr-2"/>
+    <motion.nav
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.9 }}
+      className="flex space-x-2  justify-between tablet:p-4 tablet:h-12 tablet:px-8 laptop:px-10  desktop:px-14 laptop:mt-1 items-center "
+    >
+      <GithubLogoSVG className="mr-2" />
       <MenuLinks />
       {!users.length ? (
         <Link
@@ -25,15 +32,17 @@ export default function OpenNavMenu({ handleNav }: OpenNavType): JSX.Element {
           onClick={() => handleNav()}
           className="text-white rounded-full p-2 outline outline-white/20 tablet:hidden bg-gray-200 bg-opacity-30 "
         >
-          <BsThreeDots size={20} />
+          <span>
+            <BsThreeDots size={22} />
+          </span>
           {/* <CgMenuRight size={20} /> */}
         </Link>
       ) : (
-        <div className="flex space-x-4 sm:space-x-5 h-6 mt-1 tablet:hidden justify-center items-center">
+        <div className="flex space-x-4 sm:space-x-5 h-6 mt-0 tablet:hidden justify-center items-center">
           <FeedbackBell />
           <Behance />
         </div>
       )}
-    </nav>
+    </motion.nav>
   );
 }

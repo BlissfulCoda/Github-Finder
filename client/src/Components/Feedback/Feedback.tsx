@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { characterCollection } from "../../config";
-import Geralt from "../../assets/Geralt.png";
 
 export default function Feedback({ item }: any): JSX.Element {
   const [showBackground, setshowBackground] = useState<boolean>(false);
@@ -47,7 +46,7 @@ export default function Feedback({ item }: any): JSX.Element {
               {item.created}
             </span>
           </div>
-          <span className="text-[12px] tablet:text-[10px] opacity-60 contrast-50">
+          <span className="text-[12px] tablet:text-[10px] opacity-60 contrast-50 ">
             {item.feedback}
           </span>
         </section>

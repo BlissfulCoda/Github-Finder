@@ -1,4 +1,5 @@
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
+import toast from "react-hot-toast";
 import React, { useContext, useState } from "react";
 import { GithubContextInterface } from "../../Context/GithubContextData";
 import GithubContext from "../../Context/GithubContextData";
@@ -25,7 +26,14 @@ export default function UserSearch({
     e.preventDefault();
 
     if (text === "") {
-      console.log("Error..");
+      toast.error("Please enter a valid input", {
+        icon: "🤯",
+        style: {
+          borderRadius: "2px",
+          color: "#fff",
+          fontSize: "13px",
+        },
+      });
     } else {
       getUsers(text);
     }
