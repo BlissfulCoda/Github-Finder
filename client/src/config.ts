@@ -1,5 +1,4 @@
-export const BASE_URL = "http://localhost:8000";
-
+export const BASE_URL = "https://github-finder-api.onrender.com";
 
 export const BEHANCE =
   "https://www.behance.net/portfolio/editor?project_id=164626013";
