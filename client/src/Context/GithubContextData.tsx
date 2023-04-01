@@ -82,17 +82,13 @@ export const GithubProvider = ({
   const getUser = async (login: string) => {
     setLoading();
 
-    const response = await fetch(`${BASE_URL}/github/users/${login}`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-      },
-    });
+    const response = await fetch(`${BASE_URL}/github/users/${login}`);
 
     if (response.status === 404) {
       <Navigate to="/notfound" />;
     } else {
       const data = await response.json();
+      console.log(data)
       dispatch({
         type: REDUCER_ACTION_TYPE.GET_USER,
         payload: data,

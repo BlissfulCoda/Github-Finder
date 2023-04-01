@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import { allowedOrigins } from "./allowedOrigins";
 
 import dotenv from "dotenv";
@@ -20,6 +20,17 @@ server.use(
     origin: allowedOrigins,
   })
 );
+
+server.use((req:Request, res:Response, next:NextFunction) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "*");
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET");
+    return res.status(200).json({});
+  }
+  next();
+});
+
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
