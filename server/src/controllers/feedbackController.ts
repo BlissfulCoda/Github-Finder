@@ -1,5 +1,5 @@
 import express, { Request, Response, NextFunction, Router } from "express";
-import Feedback from "../models/feedback";
+import Feedback from "../models/feedbackModel";
 import { randomeMarvelCharacter } from "../models/feedbackConfig";
 
 const router: Router = express.Router();
