@@ -71,7 +71,6 @@ export const GithubProvider = ({
     const response = await fetch(`${BASE_URL}/github/search/users/${login}`);
 
     const { items } = await response.json();
-
     dispatch({
       type: REDUCER_ACTION_TYPE.GET_USERS,
       payload: items,
@@ -86,6 +85,7 @@ export const GithubProvider = ({
 
     if (response.status === 404) {
       <Navigate to="/notfound" />;
+      console.log(`User data didnt connect`);
     } else {
       const data = await response.json();
       console.log(data)
