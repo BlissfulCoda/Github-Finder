@@ -13,9 +13,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getUserRepos = exports.getUser = exports.getUsers = exports.github = void 0;
-const url_1 = __importDefault(require("url"));
 const axios_1 = __importDefault(require("axios"));
 const Redis_1 = require("../cache/Redis");
+const url_1 = __importDefault(require("url"));
 const DEFAULT_EXPIRATION = 3600;
 const { GITHUB_BASE_URL, GITHUB_TOKEN } = process.env;
 const axiosOptions = {
@@ -55,18 +55,18 @@ const getUsers = (req, res) => {
     }
 };
 exports.getUsers = getUsers;
-// @desc      GET user 
+// @desc      GET user
 // @route     /github/users/:login
 // @access    Public
 const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { login } = req.params;
         const userOptions = Object.assign(Object.assign({}, axiosOptions), { url: `${GITHUB_BASE_URL}/users/${login}`, params: { q: login } });
-        const client = yield (0, Redis_1.initRedisClient)();
-        client.get(login, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
+        const redisClient = yield (0, Redis_1.initRedisClient)();
+        redisClient.get(login, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
             if (error)
                 console.error(error);
-            if (data != null) {
+            if (data !== null) {
                 console.log(`Cache Hit..`);
                 return res.send(JSON.parse(data));
             }
@@ -75,7 +75,7 @@ const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
                 console.log(`Cache Miss..`);
                 axios_1.default.request(userOptions).then((response) => {
                     const data = response.data;
-                    client.setex(login, DEFAULT_EXPIRATION, JSON.stringify(data));
+                    redisClient.setEx(login, DEFAULT_EXPIRATION, JSON.stringify(data));
                     return res.status(200).json(data);
                 });
             }

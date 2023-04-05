@@ -1,0 +1,51 @@
+version: "3.8"
+
+services:
+  ts-node-docker:
+    restart: always
+    container_name: ts-node-docker
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+      dockerfile: Dockerfile
+      target: development
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    environment:
+      - PORT=8000
+      - MONGO_USER=githubfinder
+      - MONGO_PASSWORD=RlMxJgnvzcBRJKN6
+    depends_on:
+      - mongo
+    ports:
+      - "8000:8000"
+    command: npm run dev
+
+  mongo:
+    image: mongo
+    container_name: mongo-db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=githubfinder
+      - MONGO_INITDB_ROOT_PASSWORD=RlMxJgnvzcBRJKN6
+
+    volumes:
+      - mongo-db:/data/db
+    # ports:
+    #   - "27017:27017"
+volumes:
+  mongo-db:
+# redis:
+#   container_name: github-finder-redis
+#   image: redis
+#   restart: always
+#   entrypoint: redis-server --appendonly yes --requirepass github-finder-password --maxmemory 512mb --maxmemory-policy allkeys-lru
+#   networks:
+#     - default
+#   ports:
+#     - "6379:6379"
+#   volumes:
+#     - .db:/data
+

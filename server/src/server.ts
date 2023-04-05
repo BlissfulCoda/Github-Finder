@@ -1,6 +1,11 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import { allowedOrigins } from "./allowedOrigins";
-
+import {
+  MONGO_IP,
+  MONGO_PASSWORD,
+  MONGO_PORT,
+  MONGO_USER,
+} from "./config/config";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -9,11 +14,8 @@ dotenv.config();
 
 const server: Express = express();
 
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
-// "dev": "nodemon --watch \"src/**\" --ext \"ts, json\" --exec \"ts-node src/server.ts\" './dist/index.js' --watch './dist'"
-
-//
 // ENABLE CORS
 server.use(
   cors({
@@ -21,7 +23,7 @@ server.use(
   })
 );
 
-server.use((req:Request, res:Response, next:NextFunction) => {
+server.use((req: Request, res: Response, next: NextFunction) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "*");
   if (req.method === "OPTIONS") {
@@ -35,13 +37,26 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
 server.get("/", (req, res) => {
-  res.send("Home");
+  res.send("Helloo from Docker!!...");
 });
 
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));
 
-mongoose.set("strictQuery", false);
-const db = mongoose.connect(process.env.MONGO_URL ?? "").then(() => {
-  server.listen(PORT, () => console.log(`server listening to port... ${PORT}`));
-});
+const mongoURL: string = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
+
+const connectWithRetry = () => {
+  mongoose
+    .connect(mongoURL)
+    .then(() => console.log(`Successfully connected to DB`))
+    .catch((error) => {
+      console.log(error);
+      setTimeout(() => {
+        connectWithRetry();
+      }, 5000);
+    });
+};
+
+server.listen(PORT, () =>
+  console.log(`server listening in PRODUCTION on port... ${PORT}`)
+);

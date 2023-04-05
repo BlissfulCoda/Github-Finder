@@ -1,7 +1,6 @@
 import { useContext } from "react";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 import Spinner from "../Shared/Spinner";
-
 
 import { GithubContextInterface } from "../../Context/GithubContextData";
 import GithubContext from "../../Context/GithubContextData";
@@ -21,10 +20,10 @@ export default function UserResult(): JSX.Element {
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: .4, delay: i * 0.025 }}
+                transition={{ duration: 0.4, delay: i * 0.025 }}
                 key={user.id}
-                className="group-hover:opacity-70 group-hover:duration-1000 hover:!opacity-100 
-                  hover:!blur-none hover:scale-[1.11] group-hover:duration-500 group-hover:transition hover:z-30 "
+                className="group-hover:!opacity-100 hover:!opacity-20 
+                  hover:!blur-none hover:scale-[1.11] group-hover:duration-600 group-hover:transition hover:z-40 "
               >
                 <User user={user} />
               </motion.span>

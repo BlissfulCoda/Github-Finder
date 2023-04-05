@@ -1,8 +1,9 @@
-import { Request, Response, NextFunction } from "express";
-import url from "url";
 import axios from "axios";
+import { Request, Response } from "express";
 import { initRedisClient } from "../cache/Redis";
+import url from "url";
 const DEFAULT_EXPIRATION: number = 3600;
+
 
 const { GITHUB_BASE_URL, GITHUB_TOKEN } = process.env;
 
@@ -50,39 +51,6 @@ export const getUsers = (req: Request, res: Response) => {
 // @desc      GET user
 // @route     /github/users/:login
 // @access    Public
-// export const getUser = async (req: Request, res: Response) => {
-//   try {
-//     const { login } = req.params;
-
-//     const userOptions = {
-//       ...axiosOptions,
-//       url: `${GITHUB_BASE_URL}/users/${login}`,
-//       params: { q: login },
-//     };
-
-//     const client = await initRedisClient();
-
-//     client.get(login, async (error: any, data: any) => {
-//       if (error) console.error(error);
-//       if (data != null) {
-//         console.log(`Cache Hit..`);
-//         return res.send(JSON.parse(data));
-//       } else {
-//         // Cache Miss...
-//         console.log(`Cache Miss..`);
-
-//         axios.request(userOptions).then((response) => {
-//           const data = response.data;
-//           client.setex(login, DEFAULT_EXPIRATION, JSON.stringify(data));
-//           return res.status(200).json(data);
-//         });
-//       }
-//     });
-//   } catch (error) {
-//     throw new Error("Error!.. can't fetch a single user");
-//   }
-// };
-
 export const getUser = async (req: Request, res: Response) => {
   try {
     const { login } = req.params;
@@ -93,14 +61,29 @@ export const getUser = async (req: Request, res: Response) => {
       params: { q: login },
     };
 
-    axios.request(userOptions).then((response) => {
-      const data = response.data;
-      return res.status(200).json(data);
+    const redisClient = await initRedisClient();
+
+    redisClient.get(login, async (error: any, data: any) => {
+      if (error) console.error(error);
+      if (data !== null) {
+        console.log(`Cache Hit..`);
+        return res.send(JSON.parse(data));
+      } else {
+        // Cache Miss...
+        console.log(`Cache Miss..`);
+
+        axios.request(userOptions).then((response) => {
+          const data = response.data;
+          redisClient.setEx(login, DEFAULT_EXPIRATION, JSON.stringify(data));
+          return res.status(200).json(data);
+        });
+      }
     });
   } catch (error) {
     throw new Error("Error!.. can't fetch a single user");
   }
 };
+
 
 // @desc      GET user repositories
 // @route     /github/users/:login/repos

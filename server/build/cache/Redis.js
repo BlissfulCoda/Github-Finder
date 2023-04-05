@@ -39,7 +39,6 @@ const redisOptions = {
     legacyMode: true,
     url: REDIS_PORT,
 };
-const DEFAULT_EXPIRATION = 3600;
 let redisClient;
 function initRedisClient() {
     return __awaiter(this, void 0, void 0, function* () {

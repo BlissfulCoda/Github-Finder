@@ -6,7 +6,6 @@ const redisOptions = {
   url: REDIS_PORT,
 };
 
-const DEFAULT_EXPIRATION: number = 3600;
 let redisClient: any;
 
 export async function initRedisClient() {

@@ -30,7 +30,7 @@ export default function OpenNavMenu({ handleNav }: OpenNavType): JSX.Element {
         <Link
           to="/"
           onClick={() => handleNav()}
-          className="text-white rounded-full p-2 outline outline-white/20 tablet:hidden bg-gray-200 bg-opacity-30 "
+          className="text-white rounded-full p-2 outline outline-white/20 tablet:hidden bg-gray-200 bg-opacity-30"
         >
           <span>
             <BsThreeDots size={22} />

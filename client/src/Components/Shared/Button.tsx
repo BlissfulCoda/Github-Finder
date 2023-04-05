@@ -9,5 +9,9 @@ export default function Button({
   children,
   ...rest
 }: ButtonTypes): JSX.Element {
-  return <button {...rest}>{children}</button>;
+  return (
+    <button type="button" {...rest}>
+      {children}
+    </button>
+  );
 }
