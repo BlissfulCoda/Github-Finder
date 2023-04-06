@@ -73,8 +73,8 @@ export default function UserRepos(): JSX.Element {
               </div>
             </div>
             <h5
-              className="text-white text-justify text-[10px] mx-6 sm:text-[10px] tablet:mx-3 tracking-tight tablet:leading-3 tablet:tracking-snug leading-relaxed tablet:text-[8.6px] laptop:text-[9.5px]
-          desktop:text-[10.5px] laptop:leading-4 px-5 laptop:tracking-tighter tablet:px-3 laptop:px-6 text-center mt-3 opacity-50 desktop:leading-normal desktop:px-8 "
+              className="text-white text-justify text-[10px] mx-6 sm:text-[10px] tablet:mx-3 tracking-tight tablet:leading-3 tablet:tracking-snug leading-relaxed tablet:text-[9px] laptop:text-[10px]
+           laptop:leading-4 px-5 laptop:tracking-tight tablet:px-3 laptop:px-6 text-center mt-3 opacity-50 desktop:leading-normal desktop:px-8 "
             >
               {item.description}
             </h5>

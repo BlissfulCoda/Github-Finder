@@ -126,7 +126,7 @@ export default function Profile(): JSX.Element {
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.6, delay: 0.05 }}
-                className="flex text-white text-[10px] justify-between opacity-80 text-thin tablet:text-[10px]  "
+                className="flex text-white text-[10px] justify-between opacity-80 text-thin tablet:text-[10px] "
               >
                 <h3 className="opacity-60">Latest Repositories</h3>
                 <div className="flex space-x-6 pr-2 opacity-60">
