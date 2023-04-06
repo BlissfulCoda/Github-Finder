@@ -50,7 +50,7 @@
 }
 
 .searchButton {
-  @apply w-4;
+  @apply w-5 h-5 opacity-90;
 }
 
 .transition-class {
