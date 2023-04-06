@@ -36,9 +36,7 @@ export default function UserRepos(): JSX.Element {
     >
       <AnimatePresence>
         {repos.map((item, i) => (
-          <motion.div
-            variants={listVariant}
-            transition={{ duration: 1, delay: i * 0.025 }}
+          <div
             key={item.id}
             className="bg-[#11131A] bg-opacity-60 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[110px] tablet:border-l-[.01rem] "
           >
@@ -78,7 +76,7 @@ export default function UserRepos(): JSX.Element {
             >
               {item.description}
             </h5>
-          </motion.div>
+          </div>
         ))}
       </AnimatePresence>
     </motion.div>
