@@ -21,7 +21,7 @@
 }
 
 .toast-options {
-  @apply bg-[#11131A] bg-opacity-90 border-l-[.05rem] border-l-violet-700 w-full h-16 sm:h-16 p-3 rounded-r-sm 
+  @apply bg-[#11131A] bg-opacity-90 border-l-[.05rem] border-l-violet-700 w-full h-16 sm:h-16 p-3 rounded-r-sm;
 }
 
 .background-settings {
@@ -46,7 +46,7 @@
 }
 
 .arrow {
-  @apply text-white bg-gray-200 bg-opacity-30 rounded-full p-1 ;
+  @apply text-white bg-gray-200 bg-opacity-30 rounded-full p-1;
 }
 
 .searchButton {
