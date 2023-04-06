@@ -28,7 +28,6 @@ export default function Profile(): JSX.Element {
     following,
     public_repos,
     login,
-    bio,
     location,
     hireable,
     website,
