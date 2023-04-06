@@ -4,7 +4,6 @@ import { initRedisClient } from "../cache/Redis";
 import url from "url";
 const DEFAULT_EXPIRATION: number = 3600;
 
-
 const { GITHUB_BASE_URL, GITHUB_TOKEN } = process.env;
 
 const axiosOptions = {
@@ -64,7 +63,7 @@ export const getUser = async (req: Request, res: Response) => {
     const redisClient = await initRedisClient();
 
     redisClient.get(login, async (error: any, data: any) => {
-      if (error) console.error(error);
+      if (error) return;
       if (data !== null) {
         console.log(`Cache Hit..`);
         return res.send(JSON.parse(data));
@@ -83,7 +82,6 @@ export const getUser = async (req: Request, res: Response) => {
     throw new Error("Error!.. can't fetch a single user");
   }
 };
-
 
 // @desc      GET user repositories
 // @route     /github/users/:login/repos

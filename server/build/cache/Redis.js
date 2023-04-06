@@ -34,17 +34,24 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.initRedisClient = void 0;
 const Redis = __importStar(require("redis"));
-const { REDIS_PORT } = process.env;
+const config_1 = require("../config/config");
 const redisOptions = {
     legacyMode: true,
-    url: REDIS_PORT,
+    url: `redis://redis:6379`,
+    // host: "redis",
+    // port: 6379,
+    //auth_pass: REDIS_PASSWORD,
 };
 let redisClient;
 function initRedisClient() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             redisClient = Redis.createClient(redisOptions);
-            redisClient.on("error", (err) => console.log(`Redis Client redisClient Error - ${err}`));
+            redisClient.on("error", (err) => {
+                console.log(`Redis C
+      lient redisClient Error - ${err}`);
+                redisClient && redisClient.auth(config_1.REDIS_PASSWORD);
+            });
             yield redisClient.connect();
             console.log(`Redis connected..`);
             return redisClient;

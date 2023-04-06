@@ -65,7 +65,7 @@ const getUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const redisClient = yield (0, Redis_1.initRedisClient)();
         redisClient.get(login, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
             if (error)
-                console.error(error);
+                return;
             if (data !== null) {
                 console.log(`Cache Hit..`);
                 return res.send(JSON.parse(data));

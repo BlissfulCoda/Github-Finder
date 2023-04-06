@@ -1,14 +1,9 @@
 import express, { Express, Request, Response, NextFunction } from "express";
 import { allowedOrigins } from "./allowedOrigins";
-import {
-  MONGO_IP,
-  MONGO_PASSWORD,
-  MONGO_PORT,
-  MONGO_USER,
-} from "./config/config";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
+
 // Middleware
 dotenv.config();
 
@@ -37,13 +32,13 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
 server.get("/", (req, res) => {
-  res.send("Helloo from Docker!!...");
+  res.send("Helloo from Docker...!!");
 });
 
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));
 
-const mongoURL: string = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_IP}:${MONGO_PORT}/?authSource=admin`;
+const mongoURL: string = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.rmp91sm.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 
 const connectWithRetry = () => {
   mongoose
@@ -56,7 +51,7 @@ const connectWithRetry = () => {
       }, 5000);
     });
 };
-
+connectWithRetry();
 server.listen(PORT, () =>
   console.log(`server listening in PRODUCTION on port... ${PORT}`)
 );
