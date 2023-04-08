@@ -3,6 +3,10 @@ import { REDIS_PASSWORD } from "../config/config";
 const redisOptions = {
   legacyMode: true,
   url: `redis://redis:6379`,
+
+  // host: "redis",
+  // port: 6379,
+  //auth_pass: REDIS_PASSWORD,
 };
 
 let redisClient: any;

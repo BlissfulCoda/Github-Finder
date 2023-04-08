@@ -15,7 +15,7 @@ export default function User({ user }: UserProps): JSX.Element {
       <section className="p-1 ">
         <div
           className="clip-path-myPolygon
-        hover:border-[3.7px] hover:border-indigo-600 h-44 w-56 sm:w-52 sm:h-52 hover:ml-2 tablet:h-48 tablet:w-52 laptop:w-68 laptop:h-48 relative hover:duration-500 sm:hover:w-[200px] overflow-hidden"
+        hover:border-[3.7px] hover:border-indigo-600 h-36 w-48 sm:w-52 sm:h-52 hover:ml-2 tablet:h-48 tablet:w-52 laptop:w-68 laptop:h-48 relative hover:duration-500 sm:hover:w-[200px] overflow-hidden "
         >
           <img
             src={avatar_url}
