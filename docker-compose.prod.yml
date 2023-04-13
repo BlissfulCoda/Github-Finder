@@ -23,6 +23,11 @@ services:
       context: ./server/
       target: production
     restart: unless-stopped
+    environment:
+      - PORT=${PORT}
+      - MONGO_USER=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - REDIS_URL=${REDIS_URL}
     networks:
       - mern-app
     depends_on:
