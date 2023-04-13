@@ -38,7 +38,7 @@ export default function UserRepos(): JSX.Element {
         {repos.map((item, i) => (
           <div
             key={item.id}
-            className="bg-[#11131A] bg-opacity-60 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[110px] tablet:border-l-[.01rem] "
+            className="bg-[#11131A] bg-opacity-20 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[110px] tablet:border-l-[.01rem] "
           >
             {/* LEFT SIDE */}
             <div className="flex justify-between p-1">
@@ -72,7 +72,7 @@ export default function UserRepos(): JSX.Element {
             </div>
             <h5
               className="text-white text-justify text-[10px] mx-6 sm:text-[10px] tablet:mx-3 tracking-tight tablet:leading-3 tablet:tracking-snug leading-relaxed tablet:text-[9px] laptop:text-[10px]
-           laptop:leading-4 px-5 laptop:tracking-tight tablet:px-3 laptop:px-6 text-center mt-3 opacity-50 desktop:leading-normal desktop:px-8 "
+           laptop:leading-4 px-5 laptop:tracking-tight tablet:px-3 laptop:px-6 text-center mt-3 opacity-60 desktop:leading-normal desktop:px-8 "
             >
               {item.description}
             </h5>

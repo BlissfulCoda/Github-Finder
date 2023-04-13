@@ -4,3 +4,4 @@ Dockerfile
 docker-compose*
 Makefile
 dumb.rdb
+*.md

@@ -12,4 +12,4 @@ FROM development as production
 
 ENV NODE_PATH=./dist
 
-RUN npm run build
+CMD ["node", "build"]

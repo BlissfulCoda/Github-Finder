@@ -5,7 +5,6 @@ services:
     image: frontend
     container_name: react-client
     build:
-      context: ./client/
       target: production
     stdin_open: true
     tty: true
@@ -20,7 +19,6 @@ services:
     image: backend
     container_name: api-server
     build:
-      context: ./server/
       target: production
     restart: unless-stopped
     networks:
@@ -35,10 +33,10 @@ services:
   mongo:
     image: mongo
     container_name: mongo-db
-    restart: always
+    restart: unless-stopped
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=githubfinder
-      - MONGO_INITDB_ROOT_PASSWORD=lcbO37SccyVHZB4k
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     ports:
       - "27017:27017"
     networks:
@@ -48,7 +46,7 @@ services:
 
   redis:
     container_name: redis
-    restart: always
+    restart: unless-stopped
     image: "redis"
     command: redis-server
     networks:
