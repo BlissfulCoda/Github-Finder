@@ -2,9 +2,11 @@
 
 
 <!-- [![Github Finder Gif](/Desktop.gif)][Romie] -->
-[![Github Finder Gif](/Desktop1.gif)][Romie]
+
+[![Github Finder Gif](/Desktop.gif)][Romie]
 ✨ Demo
 
+[![Github Finder Gif](/Demo.gif)][Romie]
 [![Github Finder Gif](/Mobile.gif)][Romie]
 [![Github Finder Gif](/Mobile1.gif)][Romie]
 

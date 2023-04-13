@@ -1,24 +1,17 @@
 FROM node:19-alpine as development
 
-WORKDIR /home/node/app
+WORKDIR /usr/src/app
 
-COPY package.json .
+COPY ./package*.json ./
 
-RUN npm install --only=production
-ARG NODE_ENV
-RUN if [ "$NODE_ENV" = "development" ]; \
-        then npm install; \
-        else npm install --only=production; \
-        fi
+RUN npm install
 
 COPY . .
 
 FROM development as production
 
-EXPOSE 8000
-
 ENV NODE_PATH=./build
 
-CMD ["node", "build/server.js]
+EXPOSE 3000
 
-
+RUN npm run build

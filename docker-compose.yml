@@ -1,0 +1,83 @@
+version: "3.8"
+
+services:
+  client:
+    image: frontend
+    container_name: react-client
+    build:
+      context: ./client/
+      dockerfile: Dockerfile
+      target: development
+    stdin_open: true
+    tty: true
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+    networks:
+      - mern-app
+    depends_on:
+      - server
+    command: npm run dev
+
+  server:
+    image: backend
+    container_name: api-server
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+      target: development
+    restart: always
+    volumes:
+      - ./server/:/usr/src/app
+      - ./server/nodemon.json:/usr/src/app/nodemon.json
+    environment:
+      - PORT=${PORT}
+      - MONGO_USER=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - REDIS_URL=${REDIS_URL}
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - "8000:8000"
+    command: npm run dev
+
+  mongo:
+    image: mongo
+    container_name: mongo-db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    volumes:
+      - mongo-db:/data/db
+
+  redis:
+    container_name: redis
+    restart: always
+    image: "redis"
+    command: redis-server
+    networks:
+      - mern-app
+    ports:
+      - "6379:6379"
+    expose:
+      - 6379
+
+networks:
+  mern-app:
+    driver: bridge
+  host:
+    name: host
+    external: true
+
+volumes:
+  mongo-db:
+  data:

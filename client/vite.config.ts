@@ -6,5 +6,6 @@ export default defineConfig({
   plugins: [react({ include: "**/*.tsx" }), svgr()],
   server: {
     port: 3000,
+    host: true,
   },
 });

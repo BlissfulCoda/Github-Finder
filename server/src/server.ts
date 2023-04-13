@@ -32,7 +32,7 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
 server.get("/", (req, res) => {
-  res.send("Helloo from Docker...!!");
+  res.send("Hello 😃. Welcome to the Github Finder App");
 });
 
 server.use("/github", require("./routes/githubRoutes"));

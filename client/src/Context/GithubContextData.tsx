@@ -1,5 +1,4 @@
 import { createContext, useReducer, useEffect } from "react";
-import toast from "react-hot-toast";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
@@ -88,7 +87,7 @@ export const GithubProvider = ({
       console.log(`User data didnt connect`);
     } else {
       const data = await response.json();
-      console.log(data)
+      console.log(data);
       dispatch({
         type: REDUCER_ACTION_TYPE.GET_USER,
         payload: data,
@@ -130,7 +129,6 @@ export const GithubProvider = ({
       },
     });
 
-    
     const data = await response.json();
     dispatch({
       type: REDUCER_ACTION_TYPE.SET_FEEDBACK,

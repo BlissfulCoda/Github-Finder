@@ -28,7 +28,7 @@ server.use((req, res, next) => {
 server.use(express_1.default.json());
 server.use(express_1.default.urlencoded({ extended: false }));
 server.get("/", (req, res) => {
-    res.send("Helloo from Docker...!!");
+    res.send("Hello 😃. Welcome to the Github Finder App");
 });
 server.use("/github", require("./routes/githubRoutes"));
 server.use("/feedback", require("./routes/feedbackRoutes"));

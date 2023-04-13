@@ -1,0 +1,75 @@
+version: "3.8"
+
+services:
+  client:
+    image: frontend
+    container_name: react-client
+    build:
+      context: ./client/
+      target: production
+    stdin_open: true
+    tty: true
+    ports:
+      - "3000:3000"
+    networks:
+      - mern-app
+    depends_on:
+      - server
+
+  server:
+    image: backend
+    container_name: api-server
+    build:
+      context: ./server/
+      target: production
+    restart: unless-stopped
+    environment:
+      - PORT=${PORT}
+      - MONGO_USER=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - REDIS_URL=${REDIS_URL}
+    networks:
+      - mern-app
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - "8000:8000"
+    command: node build/server.js
+
+  mongo:
+    image: mongo
+    container_name: mongo-db
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=githubfinder
+      - MONGO_INITDB_ROOT_PASSWORD=lcbO37SccyVHZB4k
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-app
+    volumes:
+      - mongo-db:/data/db
+
+  redis:
+    container_name: redis
+    restart: always
+    image: "redis"
+    command: redis-server
+    networks:
+      - mern-app
+    ports:
+      - "6379:6379"
+    expose:
+      - 6379
+
+networks:
+  mern-app:
+    driver: bridge
+  host:
+    name: host
+    external: true
+
+volumes:
+  mongo-db:
+  data:
