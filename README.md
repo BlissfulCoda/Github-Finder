@@ -3,12 +3,12 @@
 
 <!-- [![Github Finder Gif](/Desktop.gif)][Romie] -->
 
-[![Github Finder Gif](/Desktop.gif)][Romie]
+[![Github Finder Gif](/README-Assets/Desktop.gif)][Romie]
 ✨ Demo
 
-[![Github Finder Gif](/Demo.gif)][Romie]
-[![Github Finder Gif](/Mobile.gif)][Romie]
-[![Github Finder Gif](/Mobile1.gif)][Romie]
+[![Github Finder Gif](/README-Assets/Demo.gif)][Romie]
+[![Github Finder Gif](/README-Assets/Mobile.gif)][Romie]
+[![Github Finder Gif](/README-Assets/Mobile1.gif)][Romie]
 
 
 ---
