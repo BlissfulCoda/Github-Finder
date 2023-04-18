@@ -8,12 +8,6 @@ export type UserInterface = {
   [index: string]: string | undefined;
 };
 
-type feedbackTypes = {
-  feedback: String;
-  created?: String;
-  characterName?: String;
-};
-
 export interface GithubContextInterface {
   loading: boolean;
   users: UserInterface[];
@@ -63,6 +57,21 @@ export const GithubProvider = ({
     getFeedback();
   }, []);
 
+  // // Create a WebSocket connection
+  // useEffect(() => {
+  //   const ws = new WebSocket(WEBSOCKET_URL);
+  //   ws.onopen = () => {
+  //     console.log("WebSocket connection opened");
+  //   };
+  //   ws.onclose = () => {
+  //     console.log("WebSocket connection closed");
+  //   };
+  //   return () => {
+  //     console.log("Closing WebSocket connection");
+  //     ws.close();
+  //   };
+  // }, []);
+
   // GET users
   const getUsers = async (login: string) => {
     setLoading();
@@ -87,7 +96,6 @@ export const GithubProvider = ({
       console.log(`User data didnt connect`);
     } else {
       const data = await response.json();
-      console.log(data);
       dispatch({
         type: REDUCER_ACTION_TYPE.GET_USER,
         payload: data,

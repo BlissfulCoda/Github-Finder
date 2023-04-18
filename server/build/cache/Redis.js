@@ -40,7 +40,6 @@ const redisOptions = {
     url: `redis://redis:6379`,
     //host: "redis",
     //port: 6379,
-    //auth_pass: REDIS_PASSWORD,
 };
 let redisClient;
 function initRedisClient() {

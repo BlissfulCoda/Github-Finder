@@ -6,7 +6,6 @@ const redisOptions = {
 
   //host: "redis",
   //port: 6379,
-  //auth_pass: REDIS_PASSWORD,
 };
 
 let redisClient: any;

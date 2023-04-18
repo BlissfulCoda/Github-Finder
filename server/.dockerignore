@@ -1,5 +1,4 @@
-node_modules/
-dist/
+node_modules
 Dockerfile
 .dockerignore
 .git
@@ -7,3 +6,4 @@ Dockerfile
 docker-compose*
 Makefile
 dumb.rdb
+.env

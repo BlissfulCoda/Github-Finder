@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 import { BsArrowRight, BsDot } from "react-icons/bs";
 import {BiSearch} from 'react-icons/bi'
 import UserSearch from "../Users/UserSearch";
-import Button from "../Shared/Button";
+import Button from "./Button";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import { ReactComponent as SearchSVG } from "../../assets/Search.svg";

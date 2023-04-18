@@ -1,15 +1,17 @@
 import express, { Express, Request, Response, NextFunction } from "express";
+import path from "path";
 import { allowedOrigins } from "./allowedOrigins";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
+//import WebSocket from "ws";
 
 // Middleware
 dotenv.config();
 
-const server: Express = express();
-
 const PORT = process.env.PORT || 8000;
+
+const server: Express = express();
 
 // ENABLE CORS
 server.use(
@@ -32,11 +34,11 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
 server.get("/", (req, res) => {
-  res.send("Hello 😃. Welcome to the Github Finder App");
+  res.send("Hellooo from Github Finder App 😀");
 });
 
-server.use("/github", require("./routes/githubRoutes"));
-server.use("/feedback", require("./routes/feedbackRoutes"));
+server.use("/api/github", require("./routes/githubRoutes"));
+server.use("/api/feedback", require("./routes/feedbackRoutes"));
 
 const mongoURL: string = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.rmp91sm.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 
@@ -51,6 +53,22 @@ const connectWithRetry = () => {
       }, 5000);
     });
 };
+
+// const wss = new WebSocket.Server({ server });
+
+// wss.on("connection", (ws: WebSocket) => {
+//   console.log("WebSocket connected");
+
+//   ws.on("message", (message: string) => {
+//     console.log("Received message:", message);
+//     ws.send(`You said: ${message}`);
+//   });
+
+//   ws.on("close", () => {
+//     console.log("WebSocket disconnected");
+//   });
+// });
+
 connectWithRetry();
 server.listen(PORT, () =>
   console.log(`server listening in PRODUCTION on port... ${PORT}`)

@@ -1,43 +1,59 @@
 version: "3.8"
 
 services:
+  # nginx:
+  #   image: nginx:stable-alpine
+  #   restart: always
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: ./nginx
+  #   ports:
+  #     - "4000:80"
+  #   networks:
+  #     - mern-app
+  #   depends_on:
+  #     - api
+  #     - client
+
   client:
     image: frontend
-    container_name: react-client
+    container_name: client
     build:
-      context: ./client/
+      context: ./client
       dockerfile: Dockerfile
       target: development
     stdin_open: true
+    volumes:
+      - ./client/:/usr/src/app
+      - /usr/src/app/node_modules
     tty: true
-    expose:
-      - "3000"
+    environment:
+      - PORT=3000
     ports:
       - "3000:3000"
     networks:
       - mern-app
     depends_on:
-      - server
+      - api
     command: npm run dev
 
-  server:
+  api:
     image: backend
-    container_name: api-server
+    container_name: api
     build:
-      context: ./server/
+      context: ./server
       dockerfile: Dockerfile
       target: development
     restart: always
     volumes:
       - ./server/:/usr/src/app
+      - /usr/src/app/node_modules
       - ./server/nodemon.json:/usr/src/app/nodemon.json
-    environment:
-      - PORT=${PORT}
-      - MONGO_USER=${MONGO_USERNAME}
-      - MONGO_PASSWORD=${MONGO_PASSWORD}
-      - REDIS_URL=${REDIS_URL}
+    env_file: ./server/.env
     networks:
       - mern-app
+    environment:
+      - PORT=8000
     depends_on:
       - mongo
       - redis
@@ -49,13 +65,13 @@ services:
     image: mongo
     container_name: mongo-db
     restart: always
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     ports:
       - "27017:27017"
     networks:
       - mern-app
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     volumes:
       - mongo-db:/data/db
 

@@ -1,10 +1,15 @@
 version: "3.8"
 
 services:
+  nginx:
+    restart: always
+    ports:
+      - "80:80"
   client:
     image: frontend
-    container_name: react-client
+    container_name: client
     build:
+      context: ./client/
       target: production
     stdin_open: true
     tty: true
@@ -13,12 +18,13 @@ services:
     networks:
       - mern-app
     depends_on:
-      - server
+      - api
 
-  server:
+  api:
     image: backend
-    container_name: api-server
+    container_name: api
     build:
+      context: ./server/
       target: production
     restart: unless-stopped
     networks:
@@ -27,16 +33,13 @@ services:
       - mongo
       - redis
     ports:
-      - "8000:8000"
+      - "8000:800"
     command: node build/server.js
 
   mongo:
     image: mongo
     container_name: mongo-db
     restart: unless-stopped
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     ports:
       - "27017:27017"
     networks:
