@@ -32,13 +32,13 @@ export default function UserRepos(): JSX.Element {
       variants={parentVariant}
       animate="visible"
       initial="hidden"
-      className="space-y-[2px] laptop:space-y-[2px] overflow-y-auto h-screen scrollbar-thin scrollbar-[#0C0E15] tablet:h-[330px] laptop:h-[390px] desktop:h-[430px] "
+      className="space-y-[2.5px] laptop:space-y-[2px] overflow-y-auto h-screen scrollbar-thin scrollbar-[#0C0E15] tablet:h-[330px] laptop:h-[390px] desktop:h-[430px] "
     >
       <AnimatePresence>
         {repos.map((item, i) => (
           <div
             key={item.id}
-            className="bg-[#11131A] bg-opacity-20 border-l-[.05rem] border-l-violet-700 w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[110px] tablet:border-l-[.01rem] "
+            className="bg-[#11131A] bg-opacity-20 border-l-[.04rem] border-l-violet-500/70  w-full h-24 sm:h-28 p-3 rounded-r-sm tablet:h-20 laptop:h-24 desktop:h-[110px] tablet:border-l-[.01rem] "
           >
             {/* LEFT SIDE */}
             <div className="flex justify-between p-1">

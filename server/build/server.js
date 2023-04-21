@@ -8,15 +8,13 @@ const allowedOrigins_1 = require("./allowedOrigins");
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
-//import WebSocket from "ws";
 // Middleware
 dotenv_1.default.config();
 const PORT = process.env.PORT || 8000;
 const server = (0, express_1.default)();
 // ENABLE CORS
-server.use((0, cors_1.default)({
-    origin: allowedOrigins_1.allowedOrigins,
-}));
+server.use((0, cors_1.default)(allowedOrigins_1.corsOptions));
+server.enable("trust proxy");
 server.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "*");
@@ -28,7 +26,7 @@ server.use((req, res, next) => {
 });
 server.use(express_1.default.json());
 server.use(express_1.default.urlencoded({ extended: false }));
-server.get("/", (req, res) => {
+server.get("/api", (req, res) => {
     res.send("Hellooo from Github Finder App 😀");
 });
 server.use("/api/github", require("./routes/githubRoutes"));
@@ -45,16 +43,5 @@ const connectWithRetry = () => {
         }, 5000);
     });
 };
-// const wss = new WebSocket.Server({ server });
-// wss.on("connection", (ws: WebSocket) => {
-//   console.log("WebSocket connected");
-//   ws.on("message", (message: string) => {
-//     console.log("Received message:", message);
-//     ws.send(`You said: ${message}`);
-//   });
-//   ws.on("close", () => {
-//     console.log("WebSocket disconnected");
-//   });
-// });
 connectWithRetry();
 server.listen(PORT, () => console.log(`server listening in PRODUCTION on port... ${PORT}`));

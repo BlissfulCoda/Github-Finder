@@ -1,20 +1,22 @@
 version: "3.8"
 
 services:
-  # nginx:
-  #   image: nginx:stable-alpine
-  #   restart: always
-  #   build:
-  #     dockerfile: Dockerfile
-  #     context: ./nginx
-  #   ports:
-  #     - "4000:80"
-  #   networks:
-  #     - mern-app
-  #   depends_on:
-  #     - api
-  #     - client
+  nginx:
+    image: nginx:stable-alpine
+    container_name: nginx_reverse_proxy
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "4000:80"
+    networks:
+      - mern-app
+    depends_on:
+      - api
+      - client
 
+  # React
   client:
     image: frontend
     container_name: client
@@ -27,8 +29,6 @@ services:
       - ./client/:/usr/src/app
       - /usr/src/app/node_modules
     tty: true
-    environment:
-      - PORT=3000
     ports:
       - "3000:3000"
     networks:
@@ -36,7 +36,10 @@ services:
     depends_on:
       - api
     command: npm run dev
+    environment:
+      - CHOKIDAR_USEPOLLING=true
 
+  # Express
   api:
     image: backend
     container_name: api
@@ -52,15 +55,20 @@ services:
     env_file: ./server/.env
     networks:
       - mern-app
-    environment:
-      - PORT=8000
     depends_on:
       - mongo
       - redis
     ports:
       - "8000:8000"
     command: npm run dev
+    environment:
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_DATABASE=${MONGO_DATABASE}
+      - REDIS_URL=${REDIS_URL}
+      - REDIS_PORT=${REDIS_PORT}
 
+  # MongoDB
   mongo:
     image: mongo
     container_name: mongo-db
@@ -75,6 +83,7 @@ services:
     volumes:
       - mongo-db:/data/db
 
+  # REDIS
   redis:
     container_name: redis
     restart: always
@@ -85,7 +94,9 @@ services:
     ports:
       - "6379:6379"
     expose:
-      - 6379
+      - ${REDIS_PORT}
+    volumes:
+      - redis-data:/data
 
 networks:
   mern-app:
@@ -97,3 +108,4 @@ networks:
 volumes:
   mongo-db:
   data:
+  redis-data:

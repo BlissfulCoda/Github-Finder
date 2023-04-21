@@ -12,7 +12,7 @@ export default function Feedback({ item }: any): JSX.Element {
       onMouseLeave={() => setshowBackground(false)}
       className={` ${
         showBackground
-          ? "border border-y-0 border-r-0 hover:border-l-100 hover:border-l-indigo-700/90 bg-[#11131A] bg-opacity-30 duration-100"
+          ? "border border-y-0 border-r-0 hover:border-l-100 hover:border-l-indigo-700/90 bg-[#11131A] bg-opacity-20 duration-100"
           : " border-transparent duration-100"
       } `}
     >
@@ -39,7 +39,7 @@ export default function Feedback({ item }: any): JSX.Element {
             <span
               className={`text-[7px] tablet:text-[6px] ${
                 showBackground
-                  ? "opacity-70 duration-700"
+                  ? "opacity-50 duration-700"
                   : "opacity-40 duration-700"
               }`}
             >

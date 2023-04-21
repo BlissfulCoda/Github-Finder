@@ -2,17 +2,25 @@ version: "3.8"
 
 services:
   nginx:
+    container_name: nginx_reverse_proxy
     restart: always
+    build:
+      dockerfile: Dockerfile
+      target: production
+      context: ./nginx
     ports:
-      - "80:80"
+      - "4000:80"
+    networks:
+      - mern-app
+    depends_on:
+      - api
+      - client
+
   client:
     image: frontend
     container_name: client
     build:
-      context: ./client/
       target: production
-    stdin_open: true
-    tty: true
     ports:
       - "3000:3000"
     networks:
@@ -24,7 +32,7 @@ services:
     image: backend
     container_name: api
     build:
-      context: ./server/
+      context: ./server
       target: production
     restart: unless-stopped
     networks:
@@ -33,17 +41,23 @@ services:
       - mongo
       - redis
     ports:
-      - "8000:800"
+      - "8000:8000"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     command: node build/server.js
 
   mongo:
     image: mongo
     container_name: mongo-db
-    restart: unless-stopped
+    restart: always
     ports:
       - "27017:27017"
     networks:
       - mern-app
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
     volumes:
       - mongo-db:/data/db
 
@@ -62,10 +76,9 @@ services:
 networks:
   mern-app:
     driver: bridge
-  host:
-    name: host
-    external: true
 
 volumes:
   mongo-db:
+    name: mongo-data
   data:
+    name: frontend-data

@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.allowedOrigins = void 0;
-exports.allowedOrigins = [
-    "http://localhost:3000",
-    "http://localhost:4000",
-];
+exports.corsOptions = void 0;
+exports.corsOptions = {
+    origin: "*",
+    credentials: true,
+    optionSuccessStatus: 200,
+};

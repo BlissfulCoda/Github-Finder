@@ -68,7 +68,7 @@ export default function FeedbackList(): JSX.Element {
   return (
     <section className="page-layout profile-border  tablet:flex rounded-xl transition-class">
       {/* LEFT SECTION */}
-      <section className="hidden tablet:flex w-7/12 laptop:w-8/12  feedbackOverlay">
+      <section className="hidden tablet:flex w-7/12 laptop:w-8/12 feedbackOverlay">
         <main className="space-y-1 flex flex-col items-center justify-center text-center w-full font-Maitree h-3/5 pl-2 my-5 tablet:pl-72 tablet:mt-32 laptop:pl-96 laptop:mt-36">
           <motion.div
             initial={{ opacity: 0 }}
@@ -91,7 +91,7 @@ export default function FeedbackList(): JSX.Element {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.9 }}
-          className="flex justify-between items-center mb-14  tablet:mb-8 pr-2 sm:pr-0"
+          className="flex justify-between items-center mb-14 tablet:mb-8 pr-2 sm:pr-0"
         >
           <ArrowLink link="/">
             <IoIosArrowRoundBack

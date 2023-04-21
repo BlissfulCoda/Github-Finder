@@ -30,15 +30,14 @@ export default function OpenNavMenu({ handleNav }: OpenNavType): JSX.Element {
         <Link
           to="/"
           onClick={() => handleNav()}
-          className="text-white rounded-full p-2 outline outline-white/20 tablet:hidden bg-gray-200 bg-opacity-30"
+          className="text-white rounded-full p-2 tablet:hidden bg-gray-200 bg-opacity-30"
         >
           <span>
-            <BsThreeDots size={22} />
+            <BsThreeDots size={20} />
           </span>
-          {/* <CgMenuRight size={20} /> */}
         </Link>
       ) : (
-        <div className="flex space-x-4 sm:space-x-5 h-6 mt-0 tablet:hidden justify-center items-center">
+        <div className="flex space-x-5 sm:space-x-5 h-6 mt-0 tablet:hidden justify-center items-center">
           <FeedbackBell />
           <Behance />
         </div>

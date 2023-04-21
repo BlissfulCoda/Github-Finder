@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import {motion} from 'framer-motion'
+import { motion } from "framer-motion";
 
 import { BsArrowRight, BsDot } from "react-icons/bs";
-import {BiSearch} from 'react-icons/bi'
+import { BiSearch } from "react-icons/bi";
 import UserSearch from "../Users/UserSearch";
 import Button from "./Button";
 import { RxCross1 } from "react-icons/rx";
@@ -19,7 +19,7 @@ const button = <RxCross1 className="opacity-40 w-3" />;
 export default function MenuLinks(): JSX.Element {
   const [search, setSearch] = useState<boolean>(false);
 
-  const { users, } = useContext(GithubContext) as GithubContextInterface;
+  const { users } = useContext(GithubContext) as GithubContextInterface;
   return (
     <motion.div
       animate={{ opacity: 1 }}

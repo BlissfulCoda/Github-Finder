@@ -8,12 +8,8 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 8000
-
 FROM development as production
 
 ENV NODE_PATH=./build
-
-EXPOSE 8000
 
 CMD ["node", "start"]

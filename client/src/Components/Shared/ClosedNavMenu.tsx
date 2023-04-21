@@ -22,7 +22,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
   const { users } = useContext(GithubContext) as GithubContextInterface;
 
   return (
-    <nav className="flex justify-between tablet:mx-auto tablet:h-12 tablet:px-8 laptop:px-10 desktop:px-14 laptop:mt-1 mt-0 items-center ">
+    <nav className="flex justify-between tablet:mx-auto tablet:h-12 tablet:px-8 laptop:px-10 desktop:px-14 laptop:mt-1 -mt-1 items-center ">
       <span className="hidden tablet:flex">
         <GithubLogoSVG />
       </span>
@@ -42,7 +42,7 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
         </span>
         <MenuLinks />
         {/* MOBILE */}
-        <div className="flex space-x-3 sm:space-x-5 h-6 mt-1 tablet:hidden justify-center items-center">
+        <div className="flex space-x-4 sm:space-x-5 h-6 mt-1 tablet:hidden justify-center items-center">
           <FeedbackBell />
           <Behance />
         </div>
