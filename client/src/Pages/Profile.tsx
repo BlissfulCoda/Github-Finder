@@ -85,7 +85,7 @@ export default function Profile(): JSX.Element {
                 <ArrowLink link="/">
                   <IoIosArrowRoundBack
                     size={25}
-                    className="text-gray-300 bg-white/30 rounded-full p-1 bg-opacity-70 contrast-50 outline outline-white/5 tablet:hidden "
+                    className="text-gray-200 bg-black/40 rounded-full p-1 bg-opacity-80 contrast-50 outline outline-white/5 tablet:hidden "
                   />
                 </ArrowLink>
 
