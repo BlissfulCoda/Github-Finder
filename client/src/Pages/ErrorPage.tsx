@@ -3,7 +3,7 @@ import { BsArrowLeftShort } from "react-icons/bs";
 
 import ArrowLink from "../Components/Shared/ArrowLink";
 
-import ErrorIcon from "../assets/Error.svg";
+import ErrorIcon from "../assets/svg/Error.svg";
 
 export default function ErrorPage(): JSX.Element {
   return (
@@ -13,7 +13,7 @@ export default function ErrorPage(): JSX.Element {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
       className="text-white p-2 page-layout tablet:bg-black 
-     profile-border tablet:p-10 tablet:block tablet:bg-opacity-30 tablet:border-indigo-800/50 tablet:border-opacity-60"
+     profile-border tablet:p-10 tablet:block tablet:bg-opacity-30 tablet:border-indigo-700/50 tablet:border-opacity-60"
     >
       <ArrowLink link="/">
         <BsArrowLeftShort

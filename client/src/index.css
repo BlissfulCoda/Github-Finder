@@ -34,7 +34,7 @@ body {
 }
 
 .profile-border {
-  @apply border-transparent tablet:border tablet:border-sky-800/70 rounded-lg tablet:border-opacity-40;
+  @apply border-transparent tablet:border tablet:border-sky-700/60 rounded-lg tablet:border-opacity-40;
 }
 
 .page-layout {

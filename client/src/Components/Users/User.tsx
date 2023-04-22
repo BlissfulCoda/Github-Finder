@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { UserInterface } from "../../Context/GithubContextData";
 
@@ -14,7 +14,7 @@ export default function User({ user }: UserProps): JSX.Element {
       <section className="p-1 ">
         <div
           className="clip-path-myPolygon
-        hover:border-[3.7px] avtive:border-indigo-600 focus:border-indigo-600  hover:border-indigo-600 h-44 w-48 sm:w-52 sm:h-52 hover:ml-2 tablet:h-48 tablet:w-52 laptop:w-68 laptop:h-48 relative hover:duration-500 sm:hover:w-[200px] overflow-hidden"
+        hover:border-[3.7px] active:border-indigo-600 focus:border-indigo-600  hover:border-indigo-600 h-44 w-48 sm:w-52 sm:h-52 hover:ml-2 tablet:h-48 tablet:w-52 laptop:w-68 laptop:h-48 relative hover:duration-700 sm:hover:w-[200px] overflow-hidden"
         >
           <img
             src={avatar_url}
@@ -39,7 +39,7 @@ export default function User({ user }: UserProps): JSX.Element {
               hoverText ? "opacity-100" : "opacity-0"
             }`}
           >
-            {[1, 2, 3].map((item, index) => (
+            {[1, 2, 3].map((index) => (
               <span
                 key={index}
                 className="bg-white rounded-full h-[.2rem] w-[.2rem]"

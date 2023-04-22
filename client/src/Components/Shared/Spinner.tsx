@@ -1,4 +1,4 @@
-import spinner from "../../assets/spinner.gif";
+import spinner from "../../assets/gifs/spinner.gif";
 
 export default function Spinner(): JSX.Element {
   return (

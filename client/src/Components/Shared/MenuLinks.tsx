@@ -7,7 +7,6 @@ import UserSearch from "../Users/UserSearch";
 import Button from "./Button";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import { ReactComponent as SearchSVG } from "../../assets/Search.svg";
 
 import GithubContext from "../../Context/GithubContextData";
 import { GithubContextInterface } from "../../Context/GithubContextData";

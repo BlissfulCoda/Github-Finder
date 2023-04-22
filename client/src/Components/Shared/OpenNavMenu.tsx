@@ -12,7 +12,7 @@ import { GithubContextInterface } from "../../Context/GithubContextData";
 type OpenNavType = {
   handleNav: () => void;
 };
-import { ReactComponent as GithubLogoSVG } from "../../assets/GithubLogo.svg";
+import { ReactComponent as GithubLogoSVG } from "../../assets/svg/GithubLogo.svg";
 
 export default function OpenNavMenu({ handleNav }: OpenNavType): JSX.Element {
   const { users } = useContext(GithubContext) as GithubContextInterface;

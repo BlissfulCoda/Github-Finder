@@ -3,7 +3,6 @@ import { corsOptions } from "./allowedOrigins";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
-// import path from "path";
 // Middleware
 dotenv.config();
 
@@ -27,14 +26,6 @@ server.use((req: Request, res: Response, next: NextFunction) => {
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
-// server.use(express.static(path.join(__dirname, "../../client/dist")));
-
-// server.get("/", (req, res) => {
-//   // res.send("Hellooo from Github Finder App 😀");
-//   res.sendFile(
-//     path.resolve(__dirname, "../../", "client", "dist", "index.html")
-//   );
-// });
 server.get("/", (req, res) => {
   res.send("Hellooo from Github Finder App 😀");
 });

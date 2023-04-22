@@ -5,7 +5,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import MenuLinks from "./MenuLinks";
 import UserSearch from "../Users/UserSearch";
 import Behance from "./Behance";
-import { ReactComponent as GithubLogoSVG } from "../../assets/GithubLogo.svg";
+import { ReactComponent as GithubLogoSVG } from "../../assets/svg/GithubLogo.svg";
 
 import FeedbackBell from "./FeedbackBell";
 
