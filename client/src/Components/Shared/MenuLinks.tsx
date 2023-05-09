@@ -1,15 +1,15 @@
-import { useState, useContext } from "react";
+import { useState, useContext, lazy, Suspense } from "react";
 import { motion } from "framer-motion";
-
 import { BsArrowRight, BsDot } from "react-icons/bs";
 import { BiSearch } from "react-icons/bi";
-import UserSearch from "../Users/UserSearch";
 import Button from "./Button";
 import { RxCross1 } from "react-icons/rx";
 import { Link } from "react-router-dom";
 
 import GithubContext from "../../Context/GithubContextData";
 import { GithubContextInterface } from "../../Context/GithubContextData";
+
+const UserSearch = lazy(() => import("../Users/UserSearch"));
 
 import { BEHANCE } from "../../config";
 

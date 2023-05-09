@@ -1,13 +1,16 @@
-import { useContext } from "react";
+import { useContext, lazy, Suspense } from "react";
 import { Link } from "react-router-dom";
 import { RxCross1 } from "react-icons/rx";
 import { IoIosArrowRoundBack } from "react-icons/io";
-import MenuLinks from "./MenuLinks";
-import UserSearch from "../Users/UserSearch";
-import Behance from "./Behance";
+
+import { motion } from "framer-motion";
+
 import { ReactComponent as GithubLogoSVG } from "../../assets/svg/GithubLogo.svg";
 
-import FeedbackBell from "./FeedbackBell";
+const UserSearch = lazy(() => import("../Users/UserSearch"));
+const Behance = lazy(() => import("./Behance"));
+const FeedbackBell = lazy(() => import("./FeedbackBell"));
+const MenuLinks = lazy(() => import("./MenuLinks"));
 
 import GithubContext from "../../Context/GithubContextData";
 import { GithubContextInterface } from "../../Context/GithubContextData";
@@ -22,7 +25,13 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
   const { users } = useContext(GithubContext) as GithubContextInterface;
 
   return (
-    <nav className="flex justify-between tablet:mx-auto tablet:h-12 tablet:px-8 laptop:px-10 desktop:px-14 laptop:mt-1 -mt-1 items-center ">
+    <motion.nav
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+      className="flex justify-between tablet:mx-auto tablet:h-12 tablet:px-8 laptop:px-10 desktop:px-14 laptop:mt-1 items-center"
+    >
       <span className="hidden tablet:flex">
         <GithubLogoSVG />
       </span>
@@ -36,17 +45,24 @@ export default function ClosedNavMenu({ handleNav }: OpenNavType): JSX.Element {
         )}
       </Link>
 
-      <div className="flex space-x-2 justify-between items-center sm:w-full tablet:justify-end ">
-        <span className="tablet:hidden sm:pl-12">
-          <UserSearch placeholder="Enter Github Username" button={button} />
+      <div className="flex space-x-2 justify-between items-center sm:w-full tablet:justify-end">
+        <span className="tablet:hidden sm:pl-10">
+          <Suspense fallback="">
+            {" "}
+            <UserSearch placeholder="Enter Github Username" button={button} />
+          </Suspense>
         </span>
-        <MenuLinks />
+        <Suspense fallback="">
+          <MenuLinks />
+        </Suspense>
         {/* MOBILE */}
-        <div className="flex space-x-4 sm:space-x-5 h-6 mt-1 tablet:hidden justify-center items-center">
+        <div className="flex space-x-3 sm:space-x-4 h-6 mt-1 tablet:hidden justify-center items-center">
           <FeedbackBell />
-          <Behance />
+          <Suspense fallback="">
+            <Behance />
+          </Suspense>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }

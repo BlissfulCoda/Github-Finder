@@ -4,13 +4,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const allowedOrigins_1 = require("./allowedOrigins");
 const dotenv_1 = __importDefault(require("dotenv"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
+const allowedOrigins_1 = require("./allowedOrigins");
 // Middleware
 dotenv_1.default.config();
-const PORT = process.env.PORT || 8000;
+const PORT = Number(process.env.PORT || 8000);
 const server = (0, express_1.default)();
 // ENABLE CORS
 server.use((0, cors_1.default)(allowedOrigins_1.corsOptions));
@@ -26,11 +26,11 @@ server.use((req, res, next) => {
 });
 server.use(express_1.default.json());
 server.use(express_1.default.urlencoded({ extended: false }));
-server.get("/", (req, res) => {
+server.get("/api", (req, res) => {
     res.send("Hellooo from Github Finder App 😀");
 });
-server.use("/github", require("./routes/githubRoutes"));
-server.use("/feedback", require("./routes/feedbackRoutes"));
+server.use("/api/github", require("./routes/githubRoutes"));
+server.use("/api/feedback", require("./routes/feedbackRoutes"));
 const mongoURL = `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.rmp91sm.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`;
 const connectWithRetry = () => {
     mongoose_1.default
@@ -44,4 +44,4 @@ const connectWithRetry = () => {
     });
 };
 connectWithRetry();
-server.listen(PORT, () => console.log(`server listening in PRODUCTION on port... ${PORT}`));
+server.listen(PORT, "0.0.0.0", () => console.log(`server listening in DEV on port...!! ${PORT}`));

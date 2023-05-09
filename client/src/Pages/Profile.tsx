@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { BsArrowDown, BsDot } from "react-icons/bs";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { useContext, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -43,24 +42,20 @@ export default function Profile(): JSX.Element {
     return <Spinner />;
   } else {
     return (
-      <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 transition-class ">
+      <section className="relative page-layout h-screen profile-border border-opacity-60 tablet:overflow-hidden tablet:flex bg-[#010101] bg-opacity-0 tablet:bg-opacity-40 transition-class">
         {/* LEFT */}
-        <div className="hidden tablet:flex flex-col w-12 tablet:items-center justify-start  h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
+        <div className="hidden tablet:flex flex-col w-12 justify-start pr-2 h-full justify-between pb-6 laptop:pb-10 items-center pt-12">
           <Link to="/">
             <IoIosArrowRoundBack
               size={25}
               className="arrow hidden tablet:block"
             />
           </Link>
-          <span className="text-[7px] flex flex-col items-center justify-center space-y-0 bg-white bg-opacity-20 p-1 hidden">
-            <span className="text-center opacity-30">scroll down</span>
-            <BsArrowDown className="h-7 w-3  animate-pulse" />
-          </span>
         </div>
 
         {/* MIDDLE */}
         <div
-          className="relative tablet:border tablet:border-x-zinc-500 tablet:border-opacity-60 tablet:px-1 
+          className="relative tablet:border tablet:border-x-zinc-500 tablet:border-opacity-40 tablet:px-1 
          tablet:border-y-0 w-full tablet:flex tablet:justify-between tablet:pt-10 
          laptop:pt-11 tablet:space-x-0  tablet:w-full laptop:px-1 desktop:px-4 laptop:w-full "
         >
@@ -85,24 +80,23 @@ export default function Profile(): JSX.Element {
                 <ArrowLink link="/">
                   <IoIosArrowRoundBack
                     size={25}
-                    className="text-gray-200 bg-black/40 rounded-full p-1 bg-opacity-80 contrast-50 outline outline-white/5 tablet:hidden "
+                    className="text-gray-300 bg-black/20 rounded-full p-1 bg-opacity-80 contrast-100 tablet:hidden "
                   />
                 </ArrowLink>
 
-                <div className="flex items-center text-[10px] p-1 relative mb-2">
+                <div className="flex items-center text-[10px] p-1 relative mb-2 mr-1">
                   <h6 className="text-white">{login}</h6>
-                  <BsDot
-                    size={20}
-                    className={`font-light absolute -right-2 -top-2 ${
+                  <span
+                    className={`font-light absolute right-0 top-1 h-1 w-1 rounded-full ${
                       Boolean(hireable)
-                        ? "text-green-400 animate-pulse"
-                        : "text-red-400"
+                        ? "bg-green-400 animate-pulse"
+                        : "bg-red-400"
                     }`}
-                  />
+                  ></span>
                 </div>
               </nav>
 
-              <div className="flex text-white text-[8px] space-x-2 border-[0.01px] border-opacity-20 border-y-neutral-50 border-x-0 py-2 font-light w-60 text-right ml-auto pl-7 ">
+              <div className="flex justify-end  text-white text-[8px] space-x-2 border-[0.01px] border-opacity-20 border-y-neutral-50 border-x-0 py-2 font-light w-60 text-end ml-auto mr-2 ">
                 <h4>
                   {followers} <span className="opacity-40">Followers</span>
                 </h4>
@@ -124,11 +118,11 @@ export default function Profile(): JSX.Element {
                 animate={{ opacity: 1 }}
                 initial={{ opacity: 0 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.6, delay: 0.05 }}
-                className="flex text-white text-[10px] justify-between opacity-80 text-thin tablet:text-[10px] "
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="flex text-white text-[10px] sm:text-[11px] justify-between opacity-80 text-thin tablet:text-[10px] "
               >
                 <h3 className="opacity-60">Latest Repositories</h3>
-                <div className="flex space-x-6 pr-2 opacity-60">
+                <div className="flex space-x-6 pr-1 opacity-60">
                   {location && <h3>{location}</h3>}
                   {website && <a href={website}>Website</a>}
                   {html_url && (

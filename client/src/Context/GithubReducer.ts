@@ -1,4 +1,3 @@
-import Feedback from "../Components/Feedback/Feedback";
 import { initialState } from "./GithubContextData";
 
 export const enum REDUCER_ACTION_TYPE {

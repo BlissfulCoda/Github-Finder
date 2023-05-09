@@ -1,8 +1,8 @@
 FROM node:19-alpine as development
 
-WORKDIR /usr/src/app
+WORKDIR /usr/app
 
-COPY ./package*.json ./
+COPY ./package*.json .
 
 RUN npm install
 
@@ -10,6 +10,8 @@ COPY . .
 
 FROM development as production
 
+EXPOSE 8000
+
 ENV NODE_PATH=./build
 
-CMD ["node", "start"]
+RUN npm run build

@@ -2,7 +2,8 @@ import { createContext, useReducer, useEffect } from "react";
 import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
-import { BASE_URL } from "../config";
+
+const BASE_URL = "http://localhost:8000/api"
 
 export type UserInterface = {
   [index: string]: string | undefined;
@@ -56,21 +57,6 @@ export const GithubProvider = ({
   useEffect(() => {
     getFeedback();
   }, []);
-
-  // // Create a WebSocket connection
-  // useEffect(() => {
-  //   const ws = new WebSocket(WEBSOCKET_URL);
-  //   ws.onopen = () => {
-  //     console.log("WebSocket connection opened");
-  //   };
-  //   ws.onclose = () => {
-  //     console.log("WebSocket connection closed");
-  //   };
-  //   return () => {
-  //     console.log("Closing WebSocket connection");
-  //     ws.close();
-  //   };
-  // }, []);
 
   // GET users
   const getUsers = async (login: string) => {

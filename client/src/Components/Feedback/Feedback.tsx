@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { characterCollection } from "../../config";
+import { motion } from "framer-motion";
 
 export default function Feedback({ item }: any): JSX.Element {
   const [showBackground, setshowBackground] = useState<boolean>(false);

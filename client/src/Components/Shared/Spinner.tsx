@@ -2,12 +2,12 @@ import spinner from "../../assets/gifs/spinner.gif";
 
 export default function Spinner(): JSX.Element {
   return (
-    <div className=" container mx-auto flex justify-center  items-center h-96 mt-24 tablet:mt-4">
+    <div className="container mx-auto  flex flex-col items-center justify-center mt-72  tablet:mt-56">
       <img
         width={180}
-        className="text-center mx-auto w-32 h-32 tablet:h-28 tablet:w-28"
+        className="text-center mx-auto w-20 h-20 tablet:w-12 tablet:h-12"
         src={spinner}
-        alt="Fetching Users from the database"
+        alt="Loading Spinner"
       />
     </div>
   );

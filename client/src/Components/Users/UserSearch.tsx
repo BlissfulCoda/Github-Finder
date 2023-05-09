@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import toast from "react-hot-toast";
 import React, { useContext, useState } from "react";
 import { GithubContextInterface } from "../../Context/GithubContextData";
 import GithubContext from "../../Context/GithubContextData";
@@ -26,14 +25,7 @@ export default function UserSearch({
     e.preventDefault();
 
     if (text === "") {
-      toast.error("Please enter a valid input", {
-        icon: "🤯",
-        style: {
-          borderRadius: "2px",
-          color: "#fff",
-          fontSize: "13px",
-        },
-      });
+      alert("Please enter a valid input");
     } else {
       getUsers(text);
     }
@@ -63,7 +55,7 @@ export default function UserSearch({
       <Button
         onClick={handleSearchAndClear}
         className={`absolute right-3 top-3 sm:top-3 rounded-full tablet:top-1 laptop:top-2 opacity-0 ${
-          users.length && "opacity-100"
+          users.length && "opacity-90"
         } `}
       >
         {button}

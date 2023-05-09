@@ -1,7 +1,6 @@
-import { useState, useContext } from "react";
-
-import OpenNavMenu from "../Shared/OpenNavMenu";
-import ClosedNavMenu from "../Shared/ClosedNavMenu";
+import { useState, useContext, lazy, Suspense } from "react";
+const OpenNavMenu = lazy(() => import("../Shared/OpenNavMenu"));
+const ClosedNavMenu = lazy(() => import("../Shared/ClosedNavMenu"));
 
 import GithubContext from "../../Context/GithubContextData";
 import { GithubContextInterface } from "../../Context/GithubContextData";
@@ -15,13 +14,19 @@ export default function Header(): JSX.Element {
   };
 
   return (
-    <section className="nav laptop:mt-2">
+    <section className="nav laptop:mt-3 h-12">
       {showNav ? (
-        <OpenNavMenu handleNav={handleNav} />
+        <Suspense fallback="">
+          <OpenNavMenu handleNav={handleNav} />
+        </Suspense>
       ) : !users.length ? (
-        <ClosedNavMenu handleNav={handleNav} />
+        <Suspense fallback="">
+          <ClosedNavMenu handleNav={handleNav} />
+        </Suspense>
       ) : (
-        <OpenNavMenu handleNav={handleNav} />
+        <Suspense fallback="">
+          <OpenNavMenu handleNav={handleNav} />
+        </Suspense>
       )}
     </section>
   );

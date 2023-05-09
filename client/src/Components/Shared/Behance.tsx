@@ -12,7 +12,7 @@ export default function Behance(): JSX.Element {
       target="_blank"
       className="mb-1"
     >
-      <BsBehance size={22} />
+      <BsBehance size={23} />
     </motion.a>
   );
 }

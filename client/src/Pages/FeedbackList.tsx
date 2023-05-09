@@ -46,7 +46,7 @@ export default function FeedbackList(): JSX.Element {
   };
 
   const feedbackItem = (
-    <ul className="group space-y-[4px] h-[560px] tablet:h-[460px] laptop:h-[510px] desktop:h-[550px] overflow-y-scroll mb-6 sm:mb-8 group duration-1000">
+    <motion.ul className="group space-y-[4px] h-[560px] tablet:h-[460px] laptop:h-[510px] desktop:h-[550px] overflow-y-scroll mb-6 sm:mb-8 group duration-1000">
       <AnimatePresence>
         {feedback.map((item, i) => (
           <motion.span
@@ -55,14 +55,14 @@ export default function FeedbackList(): JSX.Element {
             initial="hidden"
             animate="visible"
             custom={i}
-            transition={{ duration: 0.9, delay: i * 0.05 }}
+            transition={{ duration: 0.7, delay: i * 0.1 }}
             className="group-hover:opacity-90 duration-1000 hover:!opacity-100"
           >
             <FeedbackItem item={item} />
           </motion.span>
         ))}
       </AnimatePresence>
-    </ul>
+    </motion.ul>
   );
 
   return (
@@ -130,9 +130,7 @@ export default function FeedbackList(): JSX.Element {
               )}
             </div>
           </form>
-          <span className="pt-2">
-            <FeedbackBell />
-          </span>
+          <FeedbackBell />
         </motion.section>
         {feedback.length === 0 ? <Spinner /> : feedbackItem}
         {/* Feedback Message */}
