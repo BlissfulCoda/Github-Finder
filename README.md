@@ -1,40 +1,51 @@
-### Github-Finder 😀🔍
-
-<!-- [![Github Finder Gif](/Desktop.gif)][Romie] -->
+# Github-Finder 😀🔍 
 
 [![Github Finder Gif](/README-Assets/Desktop.gif)][romie]
-✨ Demo
 
-[![Github Finder Gif](/README-Assets/Demo.gif)][romie]
-[![Github Finder Gif](/README-Assets/Mobile.gif)][romie]
-[![Github Finder Gif](/README-Assets/Mobile1.gif)][romie]
+<br> 
 
----
+## Description
 
-**Table of Contents:**
+Dockerized full Stack MERN: React(Typescript), Node, Express and MongoDB app built using Docker Compose and NGINX to leverage the `GitHub API` and return Github user profiles, including their most recent repositories, followers, following, public gist, and location. Design, functionality, usability and intergration of multiple technologies to provide a seamless user experience were the main focus.
+
+> 
+> Live demo [_here_](https://www.example.com). 
+> ![Behance](https://img.shields.io/badge/Behance-1769FF.svg?style=for-the-badge&logo=Behance&logoColor=white)[romie]
+> 
 <br>
 
-- [Description](#Description)
-- [Technical Architecture Diagram](#Architecture)
-- [Technologies](#Technologies)
-- [Installation](#Install)
-- [Key Learning](#What-I-Learned)
+## Technologies Used
 
----
+  ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)  ![Framer](https://img.shields.io/badge/Framer-black?style=for-the-badge&logo=framer&logoColor=blue) 
+  ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+  ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+  ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
+  
+  ---
 
-#### Description
+## Architecture Diagram
 
-- Github Finder provides a full-stack desktop and mobile user interface that utilizes a `Third-party GitHub API` to display personalized user profiles, including their most recent repositories, followers, following, public gist, and location. This is done through various RESTful endpoints, and accessed using a `Forward API Proxy`.
-  <br>
-- Additionally, the application features a feedback functionality that uses a `Generator Function` to map each individual visitor feedback to a Marvel character's image, name and timestamp.
-  <br>
+[![Github Finder Gif](/README-Assets/TechnicalArchitectureDiagram.svg)][romie]
 
-- The primary focus of the application is on the design, functionality, and usability of the user interface. It integrates multiple technologies to provide a seamless user experience.
+### Features
+- Design a beautiful desktop and mobile user interface using Figma and `Atomic Design Principles` after exploring and defining a visual direction, striking a balance between functionality and aesthetic design.
+- Create a RESTful API `Forward Proxy Server` to connect to/leverage `Third-Party API` data through various  REST endpoints.
+- Utilize `Redis-Cache` to improve API performance and user interface
+- Create a `Feedback` functionality which using `Generator Function` to map each individual visitor feedback to a Marvel character's image, name and timestamp.
   <br >
 
   > Can you name each character`s best movie scene :question: 😉
 
 <br>
+
+✨ Demo
+
+[![Github Finder Gif](/README-Assets/Demo.gif)][romie]
+
+
+[![Github Finder Gif](/README-Assets/Mobile1.gif)][romie]
+
+
 
 [Link site →][site]
 
@@ -42,11 +53,7 @@
 
 ---
 
-#### Description
-
-
-
-##### Prerequisites
+### Prerequisites
 
 ```
  npm >= 9
@@ -55,39 +62,23 @@
 
 ---
 
-##### Install
+### Install
 
 ```
+  git clone && cd client/server
+
   npm install
   npm install -g typescript
   npm install -g ts-node
-```
-
-##### Usage
 
 ```
-  npm run dev
-  npm run build
-```
 
-##### Docker commands
+### Usage
 
 ```
-  docker-compose build
-  make up: runs in development
-  make up-prod: runs in production
-  make down - closes the docker application
+  cd client/server && npm run dev
+  client - PORT:3000 | Server - PORT:8000
 ```
-
----
-
-##### Key Learnings:
-
-- Apply Atomic Design Principles to accomplish a clear defined visual direction
-- Configuring a Forward API Proxy Server to interact with a Third-party API
-- Caching with Redis for improved API performance
-- Utilising Docker a MERN Stack Web Application
-- Implementing Generator Functions to handle feedback posts
 
 [romie]: (https://www.behance.net/portfolio/editor?project_id=164626013)
 [site]: (https://www.behance.net/portfolio/editor?project_id=164626013)
@@ -95,13 +86,12 @@
 
 ---
 
-##### Author Info
+### Author Info
 
 👤 Ronnie Kiyegga
 
 - LinkedIn - @[Ronnie Kiyegga][ronniekiyegga]
 - Behance - [Romie]
 
-<br >
 
 [Back To The Top](#Github-Finder)
