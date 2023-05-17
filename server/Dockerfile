@@ -2,11 +2,12 @@ FROM node:19-alpine as development
 
 WORKDIR /usr/app
 
-COPY ./package*.json .
+COPY ./package*.json ./
 
 RUN npm install
 
 COPY . .
+
 
 FROM development as production
 

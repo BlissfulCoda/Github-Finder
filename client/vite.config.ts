@@ -7,17 +7,11 @@ export default defineConfig({
   plugins: [react({ include: "**/*.tsx" }), svgr()],
   server: {
     port: 3000,
-    host: "0.0.0.0",
     strictPort: true,
-    // hmr: {
-    //   clientPort: 3000,
-    //   protocol: "ws",
-    // },
-    // watch: {
-    //   usePolling: true,
-    // },
-  },
-  build: {
-    outDir: "dist",
+    hmr: {
+      clientPort: 3000,
+      protocol: "ws",
+    },
+    watch: { usePolling: true },
   },
 });

@@ -1,4 +1,4 @@
-import express, { Express, Request, Response, NextFunction} from "express";
+import express, { Express, Request, Response, NextFunction } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import mongoose from "mongoose";
@@ -7,6 +7,7 @@ import { corsOptions } from "./allowedOrigins";
 dotenv.config();
 
 const PORT = Number(process.env.PORT || 8000);
+const HOST = "0.0.0.0";
 
 const server: Express = express();
 
@@ -48,6 +49,6 @@ const connectWithRetry = () => {
 };
 
 connectWithRetry();
-server.listen(PORT, "0.0.0.0", () =>
-  console.log(`server listening in DEV on port...!! ${PORT}`)
+server.listen(PORT, HOST, () =>
+  console.log(`server listening in DEV on http://${HOST}:${PORT}`)
 );

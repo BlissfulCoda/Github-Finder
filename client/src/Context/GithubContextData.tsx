@@ -3,7 +3,7 @@ import { REDUCER_ACTION_TYPE } from "./GithubReducer";
 import { Navigate } from "react-router-dom";
 import githubReducer from "./GithubReducer";
 
-const BASE_URL = "http://localhost:8000/api"
+const BASE_URL = "http://localhost:8000/api";
 
 export type UserInterface = {
   [index: string]: string | undefined;

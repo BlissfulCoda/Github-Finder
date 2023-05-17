@@ -1,6 +1,21 @@
 version: "3.8"
 
 services:
+  nginx:
+    image: "nginx:latest"
+    container_name: nginx
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "4000:80"
+    depends_on:
+      - client
+      - api
+    networks:
+      - mern-app
+
   client:
     image: frontend-dev
     container_name: client
@@ -12,12 +27,14 @@ services:
       - ./client:/app
       - /app/node_modules
     tty: true
-    ports:
-      - "3000:3000"
+    expose:
+      - "3000"
     networks:
       - mern-app
     depends_on:
       - api
+    ports:
+      - "3000:3000"
 
   # Express
   api:
@@ -33,13 +50,15 @@ services:
       - ./server/nodemon.json:/app/nodemon.json
       - /app/server/node_modules
     env_file: ./server/.env
+    expose:
+      - "8000"
     networks:
       - mern-app
+    ports:
+      - "8000:8000"
     depends_on:
       - mongo
       - redis
-    ports:
-      - "8000:8000"
     environment:
       - MONGO_USERNAME=${MONGO_USERNAME}
       - MONGO_PASSWORD=${MONGO_PASSWORD}
@@ -81,9 +100,6 @@ services:
 networks:
   mern-app:
     driver: bridge
-  host:
-    name: host
-    external: true
 
 volumes:
   mongo-db:

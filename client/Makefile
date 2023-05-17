@@ -2,7 +2,5 @@ build-dev:
 	docker build --no-cache -t frontend-dev -f Dockerfile.dev .
 
 build:
-	docker build --no-cache -t frontend -f Dockerfile .
+	docker build --no-cache -t frontend-prod -f Dockerfile.prod .
 
-# build:
-# 	docker build -t frontend .
