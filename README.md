@@ -21,7 +21,6 @@ GitHub-Finder is a Dockerized full stack MERN app built using `docker-dompose` a
 Full design work can be found on behance.
 <a href="https://www.behance.net/portfolio/editor?project_id=164626013"  target="_blank">![Behance](https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white)</a>
 
-<br>
 
 ## Technical Architecture Diagram
 
@@ -56,7 +55,7 @@ Full design work can be found on behance.
 
 ## How to use
 
-Clone te repo and make sure you have the following:
+Clone the repo and make sure you have the following installed on your machine:
 
 ```
   Node.js
