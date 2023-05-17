@@ -5,14 +5,14 @@
 <br>
 
 ## Table of Contents
-
-- [Github-Finder 😀🔍](#github-finder-)
-  - [Table of Contents](#table-of-contents)
+- [Table of Contents](#table-of-contents)
   - [Overview](#overview)
   - [Technical Architecture Diagram](#technical-architecture-diagram)
   - [Technologies Used](#technologies-used)
   - [What I Learned:](#what-i-learned)
   - [How to use](#how-to-use)
+
+<br>
 
 ## Overview
 
@@ -21,9 +21,13 @@ GitHub-Finder is a Dockerized full stack MERN app built using `docker-dompose` a
 Full design work can be found on behance.
 <a href="https://www.behance.net/portfolio/editor?project_id=164626013"  target="_blank">![Behance](https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white)</a>
 
+<br>
+
 ## Technical Architecture Diagram
 
 [![Github Finder Gif](/README-Assets/TechnicalArchitectureDiagram.svg)][romie]
+
+<br>
 
 ## Technologies Used
 
@@ -31,11 +35,15 @@ Full design work can be found on behance.
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 
+<br>
+
 ✨ Demo
 
 [![Github Finder Gif](/README-Assets/Demo.gif)][romie]
 
 [![Github Finder Gif](/README-Assets/Mobile1.gif)][romie]
+
+<br>
 
 ## What I Learned:
 
