@@ -17,15 +17,8 @@ GitHub-Finder is a Dockerized full stack MERN app built using Docker Compose and
 
 ### Technical Architecture Diagram
 
-[![Github Finder Gif](/README-Assets/TechnicalArchitectureDiagram.svg)][romie]
+<img src="/README-Assets/TechnicalArchitectureDiagram.svg" alt="Architecture Diagram" width="1500px" height="1200px">
 
-### Features
-
-- Explore and Define a visual direction, utilising Figma and `Atomic Design Principles` to design a desktop and mobile user interface, striking balance between functionality and aesthetic design.
-- Build a RESTful `Forward API Proxy Server` to  leverage `Third-Party API` data through various REST endpoints.
-- Implement `Redis-Cache` to improve API performance. 
--Utilise `Generator Function` to create a `Feedback` functionality, maping individual visitor feedback to a Marvel character's image, name and timestamp.
-  <br >
 
 ---
 
@@ -47,6 +40,19 @@ This application is built using the following Technologies.
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white)
 
 
+
+### Features
+
+- Explore and Define a visual direction, utilising Figma and `Atomic Design Principles` to design a desktop and mobile user interface, striking balance between functionality and aesthetic design.
+- Build a RESTful `Forward API Proxy Server` to  leverage `Third-Party API` data through various REST endpoints.
+- Implement `Redis-Cache` to improve API performance. 
+-Utilise `Generator Function` to create a `Feedback` functionality, maping individual visitor feedback to a Marvel character's image, name and timestamp.
+  <br >
+
+[romie]: (https://www.behance.net/portfolio/editor?project_id=164626013)
+[site]: (https://www.behance.net/portfolio/editor?project_id=164626013)
+[ronniekiyegga]: (https://www.linkedin.com/in/ronniekiyegga/)
+
 ### Requirements
 
 ```
@@ -55,8 +61,3 @@ This application is built using the following Technologies.
   Docker 
 
 ```
-
-[romie]: (https://www.behance.net/portfolio/editor?project_id=164626013)
-[site]: (https://www.behance.net/portfolio/editor?project_id=164626013)
-[ronniekiyegga]: (https://www.linkedin.com/in/ronniekiyegga/)
-
