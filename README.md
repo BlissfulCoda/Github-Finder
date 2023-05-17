@@ -17,10 +17,10 @@ GitHub-Finder is a Dockerized full stack MERN app built using Docker Compose and
 
 ### Technical Architecture Diagram
 
-<img src="/README-Assets/TechnicalArchitectureDiagram.svg" alt="Architecture Diagram" width="1500px" height="1200px">
+[![Github Finder Gif](/README-Assets/TechnicalArchitectureDiagram.svg)][romie]
 
 
----
+
 
 ✨ Demo
 
