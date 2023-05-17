@@ -12,8 +12,6 @@
   - [What I Learned:](#what-i-learned)
   - [How to use](#how-to-use)
 
-<br>
-
 ## Overview
 
 GitHub-Finder is a Dockerized full stack MERN app built using `docker-dompose` and `Nginx` to leverage the `GitHub API` and returns Github user profiles, including their most recent repositories, followers, following, public gist, and location. Design, functionality, usability and intergration of containers and proxies were the main focus.
@@ -21,6 +19,7 @@ GitHub-Finder is a Dockerized full stack MERN app built using `docker-dompose` a
 Full design work can be found on behance.
 <a href="https://www.behance.net/portfolio/editor?project_id=164626013"  target="_blank">![Behance](https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white)</a>
 
+<br>
 
 ## Technical Architecture Diagram
 
